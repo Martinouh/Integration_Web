@@ -2,6 +2,91 @@
 
 
 /* Site Name */
+body{
+  background-color: whitesmoke;
+}
+input{
+  text-align: center;
+}
+#content{
+  margin-top: 21.5%;
+  margin-bottom: 21.5%;
+  text-align:center;
+ }
+ #contentRegister{
+  margin-top: 15%;
+  margin-bottom: 21.5%;
+  text-align: center;
+ }
+ #registerFormH1{
+   margin-bottom: 3%;
+ }
+ #email{
+   margin-bottom:1%;
+   text-align: center;
+ }
+ #mdp{
+   margin-bottom:1%;
+   text-align: center;
+ }
+ #nom{
+   margin-bottom: 2%;
+ }
+ #prenom{
+   margin-bottom:2%;
+ }
+ #telephone{
+   margin-bottom: 2%;
+ }
+ #mail{
+   margin-bottom: 2%;
+ }
+ #mdp2{
+   margin-bottom: 2%;
+ }
+ #connect{
+   margin-bottom:1%;
+   text-align: center;
+   background-color: #2f96b4;
+   border:1px solid #2f96b4;
+   border-radius: 4px;
+   padding:0.5%;
+   color:white;
+}
+#textSearch{
+  margin-top: 5%;
+  font-size: 1.5em;
+  font-family: arial;
+}
+#searchBarDiv{
+  text-align: center;
+  margin-top: 7.5%;
+}
+#searchBar{
+  width:35%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+#buttonSearch{
+  margin-bottom: 1%;
+  margin-left: 1%;
+  background-color: #2f96b4;
+  border:1px solid #2f96b4;
+  border-radius: 4px;
+  padding:0.5%;
+  color:white;
+}
+#decorative2{
+  background-color: rgb(61, 61, 61);
+  width: 100%;
+}
+#validation{
+  background-color: #2f96b4;
+  border:1px solid #2f96b4;
+  border-radius: 4px;
+  padding:0.5%;
+  color:white;
+}
 
 #divSiteTitle {text-decoration:none;}
 
@@ -85,7 +170,7 @@ margin-right:7px;margin-bottom:7px;float:left;
 
 [class*="general foundicon-"]:before {font-family: "GeneralFoundicons";}
 
-        
+
 /* Menu Side */
 
 .menu_menu_simple ul {margin-top:0px;margin-bottom:0px;}
@@ -135,11 +220,11 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 
     }
 
-    
+
 /* Additional */
-    
+
 #divBoxed {position:relative}
- 
+
 .nav-links > a {margin-right:20px;}
 
 .btn-secondary, .btn-secondary:hover {text-shadow:none;}
@@ -185,7 +270,7 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 /* Adjustments */
 
 .search.adjust {margin-bottom:15px}
-      
+
 .divPanel {}
 
 .divPanel.notop {padding-top:0px}
@@ -274,7 +359,7 @@ box-shadow:         0px 3px 11px rgba(0, 0, 0, 0.7);}
 
 #decorative2{background-color: rgb(61, 61, 61); height: 85px;}
 
-#divFooter{font-family: 'Open Sans', sans-serif; background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); padding-top: 32px; line-height: 22px; font-size: 12px; text-transform: none; background-image: none; background-repeat: repeat repeat;}
+#divFooter{font-family: 'Open Sans', sans-serif; background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); padding-top: 32px; line-height: 22px; font-size: 12px; text-transform: none; background-image: none; background-repeat: repeat repeat; position: relative; bottom: 0; width: 100%;}
 
 #divFooter a{color: rgb(164, 39, 143);}
 
@@ -408,17 +493,17 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: 'So
 }
 
 
-@media (max-width: 767px) {    
+@media (max-width: 767px) {
     #divLogo {margin-top:10px;margin-bottom:10px;}
 
     #divSiteTitle {font-size: 25px;}
 
-    
+
     #divHeaderText {margin:0px;padding:10px 0px;}
-   
+
     #divHeaderLine1 {margin-top: 0px;}
-     
-    
+
+
     #divMenuRight {width:100%;margin-top: 0px;padding-top:0px}
 
     .ddmenu, .navbar .ddmenu {margin-top: 0px; margin-bottom: 0px;}
@@ -427,34 +512,34 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: 'So
 
     .navbar {width:100%;margin-top: 0px;padding-top:0px}
 
-    
+
     #decorative1, #decorative2, #decorative3 {margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px;}
 
-    
+
     /* Fixed Top */
 
     #decorative2 {position:static}
 
     body {padding-top:0px}
 
-    
+
     #divFooter {margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px;}
-    
+
     #divBoxed > #divFooter {margin-left:0px;margin-right:0px;padding-left:0px;padding-right:0px;}
 
-    
+
     body > #footerOuterSeparator, body > #contentOuterSeparator {margin-left:-20px;margin-right:-20px;}
 
-    
+
     .headerArea, .topArea {padding:20px !important;}
  /*only for templates without divBoxed*/
 
-    
+
     #camera_wrap {margin-top:20px}
 
     #divVideo {margin-top:20px}
 
-    
+
     .dropdown-menu .sub-menu {left:0%;position:relative;top:0;visibility:visible;margin-top:3px;display:block}
 
     .dropdown-menu, .sub-menu {border-radius:5px !important;}
@@ -462,7 +547,3 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: 'So
     .navbar .ddmenu {margin-top: 0px;margin-bottom: 0px;}
 
 }
-
-
-
-
