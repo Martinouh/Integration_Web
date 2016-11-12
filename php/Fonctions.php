@@ -51,19 +51,19 @@ function search(){
     } catch (PDOException $e) {
         printf('Erreur'. $e->getMessage());
     }
-    $requete = htmlspecialchars($_POST['searchbar']);
+    $requete = htmlspecialchars($_GET['requete']);
     $query = $db->query("SELECT * FROM professionnels WHERE nom LIKE '$requete%' ORDER BY nom");
     $nbResultats = $query->rowCount();
     if($nbResultats !=0){
         $html[] = '<meta charset="UTF-8">';
-        $html[] = '<h1>Résultat de votre recherche.</h1>';
+        $html[] = '<h2>Résultat de votre recherche.</h2>';
         $html[] = '<p>Nous avons trouvé '.$nbResultats;
         $html[] =  $nbResultats > 1 ? ' résultats' : ' résultat'.' dans notre base de données. Voici le(s) médedecin(s) que nous avons trouvé(s) :<br/>';
             while($données = $query->fetch(PDO::FETCH_ASSOC)){
-                $html[] =  $données['prenom'].' '.$données['nom'];
+                $html[] =  '<a href="medecin.php?id='.$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a>';
             }
     }else{
-        $html[] = 'Pas de resultat';
+        $html[] = 'Désolé, aucune concordance trouvée dans notre base de données.';
     }
     echo implode('',$html);
 }
@@ -81,7 +81,7 @@ function login()
     } catch (PDOException $e) {
         printf('Erreur' . $e->getMessage());
     }
-    $req = $db->query('select nom,prenom,semence,mdp,question,reponse,telephone,email,group_concat(id_profil separator "," ) as profilid from utilisateurs left join profil_utilisateur on id_utilisateur=utilisateurs.id where email="'.$_POST['email'].'" group by utilisateurs.id');
+    $req = $db->query('select nom,prenom,semence,mdp,telephone,email,group_concat(id_profil separator "," ) as profilid from utilisateurs left join profil_utilisateur on id_utilisateur=utilisateurs.id where email="'.$_POST['email'].'" group by utilisateurs.id');
     $retour = $req->fetchAll(PDO::FETCH_ASSOC);
     $profilId = array();
     foreach ($retour as $key => $value) {
@@ -115,7 +115,6 @@ function login()
             printf('Bienvenue ' . $retour[0]['prenom']);
             $_SESSION['user'] = $retour;
             genereStatuts();
-            print_r($_SESSION);
         }else {
             echo 'Connexion refusée';
         }
@@ -137,15 +136,13 @@ function newRegister(){
     }
     $semence = md5(time());
     $mdp = md5($semence.$_POST['mdp']);
-    $req1 = $db->prepare('INSERT INTO utilisateurs (nom, prenom, semence, mdp, question, reponse, telephone, dateCreation, email) VALUES (:nom, :prenom, :semence, :mdp, :question, :reponse, :telephone, :dateCreation, :email)');
+    $req1 = $db->prepare('INSERT INTO utilisateurs (nom, prenom, semence, mdp, telephone, dateCreation, email) VALUES (:nom, :prenom, :semence, :mdp, :telephone, :dateCreation, :email)');
     $req2 = $db->prepare('INSERT INTO profil_utilisateur (id_utilisateur, id_profil) VALUES (:id_utilisateur, :id_profil)');
     if($req1->execute(array(
         'nom' => $_POST['nom'],
-        'prenom' => $_POST['prénom'],
+        'prenom' => $_POST['prenom'],
         'semence' => $semence,
         'mdp' => $mdp,
-        'question' => $_POST['question'],
-        'reponse' => $_POST['reponse'],
         'telephone' => $_POST['telephone'],
         'dateCreation' => $date,
         'email' => $_POST['mail']

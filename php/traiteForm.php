@@ -8,7 +8,11 @@
     if (isset($_POST['login_submit'])){
         login();
     }
-    if (isset($_POST['search_submit']) && $_POST['searchbar'] != NULL){
-        search();
+    if (isset($_GET['rq'])){
+        switch($_GET['rq']){
+            case 'search':search();
+            break;
+        }
     }
+
 ?>
