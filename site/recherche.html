@@ -49,7 +49,6 @@
             }
             function getResults(){
                 event.preventDefault();
-                $('#suggestions').fadeOut();
                 $('#suggestions').remove();
                 var requete = $('#searchBar').val();
                 $.get("../PHP/traiteForm.php?rq=search&requete="+requete,function(data){
