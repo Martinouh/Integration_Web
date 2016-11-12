@@ -1,3 +1,7 @@
+<?php
+session_start();
+include '../php/Fonctions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +34,8 @@
               <div class="span12">
 
                   <div id="divLogo" class="pull-left">
-                      <a href="index.html" id="divSiteTitle">Groupe 7</a><br />
-                      <a href="index.html" id="divTagLine">MED</a>
+                      <a href="index.php" id="divSiteTitle">Groupe 7</a><br />
+                      <a href="index.php" id="divTagLine">MED</a>
                   </div>
 
   <div id="divMenuRight" class="pull-right">
@@ -41,11 +45,7 @@
       </button>
       <div class="nav-collapse collapse">
           <ul class="nav nav-pills ddmenu">
-              <li class="dropdown active"><a href="index.html">Accueil</a></li>
-              <li class="dropdown"><a href="recherche.html">Recherche</a></li>
-              <li class="dropdown"><a href="about.html">A propos</a></li>
-              <li class="dropdown"><a href="contact.php">Contact</a></li>
-              <li class="dropdown"><a href="formLogIn.html">Connexion</a></li>
+            <?php echo genereMenu('inscription')?>
           </ul>
       </div>
   </div>

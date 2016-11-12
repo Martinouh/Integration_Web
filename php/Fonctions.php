@@ -16,16 +16,18 @@ function isMembre(){
 }
 
 
-
-function genereStatuts(){
-    $_SESSION['is']['anonym']=false;
+function anonyme(){
+    $_SESSION['is']['anonym']=1;
     $_SESSION['is']['activ']=false;
     $_SESSION['is']['membre']=false;
     $_SESSION['is']['admin']=false;
+}
+
+
+function genereStatuts(){
+    $_SESSION['is']['anonym']=false;
     foreach($_SESSION['user'][0]['profilid'] as $key=>$value) {
         switch ($value){
-            case'anonyme':        $_SESSION['is']['anonym']=1;
-                break;
             case'activation':        $_SESSION['is']['activ']=1;
                 break;
             case 'membre':        $_SESSION['is']['membre']=1;$_SESSION['is']['authentified']=1;$_SESSION['is']['edit']=1;
@@ -34,6 +36,43 @@ function genereStatuts(){
                 break;
         }
     }
+}
+
+function genereMenu($page){
+    $menuAnonyme=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php','Connexion'=>'connexion.php');
+    $menuMembre=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php');
+    $html = array();
+    $compteur=0;
+    if(isAnonym()){
+        foreach($menuAnonyme as $key => $value){
+            $html[]="<li class='dropdown #$compteur'><a href='$value'>$key</a></li>";
+            $compteur++;
+
+        }
+    }
+    if(isMembre() || isActiv()) {
+        foreach ($menuMembre as $key => $value) {
+            $html[] = "<li class='dropdown  #$compteur' ><a href='$value'>$key</a></li>";
+            $compteur++;
+        }
+        $html[]="<a href='profil.php' class='dash' style='border-right: solid 1px; color: white;'>".$_SESSION['user'][0]['prenom'].' '.$_SESSION['user'][0]['nom']."</a>";
+        $html[]="<a href='deconnexion.php'><img src='images/decoIcon.png' style='width: 2%'/></a>";
+
+    }
+    switch($page){
+        case 'accueil': $html=str_replace("#0","active",$html);
+            break;
+        case 'recherche': $html=str_replace("#1","active",$html);
+            break;
+        case 'about': $html=str_replace("#2","active",$html);
+            break;
+        case 'contact': $html=str_replace("#3","active",$html);
+            break;
+        case 'connexion': $html=str_replace("#4","active",$html);
+            break;
+    }
+    return implode("\n",$html);
+
 }
 
 function sendMailMdpPerdu(){
@@ -112,9 +151,10 @@ function login()
     if (isset($retour[0])) {
         $mdp = md5($retour[0]['semence'] . $_POST['mdp']);
         if ($retour[0]['mdp'] == $mdp) {
-            printf('Bienvenue ' . $retour[0]['prenom']);
             $_SESSION['user'] = $retour;
             genereStatuts();
+            header('Location: ../site/index.php');
+
         }else {
             echo 'Connexion refusée';
         }

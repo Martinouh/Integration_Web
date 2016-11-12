@@ -87,6 +87,10 @@ input{
   padding:0.5%;
   color:white;
 }
+.dash{
+    margin: 5%;
+}
+
 
 #divSiteTitle {text-decoration:none;}
 

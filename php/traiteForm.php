@@ -1,5 +1,6 @@
 <?php
-    include "Fonctions.php";
+session_start();
+include "Fonctions.php";
 
     if (isset($_POST['insc_submit'])){
         newRegister();

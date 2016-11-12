@@ -1,4 +1,8 @@
-﻿<!DOCTYPE HTML>
+﻿<?php
+session_start();
+include '../php/Fonctions.php';
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -46,8 +50,8 @@
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.html" id="divSiteTitle">Groupe 7</a><br />
-                        <a href="index.html" id="divTagLine">Med</a>
+                        <a href="index.php" id="divSiteTitle">Groupe 7</a><br />
+                        <a href="index.php" id="divTagLine">Med</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -57,12 +61,7 @@
                         </button>
                         <div class="nav-collapse collapse">
                             <ul class="nav nav-pills ddmenu">
-                                </li>
-                                <li class="dropdown active"><a href="index.html">Accueil</a></li>
-                                <li class="dropdown"><a href="recherche.html">Recherche</a></li>
-								                <li class="dropdown"><a href="about.html">A propos</a></li>
-                                <li class="dropdown"><a href="contact.php">Contact</a></li>
-                                <li class="dropdown"><a href="formLogIn.html">Connexion</a></li>
+                               <?php echo genereMenu('contact')?>
                             </ul>
                         </div>
                     </div>
