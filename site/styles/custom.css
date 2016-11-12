@@ -87,10 +87,16 @@ input{
   padding:0.5%;
   color:white;
 }
-.dash{
-    margin: 5%;
+#dash{
+    text-align: right;
+    margin-right: -50%;
+    margin-top: 2%;
+    font-size: 120%;
 }
 
+#dash a{
+    padding: 0% 2% 0% 2%
+}
 
 #divSiteTitle {text-decoration:none;}
 
