@@ -64,8 +64,8 @@ if(!isset($_SESSION['is'])) {
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.php" id="divSiteTitle">Groupe 7</a><br />
-                        <a href="index.php" id="divTagLine">MED</a>
+                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -98,9 +98,9 @@ if(!isset($_SESSION['is'])) {
                     <div id="headerSeparator"></div>
 
                     <div id="divHeaderText" class="page-content">
-                        <div id="divHeaderLine1">Your Header Text Here!</div><br />
-                        <div id="divHeaderLine2">2nd line header text for calling extra attention to featured content..</div><br />
-                        <div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="#">Read More</a></div>
+                        <div id="divHeaderLine1">Bienvenue sur Easy Waiting Room.</div><br />
+                        <div id="divHeaderLine2">Trouvez rapidement la salle d'attente qui vous convient!</div><br />
+                        <div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="recherche.php">Faire ma recherche</a></div>
                     </div>
 
                     <div id="headerSeparator2"></div>

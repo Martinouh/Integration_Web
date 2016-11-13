@@ -55,7 +55,7 @@ function genereMenu($page){
             $html[] = "<li class='dropdown  #$compteur' ><a href='$value'>$key</a></li>";
             $compteur++;
         }
-        $html[]="<div id='dash'><a href='profil.php' class='dash' style='border-right: solid 1px; color: white;'>".$_SESSION['user'][0]['prenom'].' '.$_SESSION['user'][0]['nom']."</a>";
+        $html[]="<div id='dash'><a href='profil.php' id='profil' #$compteur class='dash' style='border-right: solid 1px; color: white;  #$compteur'>".$_SESSION['user'][0]['prenom'].' '.$_SESSION['user'][0]['nom']."</a>";
         $html[]="<a href='deconnexion.php'><img src='images/decoIcon.png' style='width: 2%'/></a></div>";
 
     }
@@ -70,6 +70,7 @@ function genereMenu($page){
             break;
         case 'connexion': $html=str_replace("#4","active",$html);
             break;
+        case 'profil': $html=str_replace("#4","color: #B02A9A; border-color: white;",$html);
     }
     return implode("\n",$html);
 

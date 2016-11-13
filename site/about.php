@@ -57,8 +57,8 @@ include '../php/Fonctions.php';
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href=../index.php" id="divSiteTitle">Your Name Here</a><br />
-                        <a href="index.php" id="divTagLine">Your Tag Line Here</a>
+                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -88,7 +88,7 @@ include '../php/Fonctions.php';
     <div class="divPanel page-content">
 
         <div class="breadcrumbs">
-            <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Simple</span>
+            <a href="index.html">Home</a> &nbsp;/&nbsp; <span>A propos</span>
         </div>
 
         <div class="row-fluid">

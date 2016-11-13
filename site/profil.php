@@ -2,17 +2,16 @@
 /**
  * Created by PhpStorm.
  * User: Rom
- * Date: 12/11/2016
- * Time: 18:55
+ * Date: 13/11/2016
+ * Time: 18:45
  */
 session_start();
 include '../php/Fonctions.php';
 ?>
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Connexion</title>
+    <title>Rechercher un professionnel</title>
 
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -28,8 +27,27 @@ include '../php/Fonctions.php';
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/jquery.min.js"></script>
+    <style>
+        table{
+            width: 100%
+        }
+        tr{
+            border-bottom: solid 1px #dddddd;
+
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+        td{
+            padding: 1%;
+
+        }
+    </style>
 </head>
 <body>
 <div id="decorative2">
@@ -51,39 +69,35 @@ include '../php/Fonctions.php';
                             </button>
                             <div class="nav-collapse collapse">
                                 <ul class="nav nav-pills ddmenu">
-                                    <?php echo genereMenu('connexion')?>
+                                    <?php echo genereMenu('profil') ?>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="breadcrumbs">
-                    <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Connexion</span>
+                    <a href="index.html">Home</a> &nbsp;/&nbsp; <span>profil</span>
                 </div>
-                <div id="content">
-                    <form id="formLogin" method="post" action="../php/traiteForm.php">
-                        <h1>Connexion</h1>
-                        <input id="email" type="email" name="email"  placeholder="Votre adresse mail"><br>
-                        <input id="mdp" type="password" name="mdp"  placeholder="Votre mot de passe"><br>
-                        <input id="connect" name="login_submit" type="submit" value="Connexion">
-                        <p id="mdpLost">
-                            <a href="http://localhost/projet_int/HTML/form_mdp_perdu.html" id="mdpLostxt"> J'ai oublié mon mot de passe </a>
-                        </p>
-                        <p id="new">
-                            Nouveau sur Groupe7? <a href="formRegister.php" id="subscribe">S'inscrire</a>
-                        </p>
-                    </form>
-                </div>
-
-
-                <script src="scripts/jquery.min.js" type="text/javascript"></script>
-                <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-                <script src="scripts/default.js" type="text/javascript"></script>
-
-
-                <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
-
+                <h1>
+                    Détails personnels:
+                </h1>
+                <a href="update.php"><img src="images/updateIcon.png" id="updateIcon"/></a>
+                <table>
+                    <tr>
+                        <td>Informations</td>
+                        <td><?php echo $_SESSION['user'][0]['prenom'].' '.$_SESSION['user'][0]['prenom'];?></td>
+                    </tr>
+                    <tr>
+                        <td>Adresse mail</td>
+                        <td><?php echo $_SESSION['user'][0]['email'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Téléphone</td>
+                        <td><?php echo $_SESSION['user'][0]['telephone'] ?></td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </table>
 </body>
-
 </html>
 

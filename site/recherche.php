@@ -78,8 +78,8 @@ include '../php/Fonctions.php';
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.html" id="divSiteTitle">Groupe 7</a><br />
-                        <a href="index.html" id="divTagLine">MED</a>
+                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -96,7 +96,7 @@ include '../php/Fonctions.php';
                     </div>
                 </div>
                 <div class="breadcrumbs">
-                    <a href="index.html">Home</a> &nbsp;/&nbsp; <span>recherche</span>
+                    <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Recherche</span>
                 </div>
                 <div id="textSearch">
                     <p style ='text-align:center' ><h1 style ='text-align:center' >Recherche du professionel</h1></p>

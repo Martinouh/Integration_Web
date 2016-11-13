@@ -50,8 +50,8 @@ include '../php/Fonctions.php';
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.php" id="divSiteTitle">Groupe 7</a><br />
-                        <a href="index.php" id="divTagLine">Med</a>
+                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -81,7 +81,7 @@ include '../php/Fonctions.php';
     <div class="divPanel page-content">
 
         <div class="breadcrumbs">
-                <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Contact Us</span>
+                <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
             </div>
 
         <div class="row-fluid">

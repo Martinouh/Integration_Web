@@ -34,8 +34,8 @@ include '../php/Fonctions.php';
               <div class="span12">
 
                   <div id="divLogo" class="pull-left">
-                      <a href="index.php" id="divSiteTitle">Groupe 7</a><br />
-                      <a href="index.php" id="divTagLine">MED</a>
+                      <a href="index.php" id="divSiteTitle">E.W.R</a><br />
+                      <a href="index.php" id="divTagLine">Easy Waiting Room</a>
                   </div>
 
   <div id="divMenuRight" class="pull-right">
