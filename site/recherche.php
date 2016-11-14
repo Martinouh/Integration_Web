@@ -45,7 +45,7 @@ include '../php/Fonctions.php';
     </style>
     <script>
         function showHint(hint){
-            $.get("../PHP/getHint.php?q=" + hint, function (data) {
+            $.get("../php/getHint.php?q=" + hint, function (data) {
                 if(data) {
                     $('#suggestions').remove();
                     $('#searchIcon').after('<div id="suggestions"></div>');
@@ -61,7 +61,7 @@ include '../php/Fonctions.php';
             event.preventDefault();
             $('#suggestions').remove();
             var requete = $('#searchBar').val();
-            $.get("../PHP/traiteForm.php?rq=search&requete="+requete,function(data){
+            $.get("../php/traiteForm.php?rq=search&requete="+requete,function(data){
                 $('#searchIcon').after('<div id="suggestions"></div>');
                 $('#suggestions').fadeIn().html(data);
             });
