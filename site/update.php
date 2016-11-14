@@ -2,16 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: Rom
- * Date: 13/11/2016
- * Time: 18:45
+ * Date: 14/11/2016
+ * Time: 20:42
  */
 session_start();
 include '../php/Fonctions.php';
 ?>
+
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Rechercher un professionnel</title>
+    <title>Mettre mon profil à jour</title>
 
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -29,25 +30,6 @@ include '../php/Fonctions.php';
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
     <script src="scripts/jquery.min.js"></script>
-    <style>
-        table{
-            width: 100%
-        }
-        tr{
-            border-bottom: solid 1px #dddddd;
-
-        }
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-        tr:nth-child(odd) {
-            background-color: white;
-        }
-        td{
-            padding: 1%;
-
-        }
-    </style>
 </head>
 <body>
 <div id="decorative2">
@@ -76,29 +58,26 @@ include '../php/Fonctions.php';
                     </div>
                 </div>
                 <div class="breadcrumbs">
-                    <a href="index.html">Home</a> &nbsp;/&nbsp; <span>profil</span>
+                    <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Mise à jour du profil</span>
                 </div>
                 <h1>
-                    Détails personnels:
+                     Mettre mon profil à jour:
                 </h1>
-                <a href="update.php"><img src="images/updateIcon.png" id="updateIcon"/></a><a href="deleteAccount.php"><img src="images/deleteIcon.png" id="deleteIcon"/></a>
+        <form action="../php/traiteForm.php" method="post" id="formUpdate">
+            <label for="nom">Nom </label>
+            <input id="nom" name="nom" required type="text"value="<?php echo $_SESSION['user'][0]['nom']?>"><br>
+            <label for="prenom">Prénom </label>
+            <input id="prenom" required name="prenom" type="text" value="<?php echo $_SESSION['user'][0]['prenom']?>" ><br>
+            <label for="mail">Email </label>
+            <input id="mail" required type="email" name="mail" value="<?php echo $_SESSION['user'][0]['email']?>"><br>
+            <label for="telephone">Numéro de téléphone</label>
+            <input id="telephone" type="tel" name="telephone" value="<?php echo $_SESSION['user'][0]['telephone']?>"><br>
+            <label for="mdp">Par mesure de sécurité, veuillez entrer votre mot de passe  </label>
+            <input id="mdp2" required type="password" name="mdp" placeholder="Votre mot de passe"><br>
+            <br>
+            <input  id="updateButton" name="updateButton" type="submit" value="Mettre à jour mon profil">
+        </form>
 
-                <table>
-                    <tr>
-                        <td>Informations</td>
-                        <td><?php echo $_SESSION['user'][0]['prenom'].' '.$_SESSION['user'][0]['prenom'];?></td>
-                    </tr>
-                    <tr>
-                        <td>Adresse mail</td>
-                        <td><?php echo $_SESSION['user'][0]['email'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Téléphone</td>
-                        <td><?php echo $_SESSION['user'][0]['telephone'] ?></td>
-                    </tr>
-                    <tr>
-                    </tr>
-                </table>
 </body>
 </html>
 
