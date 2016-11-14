@@ -64,7 +64,7 @@ if(!isset($_SESSION['is'])) {
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.php" id="divSiteTitle">E.b.R</a><br />
+                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
                         <a href="index.php" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
