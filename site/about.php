@@ -97,7 +97,10 @@ include '../php/Fonctions.php';
 
                 <h1>About Us</h1>
                 <hr>
-                <p><strong>There are many variations of passages of Lorem Ipsum available.</strong></p>
+                <p>
+                    Comming soon !
+                </p>
+                <!-- <p><strong>There are many variations of passages of Lorem Ipsum available.</strong></p>
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden in the middle of text.
 
 
@@ -129,15 +132,15 @@ include '../php/Fonctions.php';
                     <div class="span10">
                         <p>Lorem ipsum dolor sit amet, consectetueradipiscing elied diam nonummy nibh euisod tincidunt ut laoreet dolore magna aliquam erat volutpatorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
                     </div>
-                </div>
+                </div> -->
 
             </div>
-            <!--End Main Content Area here-->
+            <!-- End Main Content Area here -->
 
-            <!--Edit Sidebar Content here-->
+            <!-- Edit Sidebar Content here -->
             <div class="span4 sidebar">
 
-                <div class="sidebox">
+                <!-- <div class="sidebox">
                     <h3 class="sidebox-title">Sample Sidebar Content</h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and <a href="#">typesetting industry</a>.</p>
                     <p> Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
@@ -176,7 +179,7 @@ include '../php/Fonctions.php';
                     </div>
 
 
-                </div>
+                </div> -->
 
             </div>
             <!--End Sidebar Content here-->
@@ -198,13 +201,15 @@ include '../php/Fonctions.php';
             <div class="row-fluid">
                 <div class="span3" id="footerArea1">
 
-                    <h3>About Company</h3>
+                    <h3>About EWR </h3>
 
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
+                    <!-- <p>
+
+                    </p> -->
 
                     <p>
-                        <a href="#" title="Terms of Use">Terms of Use</a><br />
-                        <a href="#" title="Privacy Policy">Privacy Policy</a><br />
+                        <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
+                        <a href="#" title="Privacy Policy">Vie privée</a><br />
                         <a href="#" title="FAQ">FAQ</a><br />
                         <a href="#" title="Sitemap">Sitemap</a>
                     </p>
@@ -212,8 +217,8 @@ include '../php/Fonctions.php';
                 </div>
                 <div class="span3" id="footerArea2">
 
-                    <h3>Recent Blog Posts</h3>
-                    <p>
+                    <a href="recherche.php"><h3>Recherche</h3></a>
+                    <!-- <p>
                         <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
                         <span style="text-transform:none;">2 hours ago</span>
                     </p>
@@ -227,16 +232,14 @@ include '../php/Fonctions.php';
                     </p>
                     <p>
                         <a href="#" title="">VIEW ALL POSTS</a>
-                    </p>
+                    </p> -->
 
                 </div>
                 <div class="span3" id="footerArea3">
 
-                    <h3>Sample Content</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.
-                    </p>
-
+                    <a href="about.php"><h3>Meet the Team</h3></a>
+                    <!-- <p>
+                    </p> -->
                 </div>
                 <div class="span3" id="footerArea4">
 
@@ -247,21 +250,21 @@ include '../php/Fonctions.php';
                             <i class="general foundicon-phone icon"></i>
                             <span class="field">Phone:</span>
                             <br />
-                            (123) 456 7890 / 456 7891
+                            (+32) 479798123
                         </li>
                         <li>
                             <i class="general foundicon-mail icon"></i>
                             <span class="field">Email:</span>
                             <br />
-                            <a href="mailto:info@yourdomain.com" title="Email">info@yourdomain.com</a>
+                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
                         </li>
                         <li>
                             <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
-                            <span class="field">Address:</span>
+                            <span class="field">Adresse:</span>
                             <br />
-                            123 Street<br />
-                            12345 City, State<br />
-                            Country
+                            Avenue du Ciseau, 15<br />
+                            1348, Ottignies-Louvain-la-Neuve<br />
+                            Belgique
                         </li>
                     </ul>
 
@@ -272,7 +275,7 @@ include '../php/Fonctions.php';
             <div class="row-fluid">
                 <div class="span12">
                     <p class="copyright">
-                        Copyright © 2013 Your Company. All Rights Reserved.
+                        Copyright © 2016 EasyWaitingRoom. All Rights Reserved.
                     </p>
 
                     <p class="social_bookmarks">

@@ -232,10 +232,10 @@ if(!isset($_SESSION['is'])) {
                     </p>
 
                 </div>
-                <!-- <div class="span3" id="footerArea2">
+                <div class="span3" id="footerArea2">
 
-                    <h3>Recent Blog Posts</h3>
-                    <p>
+                    <a href="recherche.php"><h3>Recherche</h3></a>
+                    <!-- <p>
                         <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
                         <span style="text-transform:none;">2 hours ago</span>
                     </p>
@@ -249,17 +249,15 @@ if(!isset($_SESSION['is'])) {
                     </p>
                     <p>
                         <a href="#" title="">VIEW ALL POSTS</a>
-                    </p>
+                    </p> -->
 
-                </div> -->
-                <!-- <div class="span3" id="footerArea3">
+                </div>
+                <div class="span3" id="footerArea3">
 
-                    <h3>Sample Content</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.
-                    </p>
-
-                </div> -->
+                    <a href="about.php"><h3>Meet the Team</h3></a>
+                    <!-- <p>
+                    </p> -->
+                </div>
                 <div class="span3" id="footerArea4">
 
                     <h3>Get in Touch</h3>
