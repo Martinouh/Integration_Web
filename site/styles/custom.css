@@ -9,14 +9,12 @@ input{
   text-align: center;
 }
 #content{
-  margin-top: 21.5%;
-  margin-bottom: 21.5%;
+  margin-top:3%;
   text-align:center;
  }
  #contentRegister{
-  margin-top: 15%;
-  margin-bottom: 21.5%;
   text-align: center;
+  margin-bottom: auto;
  }
  #registerFormH1{
    margin-bottom: 3%;
