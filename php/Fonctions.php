@@ -213,10 +213,9 @@ function traiteRequete($rq){
 }
 
 function soumissionRDV(){
-    $dsn = 'mysql:dbname=site;host=localhost';
-    $user = 'root';
-    $password = 'Fys2G5bah4';
-    $date = date('Y-m-d H:i:s');
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
     try {
         $db = new PDO($dsn, $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -225,10 +224,8 @@ function soumissionRDV(){
         printf('Erreur'. $e->getMessage());
     }
     $doctor_name=$_POST['doctor-name'];
-    $rdv_date=$_POST['appointment-date'];
-
-    $myTime = strtotime("08/19/2014 1:45 pm");
-    echo date("Y-m-d H:i:s", $myTime);
+    $myTime = strtotime($_POST['appointment-date']);
+    $rdv_date= date("Y-m-d H:i:s", $myTime);
     $email_client=$_POST['email-client'];
     $objet=$_POST['objet'];
     $message=$_POST['message'];
