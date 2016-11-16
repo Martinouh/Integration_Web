@@ -63,7 +63,7 @@ include '../php/Fonctions.php';
                     </div>
                 </div>
                 <div class="breadcrumbs">
-                    <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Recherche</span>
+                    <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Rendez-Vous</span>
                 </div>
                 <div id="textSearch">
                     <p style ='text-align:center' ><h1 style ='text-align:center' >Recherche du professionel</h1></p>

@@ -40,7 +40,7 @@ function genereStatuts(){
 
 function genereMenu($page){
     $menuAnonyme=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php','Connexion'=>'connexion.php');
-    $menuMembre=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php','Rendez-vous'=>'appointment.php');
+    $menuMembre=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php');
     $html = array();
     $compteur=0;
     if(isAnonym()){
