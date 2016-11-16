@@ -17,7 +17,7 @@ if(!isset($_SESSION['is'])) {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Your Name Here - Welcome</title>
+    <title>EWR - Accueil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -123,18 +123,19 @@ if(!isset($_SESSION['is'])) {
 
             <div class="span12" id="divMain">
 
-                <h1>Welcome</h1>
+                <h1>Bienvenue sur EasyWaitingRoom</h1>
 
-                <p>Content on this page is for presentation purposes only. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <p>
+                    Notre produit, vise à faire économiser du temps que des personnes perdraient dans une salle d'attente chez un médecin,
+                    en comptant les allées et venues de malades dans la salle d'attente et en rendant un temps d'attente moyen pour le médecin recherché ou le plus proche de nous.<br/>
+                  Pour utiliser notre produit aucun compte n'est requis sauf si vous voulez prendre un rendez-vous avec un médecin.
                 </p>
 
                 <hr style="margin:45px 0 35px" />
 
                 <div class="lead">
-                    <h2>Lorem ipsum dolor sit amet.</h2>
-                    <h3>Vivamus leo ante, consectetur sit amet vulputate vel, dapibus sit amet lectus.</h3>
+                    <h2>Salles d'attentes partenaires</h2>
+                    <h3>Bientôt la vôtre !?</h3>
                 </div>
                 <br />
 
@@ -153,9 +154,9 @@ if(!isset($_SESSION['is'])) {
                     </ul>
                 </div>
 
-                <hr style="margin:45px 0 35px" />
+                <!-- <hr style="margin:45px 0 35px" /> -->
 
-                <div class="lead">
+                <!-- <div class="lead">
                     <h2>Featured Content.</h2>
                     <h3>Content on this page is for presentation purposes only.</h3>
                 </div>
@@ -195,7 +196,7 @@ if(!isset($_SESSION['is'])) {
                         </div>
 
                     </div>
-                </div>
+                </div> -->
 
             </div>
 

@@ -6,7 +6,7 @@ include '../php/Fonctions.php';
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Your Name Here - Simple</title>
+    <title>EWR - Contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -87,18 +87,18 @@ include '../php/Fonctions.php';
         <div class="row-fluid">
                 <div class="span8" id="divMain">
 
-                    <h1>Contact Us</h1>
+                    <h1>Nous contacter</h1>
                    	<h3 style="color:#FF6633;"><?php echo $_GET[msg];?></h3>
 					<hr>
 			<!--Start Contact form -->
 <form name="enq" method="post" action="email/" onsubmit="return validation();">
   <fieldset>
 
-	<input type="text" name="name" id="name" value=""  class="input-block-level" placeholder="Name" />
+	<input type="text" name="name" id="name" value=""  class="input-block-level" placeholder="Nom" />
     <input type="text" name="email" id="email" value="" class="input-block-level" placeholder="Email" />
-    <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Comments"></textarea>
+    <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Message"></textarea>
     <div class="actions">
-	<input type="submit" value="Send Your Message" name="submit" id="submitButton" class="btn btn-info pull-right" title="Click here to submit your message!" />
+	<input type="submit" value="Send Your Message" name="submit" id="submitButton" class="btn btn-info pull-right" title="Envoyer" />
 	</div>
 
 	</fieldset>
@@ -112,24 +112,24 @@ include '../php/Fonctions.php';
                     <div class="sidebox">
                         <h3 class="sidebox-title">Contact Information</h3>
                     <p>
-                        <address><strong>Your Company, Inc.</strong><br />
-                        Address<br />
-                        City, State, Zip<br />
+                        <address><strong>Easy Waiting Room</strong><br />
+                        Avenue du Ciseau, 15<br />
+                        1348, Ottignies-Louvain-la-Neuve<br />
                         <abbr title="Phone">P:</abbr> (123) 456-7890</address>
                         <address>  <strong>Email</strong><br />
-                        <a href="mailto:#">first.last@gmail.com</a></address>
+                        <a href="mailto:martinouh@easywaitingroom.be">martinouh@easywaitingroom.be</a></address>
                     </p>
 
 					 <!-- Start Side Categories -->
-        <h4 class="sidebox-title">Sidebar Categories</h4>
+        <!-- <h4 class="sidebox-title">Catégories</h4>
         <ul>
-          <li><a href="#">Quisque diam lorem sectetuer adipiscing</a></li>
-          <li><a href="#">Interdum vitae, adipiscing dapibus ac</a></li>
+          <li><a href="#">Problème technique rencontré</a></li>
+          <li><a href="#">Problème technique rencontré</a></li>
           <li><a href="#">Scelerisque ipsum auctor vitae, pede</a></li>
           <li><a href="#">Donec eget iaculis lacinia non erat</a></li>
           <li><a href="#">Lacinia dictum elementum velit fermentum</a></li>
           <li><a href="#">Donec in velit vel ipsum auctor pulvinar</a></li>
-        </ul>
+        </ul> -->
 					<!-- End Side Categories -->
 
                     </div>
