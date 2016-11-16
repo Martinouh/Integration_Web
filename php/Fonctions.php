@@ -211,4 +211,41 @@ function traiteRequete($rq){
     }
 
 }
+
+function soumissionRDV(){
+    $dsn = 'mysql:dbname=site;host=localhost';
+    $user = 'root';
+    $password = 'Fys2G5bah4';
+    $date = date('Y-m-d H:i:s');
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur'. $e->getMessage());
+    }
+    $doctor_name=$_POST['doctor-name'];
+    $rdv_date=$_POST['appointment-date'];
+
+    $myTime = strtotime("08/19/2014 1:45 pm");
+    echo date("Y-m-d H:i:s", $myTime);
+    $email_client=$_POST['email-client'];
+    $objet=$_POST['objet'];
+    $message=$_POST['message'];
+
+    $req = $db->prepare('INSERT INTO rdv (doctor_name, rdv_date, email_client,objet,message) VALUES (:doctor_name, :rdv_date, :email_client, :objet, :message)');
+    if($req->execute(array(
+            'doctor_name' => $doctor_name,
+            'rdv_date' => $rdv_date,
+            'email_client' => $email_client,
+            'objet' => $objet,
+            'message' => $message
+        ))){
+        echo '<meta charset="UTF-8">Demande de rendez-vous soumise.';
+    }else{
+        echo 'Erreur';
+    }
+
+}
+
 ?>

@@ -15,5 +15,7 @@ include "Fonctions.php";
             break;
         }
     }
-
+    if (isset($_POST['soumettre-rdv'])){
+        soumissionRDV();
+    }
 ?>
