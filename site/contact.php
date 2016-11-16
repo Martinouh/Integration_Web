@@ -115,7 +115,7 @@ include '../php/Fonctions.php';
                         <address><strong>Easy Waiting Room</strong><br />
                         Avenue du Ciseau, 15<br />
                         1348, Ottignies-Louvain-la-Neuve<br />
-                        <abbr title="Phone">P:</abbr> (123) 456-7890</address>
+                        <abbr title="Phone">P:</abbr>(+32) 479798123</address>
                         <address>  <strong>Email</strong><br />
                         <a href="mailto:martinouh@easywaitingroom.be">martinouh@easywaitingroom.be</a></address>
                     </p>
