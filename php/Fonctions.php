@@ -38,6 +38,30 @@ function genereStatuts(){
     }
 }
 
+function enregistreMessage(){
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    $date = date('Y-m-d H:i:s');
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur'. $e->getMessage());
+    }
+    $req1 = $db->prepare('INSERT INTO messages (sujet, corps, dateCreation, email) VALUES (:sujet, :corps, :dateCreation, :email)');
+    if($req1->execute(array(
+        'sujet' => $_POST['sujet'],
+        'corps' => $_POST['message'],
+        'dateCreation' => $date,
+        'email' => $_POST['email']
+    ))){
+        echo 'msg enregistré';
+    }
+
+
+}
 function genereMenu($page){
     $menuAnonyme=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php','Connexion'=>'connexion.php');
     $menuMembre=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php');
@@ -84,6 +108,7 @@ function search(){
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
     $html = array();
+    $jour=date('N');
     try {
         $db = new PDO($dsn, $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -96,12 +121,22 @@ function search(){
     $nbResultats = $query->rowCount();
     if($nbResultats !=0){
         $html[] = '<meta charset="UTF-8">';
-        $html[] = '<h2>Résultat de votre recherche.</h2>';
-        $html[] = '<p>Nous avons trouvé '.$nbResultats;
+        $html[] = '<h2 >Résultat de votre recherche:</h2>';
+        $html[] = '<p style="border-bottom: solid 1px lightgrey; padding: 1%">Nous avons trouvé '.$nbResultats;
         $html[] =  $nbResultats > 1 ? ' résultats' : ' résultat'.' dans notre base de données. Voici le(s) médedecin(s) que nous avons trouvé(s) :<br/>';
-            while($données = $query->fetch(PDO::FETCH_ASSOC)){
-                $html[] =  '<a href="medecin.php?id='.$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a>';
+        while($données = $query->fetch(PDO::FETCH_ASSOC)){
+            $id=$données['id'];
+            $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
+            $horaire = $query2->fetchAll();
+            $html[] =  '<h4><u><a href="../site/medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
+            $html[] =  '<p><img class="icon" src="../site/images/mapIcon3.png"/>'.$données['adresse'].'</p>';
+            if($horaire[0][$jour]) {
+                $html[] = '<p><img class="icon" src="../site/images/compteurIcon.png"/>Ouvert aujourd\' hui de '. $horaire[0][$jour] . '</p>';
+            }else{
+                $html[] = '<p><img class="icon" src="../site/images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
             }
+            $html[] =  '<p>'.$données['nbre_pers'].' personnes dans la salle d\'attente</p>';
+        }
     }else{
         $html[] = 'Désolé, aucune concordance trouvée dans notre base de données.';
     }
@@ -180,16 +215,16 @@ function newRegister(){
     $req1 = $db->prepare('INSERT INTO utilisateurs (nom, prenom, semence, mdp, telephone, dateCreation, email) VALUES (:nom, :prenom, :semence, :mdp, :telephone, :dateCreation, :email)');
     $req2 = $db->prepare('INSERT INTO profil_utilisateur (id_utilisateur, id_profil) VALUES (:id_utilisateur, :id_profil)');
     if($req1->execute(array(
-        'nom' => $_POST['nom'],
-        'prenom' => $_POST['prenom'],
-        'semence' => $semence,
-        'mdp' => $mdp,
-        'telephone' => $_POST['telephone'],
-        'dateCreation' => $date,
-        'email' => $_POST['mail']
-    )) &&$req2->execute(array(
-        'id_utilisateur' => $db->lastInsertId(),
-        'id_profil' => '2'
+            'nom' => $_POST['nom'],
+            'prenom' => $_POST['prenom'],
+            'semence' => $semence,
+            'mdp' => $mdp,
+            'telephone' => $_POST['telephone'],
+            'dateCreation' => $date,
+            'email' => $_POST['mail']
+        )) &&$req2->execute(array(
+            'id_utilisateur' => $db->lastInsertId(),
+            'id_profil' => '2'
         ))){
         echo '<meta charset="UTF-8">Inscription réussie';
     }else{
@@ -209,6 +244,16 @@ function traiteRequete($rq){
     switch($rq){
         case 'form_register': $envoi['formInscription'] = chargeTemplate($rq);
     }
+
+}
+
+function updateAccount(){
+    $mdp=md5($_SESSION['user'][0]['semence'].$_POST['mdp']);
+    if($mdp==$_SESSION['user'][0]['mdp']){
+    }else{
+
+    }
+
 
 }
 
