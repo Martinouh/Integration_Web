@@ -239,6 +239,13 @@ function soumissionRDV(){
             'message' => $message
         ))){
         echo '<meta charset="UTF-8">Demande de rendez-vous soumise.';
+        $to = "example@example.com";
+        $subject = 'le sujet';
+        $msg = 'Bonjour !';
+        $headers = 'From: example@example.com' . "\r\n" .
+            'Reply-To: example@example.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        mail($to, $subject, $msg,$headers);
     }else{
         echo 'Erreur';
     }
