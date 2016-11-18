@@ -100,6 +100,7 @@ include '../php/Fonctions.php';
                 </div>
                 <div id="textSearch">
                     <p style ='text-align:center' ><h1 style ='text-align:center' >Recherche du professionel</h1></p>
+                    <p style="text-align:center"><h4 style="text-align:center">Recherchez via nom, profession et adresse</h4></p>
                 </div>
                 <div id="searchBarDiv">
                     <input type="text" id="searchBar" placeholder="recherche..." onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image" onclick="getResults()"/>
@@ -115,4 +116,3 @@ include '../php/Fonctions.php';
 </body>
 
 </html>
-
