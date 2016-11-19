@@ -126,16 +126,15 @@ if(!isset($_SESSION['is'])) {
                 <h1>Bienvenue sur EasyWaitingRoom</h1>
 
                 <p>
-                    Notre produit, vise à faire économiser du temps que des personnes perdraient dans une salle d'attente chez un médecin,
-                    en comptant les allées et venues de malades dans la salle d'attente et en rendant un temps d'attente moyen pour le médecin recherché ou le plus proche de nous.<br/>
-                  Pour utiliser notre produit aucun compte n'est requis sauf si vous voulez prendre un rendez-vous avec un médecin.
+                    L'objectif d'EasyWaitingRoom est de permettre aux personnes désireuses de se rendre chez un professionnel disposant d'une salle d'attente (médecin, coiffeur, dentiste,...), de pouvoir consulter le nombre de personnes dans celle-ci.
+                    À fin de ne pas perdre du temps dans les salles d'attentes.<br>
                 </p>
 
                 <hr style="margin:45px 0 35px" />
 
                 <div class="lead">
-                    <h2>Salles d'attentes partenaires</h2>
-                    <h3>Bientôt la vôtre !?</h3>
+                    <h2>Salles d'attente partenaires</h2>
+                    <h3>Bientôt la vôtre ?</h3>
                 </div>
                 <br />
 
