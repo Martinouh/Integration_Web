@@ -18,6 +18,8 @@ if (isset($_GET['rq'])){
             break;
         case 'submitContact':enregistreMessage();
             break;
+        case 'favoris':favoris();
+            break;
     }
 }
     if (isset($_POST['soumettre-rdv'])){
