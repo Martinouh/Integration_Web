@@ -88,7 +88,7 @@ include '../php/Fonctions.php';
     <div class="divPanel page-content">
 
         <div class="breadcrumbs">
-            <a href="index.html">Home</a> &nbsp;/&nbsp; <span>A propos</span>
+            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>A propos</span>
         </div>
 
         <div class="row-fluid">
@@ -98,42 +98,67 @@ include '../php/Fonctions.php';
                 <h1>About Us</h1>
                 <hr>
                 <p>
-                    Comming soon !
+                    Nous sommes un groupe de six étudiants de l'EPHEC en technologie de l'informatique.<br>
+                    Dans le cadre de nos études, il nous a été demandé de réaliser un projet reprenant diverses technologies vue lors de notre formation.<br>
+                    Nous nous étions fixé comme objectif de réaliser un site qui permettrai aux gens de gagner du temps en sachant consulter le nombre de personnes dans une salle d'attente.<br>
+                    D'où <strong>EasyWaitingRoom</strong>
                 </p>
-                <!-- <p><strong>There are many variations of passages of Lorem Ipsum available.</strong></p>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden in the middle of text.
-
-
-                <h3>Subtitle</h3>
+                <hr>
+                <h3>L'Equipe</h3>
 
                 <div class="row-fluid">
                     <div class="span2">
-                        <img src="images/services-image-5.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="">   </div>
+                        <img src="images/matthieu.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Matthieu">   </div>
                     <div class="span10">
-                        <p>Lorem ipsum dolor sit amet, consectetueradipiscing elied diam nonummy nibh euisod tincidunt ut laoreet dolore magna aliquam erat volutpatorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                        <p>Matthieu Clerbois<br> Product Owner</p>
                     </div>
                 </div>
-
                 <hr>
 
                 <div class="row-fluid">
                     <div class="span2">
-                        <img src="images/services-image-3.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="">   </div>
+                        <img src="images/martin.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Martin">   </div>
                     <div class="span10">
-                        <p>Lorem ipsum dolor sit amet, consectetueradipiscing elied diam nonummy nibh euisod tincidunt ut laoreet dolore magna aliquam erat volutpatorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                        <p>Martin Gorlier<br> S'occupe du Réseau</p>
                     </div>
                 </div>
-
                 <hr>
 
                 <div class="row-fluid">
                     <div class="span2">
-                        <img src="images/services-image-4.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="">   </div>
+                        <img src="images/romain.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Romain">   </div>
                     <div class="span10">
-                        <p>Lorem ipsum dolor sit amet, consectetueradipiscing elied diam nonummy nibh euisod tincidunt ut laoreet dolore magna aliquam erat volutpatorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                        <p>Romain Charlier<br> S'occupe du backend</p>
                     </div>
-                </div> -->
+                </div>
+                <hr>
 
+                <div class="row-fluid">
+                    <div class="span2">
+                        <img src="images/maximilien.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Maximilien">   </div>
+                    <div class="span10">
+                        <p>Maximilien Van Roey<br> S'occupe du frontend</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row-fluid">
+                    <div class="span2">
+                        <img src="images/victorien.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Victorien">   </div>
+                    <div class="span10">
+                        <p>Victorien Derasse<br> S'occupe du système raspberry</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row-fluid">
+                    <div class="span2">
+                        <img src="images/francois.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Francois">   </div>
+                    <div class="span10">
+                        <p>François Scholsen<br> S'occupe du système raspberry</p>
+                    </div>
+                </div>
+                <hr>
             </div>
             <!-- End Main Content Area here -->
 

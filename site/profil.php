@@ -99,6 +99,17 @@ include '../php/Fonctions.php';
                     <tr>
                     </tr>
                 </table>
+
+                <h1>
+                    Favoris:
+                </h1>
+                <table>
+                    <tr>
+                        <th>Nom du professionnel</th>
+                    </tr>
+
+                        <?php echo listeFavoris();?>
+                </table>
 </body>
 </html>
 

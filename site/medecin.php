@@ -55,12 +55,26 @@ if(isset($medecin['avatar'])){
     <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="scripts/default.js" type="text/javascript"></script>
     <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
-    <script src="../JS/jquery-3.1.1.js"></script>
-    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
     <script>
-        $( function() {
-            $( "#tabs" ).tabs();
-        } );
+
+           $(function () {
+               $("#tabs").tabs();
+           });
+           function favoris(){
+               event.preventDefault();
+               var idMedecin = <?php echo $_GET['id']?> ;
+               $.post('../php/traiteForm.php?rq=favoris&idMed='+idMedecin, function (data) {
+                   if (data==0){
+                       $('#favIcon').attr('src','images/favIcon5.png');
+                   }
+                   else{
+                       $('#favIcon').attr('src','images/favIcon4.png');
+                   }
+               });
+           }
+
     </script>
     <title>Ma recherche</title>
 </head>
@@ -106,16 +120,23 @@ if(isset($medecin['avatar'])){
                 <div id="infoGenerales">
                     <?php if($medecin['avatar']){
                         echo '<img src='.$medecin['avatar'].'/>';
+
                     }else{
-                        echo '<img src="images/unknownIcon.png" style="float: left"/>';
+                        echo '<img src="images/unknownIcon.png" />';
                     }
+                    if(isMembre() || isActiv() || isAdmin())
+                        if(in_array($_GET['id'],$_SESSION['user']['favoris'])){
+                            echo '<input type="image" id="favIcon"  src="images/favIcon5.png" onclick="favoris()"/>';
+                        }else{
+                            echo '<input type="image" id="favIcon"  src="images/favIcon4.png" onclick="favoris()"/>';
+                        }
                     ?>
                     <p id="nomMedecin"><img src="images/peopleIcon.jpg"/><?php echo $medecin['prenom'].' '.$medecin['nom']?></p>
                     <p id="telMedecin"><img src="images/telIcon.png"/><?php echo $medecin['telephone']?></p>
                     <p id="adresseMedecin"><img src="images/mapIcon4.png"/><?php echo $medecin['adresse']?></p>
-                <p id="siteMedecin"><img src="images/webIcon2.png"/><a href=http://www.<?php echo $medecin['site']?>><?php echo $medecin['site']?></p>
+                    <p id="siteMedecin"><img src="images/webIcon2.png"/><a href=http://www.<?php echo $medecin['site']?>><?php echo $medecin['site']?></p>
+                    <?php echo $medecin['gMap']?>
                 </div>
-                <?php echo $medecin['gMap']?>
         </div>
     </div>
 </div>

@@ -62,6 +62,42 @@ function enregistreMessage(){
 
 
 }
+
+function favoris()
+{
+    $idMedecin = $_GET['idMed'];
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    $isFav=-1;
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur' . $e->getMessage());
+    }
+    foreach ($_SESSION['user']['favoris'] as $key => $value) {
+            if ($value == $idMedecin) {
+                $isFav=1;
+                unset($_SESSION['user']['favoris'][$key]);
+            }
+    }
+
+    if($isFav==-1){
+        $req2 = $db->prepare('INSERT INTO favoris (idUtilisateur, idPro) VALUES (:idUtilisateur, :idPro)');
+        $req2->execute(array(
+            'idUtilisateur' => $_SESSION['user'][0]['id'],
+            'idPro' => $idMedecin
+        ));
+        array_push($_SESSION['user']['favoris'],$idMedecin);
+        echo '0';
+    }
+    else{
+        $db->query("DELETE FROM favoris WHERE idPro='$idMedecin'");
+        echo '1';
+    }
+}
 function genereMenu($page){
     $menuAnonyme=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php','Connexion'=>'connexion.php');
     $menuMembre=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php');
@@ -98,6 +134,32 @@ function genereMenu($page){
     }
     return implode("\n",$html);
 
+}
+
+function listeFavoris(){
+    $html = array();
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur'. $e->getMessage());
+    }
+
+    foreach($_SESSION['user']['favoris'] as $key=>$value) {
+        echo $key.' '.$value;
+        /*$query = $db->query("SELECT nom,prenom  FROM professionnels WHERE id='$value' ");
+        $retour = $query->fetchAll(PDO::FETCH_ASSOC);
+        print_r($retour);
+        /*$html[]='<tr>';
+                $html[]='<td><a href = "../php/medecin.php?'.$value.'">'.$retour['prenom'].' '.$retour['nom'].'</a></td >';
+                $html[]='</tr>';
+
+            return implode("\n",$html);*/
+    }
 }
 
 function sendMailMdpPerdu(){
@@ -156,7 +218,7 @@ function login()
     } catch (PDOException $e) {
         printf('Erreur' . $e->getMessage());
     }
-    $req = $db->query('select nom,prenom,semence,mdp,telephone,email,group_concat(id_profil separator "," ) as profilid from utilisateurs left join profil_utilisateur on id_utilisateur=utilisateurs.id where email="'.$_POST['email'].'" group by utilisateurs.id');
+    $req = $db->query('select id,nom,prenom,semence,mdp,telephone,email,group_concat(id_profil separator "," ) as profilid from utilisateurs left join profil_utilisateur on id_utilisateur=utilisateurs.id where email="'.$_POST['email'].'" group by utilisateurs.id');
     $retour = $req->fetchAll(PDO::FETCH_ASSOC);
     $profilId = array();
     foreach ($retour as $key => $value) {
@@ -186,11 +248,20 @@ function login()
     }
     if (isset($retour[0])) {
         $mdp = md5($retour[0]['semence'] . $_POST['mdp']);
+        $tabFavoris=array();
         if ($retour[0]['mdp'] == $mdp) {
             $_SESSION['user'] = $retour;
+            $idUser = $_SESSION['user'][0]['id'];
+            $req2 = $db->query("select idPro from favoris where idUtilisateur ='$idUser'");
+            $favoris =  $req2->fetchAll(PDO::FETCH_ASSOC);
+            foreach($favoris as $key=>$value){
+                foreach($value as $k=>$v){
+                    $tabFavoris[]=$v;
+                }
+            }
+            $_SESSION['user']['favoris'] = $tabFavoris;
             genereStatuts();
             header('Location: ../site/index.php');
-
         }else {
             echo 'Connexion refusée';
         }

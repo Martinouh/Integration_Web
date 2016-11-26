@@ -16,7 +16,7 @@
         $nbResultats = $query->rowCount();
         if ($nbResultats > 0) {
             while ($données = $query->fetch(PDO::FETCH_ASSOC)) {
-                $hint[] = '<a href=../PHP/medecin.php?id='.$données['id'].'>'.$données['nom'].'</a>';
+                $hint[] = '<a href=../site/medecin.php?id='.$données['id'].'>'.$données['nom'].'</a>';
             }
             $tmp = implode("\n", $hint);
             echo $tmp;

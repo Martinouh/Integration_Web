@@ -69,10 +69,9 @@ include '../php/Fonctions.php';
     </script>
 
 </head>
-<body>
+<body id="pageBody">
 <div id="decorative2">
     <div class="container">
-
         <div class="divPanel topArea notop nobottom">
             <div class="row-fluid">
                 <div class="span12">
@@ -95,23 +94,114 @@ include '../php/Fonctions.php';
                         </div>
                     </div>
                 </div>
-                <div class="breadcrumbs">
-                    <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Recherche</span>
-                </div>
-                <div id="textSearch">
-                    <p style ='text-align:center' ><h1 style ='text-align:center' >Recherche du professionel</h1></p>
-                    <p style="text-align:center"><h4 style="text-align:center">Recherchez via nom, profession et adresse</h4></p>
-                </div>
-                <div id="searchBarDiv">
-                    <input type="text" id="searchBar" placeholder="recherche..." onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image" onclick="getResults()"/>
-                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <script src="scripts/jquery.min.js" type="text/javascript"></script>
-                <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-                <script src="scripts/default.js" type="text/javascript"></script>
+<div class="container">
+    <div class="divPanel page-content">
+        <div class="breadcrumbs">
+            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Recherche</span>
+        </div>
+        <div id="textSearch">
+            <p style ='text-align:center' ><h1 style ='text-align:center' >Recherche du professionel</h1></p>
+        </div>
+        <div id="searchBarDiv">
+            <input type="text" id="searchBar" placeholder="recherche..." onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image" onclick="getResults()"/>
+        </div>
+    </div>
+</div>
 
+<!-- Fix footer ligne blanche bug -->
+<div class="container">
+    <br>
+    <br>
+    <br>
+</div>
 
-                <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
+<div id="footerOuterSeparator"></div>
+<div id="divFooter" class="footerArea">
+    <div class="container">
+        <div class="divPanel">
+            <div class="row-fluid">
+                <div class="span3" id="footerArea1">
+                    <h3>About EWR </h3>
+                    <p>
+                        <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
+                        <a href="#" title="Privacy Policy">Vie privée</a><br />
+                        <a href="#" title="FAQ">FAQ</a><br />
+                        <a href="#" title="Sitemap">Sitemap</a>
+                    </p>
+                </div>
+                <div class="span3" id="footerArea2">
+                    <a href="recherche.php"><h3>Recherche</h3></a>
+                        <!-- <p>
+                        <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
+                                        <span style="text-transform:none;">2 hours ago</span>
+                                    </p>
+                                    <p>
+                                        <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
+                                        <span style="text-transform:none;">5 hours ago</span>
+                                    </p>
+                                    <p>
+                                        <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
+                                        <span style="text-transform:none;">19 hours ago</span>
+                                    </p>
+                                    <p>
+                                        <a href="#" title="">VIEW ALL POSTS</a>
+                                    </p> -->
+
+                </div>
+                <div class="span3" id="footerArea3">
+                    <a href="about.php"><h3>Meet the Team</h3></a>
+                </div>
+                <div class="span3" id="footerArea4">
+                    <h3>Get in Touch</h3>
+                    <ul id="contact-info">
+                        <li>
+                            <i class="general foundicon-phone icon"></i>
+                            <span class="field">Phone:</span>
+                            <br />(+32) 479798123
+                        </li>
+                        <li>
+                            <i class="general foundicon-mail icon"></i>
+                            <span class="field">Email:</span><br />
+                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
+                        </li>
+                        <li>
+                            <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
+                            <span class="field">Adresse:</span><br />
+                            Avenue du Ciseau, 15<br />
+                            1348, Ottignies-Louvain-la-Neuve<br />
+                            Belgique
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br /><br />
+            <div class="row-fluid">
+                <div class="span12">
+                    <p class="copyright">
+                        Copyright © 2016 EasyWaitingRoom. All Rights Reserved.
+                    </p>
+                    <p class="social_bookmarks">
+                        <a href="#"><i class="social foundicon-facebook"></i> Facebook</a>
+                        <a href=""><i class="social foundicon-twitter"></i> Twitter</a>
+                        <a href="#"><i class="social foundicon-pinterest"></i> Pinterest</a>
+                        <a href="#"><i class="social foundicon-rss"></i> Rss</a>
+                    </p>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
+
+<script src="scripts/jquery.min.js" type="text/javascript"></script>
+<script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="scripts/default.js" type="text/javascript"></script>
+<script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
 
 </body>
 

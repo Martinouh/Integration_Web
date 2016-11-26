@@ -141,6 +141,21 @@ input{
     border-top: none;
     border-bottom: solid 2px grey;
 }
+
+#favIcon{
+    width: 50px;
+    position: absolute;
+    margin-left: -2.2%;
+}
+
+#infoGenerales{
+    text-align: left;
+}
+
+iframe{
+    margin-left: 47%;
+    margin-top: -36.5%
+}
 #divSiteTitle {text-decoration:none;}
 
 #divTagLine {text-decoration:none;}

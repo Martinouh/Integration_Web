@@ -100,7 +100,7 @@ include '../php/Fonctions.php';
     <div class="divPanel page-content">
 
         <div class="breadcrumbs">
-                <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
+                <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
             </div>
 
         <div class="row-fluid">
@@ -161,8 +161,8 @@ include '../php/Fonctions.php';
         <div id="footerInnerSeparator"></div>
     </div>
 
+    </div>
 </div>
-
 <div id="footerOuterSeparator"></div>
 
 <div id="divFooter" class="footerArea">
