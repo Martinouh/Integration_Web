@@ -110,7 +110,7 @@ include '../php/Fonctions.php';
                     <div class="span2">
                         <img src="images/matthieu.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Matthieu">   </div>
                     <div class="span10">
-                        <p>Matthieu Clerbois<br> Product Owner</p>
+                        <p><b>Matthieu Clerbois</b><br> Product Owner</p>
                     </div>
                 </div>
                 <hr>
@@ -119,7 +119,7 @@ include '../php/Fonctions.php';
                     <div class="span2">
                         <img src="images/martin.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Martin">   </div>
                     <div class="span10">
-                        <p>Martin Gorlier<br> S'occupe du Réseau</p>
+                        <p><b>Martin Gorlier</b><br>S'occupe du Réseau</p>
                     </div>
                 </div>
                 <hr>
@@ -128,7 +128,11 @@ include '../php/Fonctions.php';
                     <div class="span2">
                         <img src="images/romain.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Romain">   </div>
                     <div class="span10">
+<<<<<<< HEAD
                         <p>Romain Charlier<br> S'occupe du backend</p>
+=======
+                        <p><b>Romain Charlier</b><br>S'occupe du backend</p>
+>>>>>>> origin/master
                     </div>
                 </div>
                 <hr>
@@ -137,7 +141,11 @@ include '../php/Fonctions.php';
                     <div class="span2">
                         <img src="images/maximilien.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Maximilien">   </div>
                     <div class="span10">
+<<<<<<< HEAD
                         <p>Maximilien Van Roey<br> S'occupe du frontend</p>
+=======
+                        <p><b>Maximilien Van Roey</b><br>S'occupe du frontend</p>
+>>>>>>> origin/master
                     </div>
                 </div>
                 <hr>
@@ -146,7 +154,11 @@ include '../php/Fonctions.php';
                     <div class="span2">
                         <img src="images/victorien.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Victorien">   </div>
                     <div class="span10">
+<<<<<<< HEAD
                         <p>Victorien Derasse<br> S'occupe du système raspberry</p>
+=======
+                        <p><b>Victorien Derasse</b><br>S'occupe du système raspberry</p>
+>>>>>>> origin/master
                     </div>
                 </div>
                 <hr>
@@ -155,7 +167,11 @@ include '../php/Fonctions.php';
                     <div class="span2">
                         <img src="images/francois.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Francois">   </div>
                     <div class="span10">
+<<<<<<< HEAD
                         <p>François Scholsen<br> S'occupe du système raspberry</p>
+=======
+                        <p><b>François Scholsen</b><br>S'occupe du système raspberry</p>
+>>>>>>> origin/master
                     </div>
                 </div>
                 <hr>
