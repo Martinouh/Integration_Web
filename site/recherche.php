@@ -112,6 +112,9 @@ include './php/Fonctions.php';
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
 </div>
 
 <div id="footerOuterSeparator"></div>

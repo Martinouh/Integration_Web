@@ -76,6 +76,13 @@ include './php/Fonctions.php';
         </div>
     </div>
 </div>
+<!-- Fix footer ligne blanche bug -->
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
 
                 <div id="footerOuterSeparator"></div>
                 <div id="divFooter" class="footerArea">
