@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rom
- * Date: 26/10/2016
- * Time: 15:52
- */
 session_start();
-include '../php/Fonctions.php';
+include './php/Fonctions.php';
 $dsn = 'mysql:dbname=db7;host=137.74.43.201';
 $user = 'rcharlier';
 $password = 'qe9hm2kx';
@@ -141,6 +135,3 @@ if(isset($medecin['avatar'])){
     </div>
 </div>
 </body>
-
-
-

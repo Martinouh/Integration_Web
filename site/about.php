@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rom
- * Date: 12/11/2016
- * Time: 18:52
- */
 session_start();
-include '../php/Fonctions.php';
+include 'php/Fonctions.php';
 ?>
 <!DOCTYPE HTML>
 <html>

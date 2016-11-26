@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../php/Fonctions.php';
+include './php/Fonctions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +60,7 @@ include '../php/Fonctions.php';
         </div>
 
         <div id="contentRegister">
-            <form id="formRegister" method="post" action="../php/traiteForm.php">
+            <form id="formRegister" method="post" action="./php/traiteForm.php">
                 <h1 id="registerFormH1">Inscription</h1>
                 <label for="nom">Nom :</label>
                 <input id="nom" name="nom" required type="text" placeholder="Votre nom"><br>

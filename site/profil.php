@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rom
- * Date: 13/11/2016
- * Time: 18:45
- */
 session_start();
-include '../php/Fonctions.php';
+include './php/Fonctions.php';
 ?>
 <html>
 <head>
@@ -112,4 +106,3 @@ include '../php/Fonctions.php';
                 </table>
 </body>
 </html>
-

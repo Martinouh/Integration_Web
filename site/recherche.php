@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rom
- * Date: 12/11/2016
- * Time: 18:53
- */
 session_start();
-include '../php/Fonctions.php';
+include './php/Fonctions.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +39,7 @@ include '../php/Fonctions.php';
     </style>
     <script>
         function showHint(hint){
-            $.get("../php/getHint.php?q=" + hint, function (data) {
+            $.get("./php/getHint.php?q=" + hint, function (data) {
                 if(data) {
                     $('#suggestions').remove();
                     $('#searchIcon').after('<div id="suggestions"></div>');
@@ -61,7 +55,7 @@ include '../php/Fonctions.php';
             event.preventDefault();
             $('#suggestions').remove();
             var requete = $('#searchBar').val();
-            $.get("../php/traiteForm.php?rq=search&requete="+requete,function(data){
+            $.get("./php/traiteForm.php?rq=search&requete="+requete,function(data){
                 $('#searchBarDiv').after('<div id="suggestions"></div>');
                 $('#suggestions').fadeIn().html(data);
             });

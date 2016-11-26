@@ -116,7 +116,7 @@ function genereMenu($page){
             $compteur++;
         }
         $html[]="<div id='dash'><a href='profil.php' id='profil' #$compteur class='dash' style='border-right: solid 1px; color: white;  #$compteur'>".$_SESSION['user'][0]['prenom'].' '.$_SESSION['user'][0]['nom']."</a>";
-        $html[]="<a href='deconnexion.php'><img src='images/decoIcon.png' style='width: 2%'/></a></div>";
+        $html[]="<a href='deconnexion.php'><img src='./images/decoIcon.png' style='width: 2%'/></a></div>";
 
     }
     switch($page){
@@ -191,11 +191,11 @@ function search(){
             $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
             $horaire = $query2->fetchAll();
             $html[] =  '<h4><u><a href="../site/medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
-            $html[] =  '<p><img class="icon" src="../site/images/mapIcon3.png"/>'.$données['adresse'].'</p>';
+            $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$données['adresse'].'</p>';
             if($horaire[0][$jour]) {
-                $html[] = '<p><img class="icon" src="../site/images/compteurIcon.png"/>Ouvert aujourd\' hui de '. $horaire[0][$jour] . '</p>';
+                $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Ouvert aujourd\' hui de '. $horaire[0][$jour] . '</p>';
             }else{
-                $html[] = '<p><img class="icon" src="../site/images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
+                $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
             }
             $html[] =  '<p>'.$données['nbre_pers'].' personnes dans la salle d\'attente</p>';
         }
@@ -261,7 +261,7 @@ function login()
             }
             $_SESSION['user']['favoris'] = $tabFavoris;
             genereStatuts();
-            header('Location: ../site/index.php');
+            header('Location: ../index.php');
         }else {
             echo 'Connexion refusée';
         }

@@ -8,7 +8,7 @@
  * create table rdv (doctor_name VARCHAR(255),rdv_date DATETIME,email_client VARCHAR(20),objet VARCHAR(255),message VARCHAR(255));
  */
 session_start();
-include '../php/Fonctions.php';
+include './php/Fonctions.php';
 ?>
 <!DOCTYPE html>
 <html>
