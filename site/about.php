@@ -114,6 +114,7 @@ include '../php/Fonctions.php';
                     </div>
                 </div>
                 <hr>
+
                 <div class="row-fluid">
                     <div class="span2">
                         <img src="images/martin.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Martin">   </div>
@@ -121,17 +122,43 @@ include '../php/Fonctions.php';
                         <p>Martin Gorlier<br> S'occupe du Réseau</p>
                     </div>
                 </div>
+                <hr>
 
+                <div class="row-fluid">
+                    <div class="span2">
+                        <img src="images/romain.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Romain">   </div>
+                    <div class="span10">
+                        <p>Romain Charlier<br> S'occupe du backend</p>
+                    </div>
+                </div>
                 <hr>
 
                 <div class="row-fluid">
                     <div class="span2">
                         <img src="images/maximilien.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Maximilien">   </div>
                     <div class="span10">
-                        <p>Maximilien Van Roey<br> On ne sait toujours pas</p>
+                        <p>Maximilien Van Roey<br> S'occupe du frontend</p>
                     </div>
                 </div>
+                <hr>
 
+                <div class="row-fluid">
+                    <div class="span2">
+                        <img src="images/victorien.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Victorien">   </div>
+                    <div class="span10">
+                        <p>Victorien Derasse<br> S'occupe du système raspberry</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row-fluid">
+                    <div class="span2">
+                        <img src="images/francois.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Francois">   </div>
+                    <div class="span10">
+                        <p>François Scholsen<br> S'occupe du système raspberry</p>
+                    </div>
+                </div>
+                <hr>
             </div>
             <!-- End Main Content Area here -->
 
