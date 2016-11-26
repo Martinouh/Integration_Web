@@ -98,10 +98,10 @@ include '../php/Fonctions.php';
                 <h1>About Us</h1>
                 <hr>
                 <p>
-                    Nous sommes un groupe de six étudiants de l'EPHEC en technologie de l'informatique.<br>
+                    Nous sommes un groupe de six étudiants de <a href="http://www.ephec.be/cours-du-jours/nos-formations/informatique-3">l'EPHEC</a> en technologie de l'informatique.<br>
                     Dans le cadre de nos études, il nous a été demandé de réaliser un projet reprenant diverses technologies vue lors de notre formation.<br>
                     Nous nous étions fixé comme objectif de réaliser un site qui permettrai aux gens de gagner du temps en sachant consulter le nombre de personnes dans une salle d'attente.<br>
-                    D'où <strong>EasyWaitingRoom</strong>
+                    D'où <strong><a href="#">EasyWaitingRoom</a></strong>
                 </p>
                 <hr>
                 <h3>L'Equipe</h3>
