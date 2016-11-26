@@ -43,7 +43,7 @@ include './php/Fonctions.php';
         function submitContact(){
             var formData = new FormData($('#formContact')[0]);
             $.ajax({
-                url: '../php/traiteForm.php?rq=submitContact',
+                url: './php/traiteForm.php?rq=submitContact',
                 type: 'POST',
                 data: formData,
                 async: true,
