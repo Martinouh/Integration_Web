@@ -100,7 +100,7 @@ if(isset($medecin['avatar'])){
                     </div>
                 </div>
                 <div class="breadcrumbs">
-                    <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Recherche</span>
+                    <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Recherche</span>
                 </div>
 
 <div id="content">
