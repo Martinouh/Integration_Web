@@ -120,8 +120,7 @@ if(!isset($_SESSION['is'])) {
                 <h1>Bienvenue sur EasyWaitingRoom</h1>
 
                 <p>
-                    L'objectif d'EasyWaitingRoom est de permettre aux personnes désireuses de se rendre chez un professionnel disposant d'une salle d'attente (médecin, coiffeur, dentiste,...), de pouvoir consulter le nombre de personnes dans celle-ci.
-                    À fin de ne pas perdre du temps dans les salles d'attentes.<br>
+                    L'objectif d'EasyWaitingRoom est de permettre aux personnes désireuses de se rendre chez un professionnel disposant d'une salle d'attente (médecin, coiffeur, dentiste,...), de pouvoir consulter le nombre de personnes dans celle-ci afin de ne pas perdre de temps.<br>
                 </p>
 
                 <hr style="margin:45px 0 35px" />
