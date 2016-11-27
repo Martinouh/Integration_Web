@@ -164,7 +164,7 @@ include './php/Fonctions.php';
                         <li>
                             <i class="general foundicon-mail icon"></i>
                             <span class="field">Email:</span><br />
-                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
+                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
                         </li>
                         <li>
                             <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
