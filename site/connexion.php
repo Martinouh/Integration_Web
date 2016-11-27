@@ -33,8 +33,8 @@ include './php/Fonctions.php';
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
-                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
+                        <a href="index" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -61,7 +61,7 @@ include './php/Fonctions.php';
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Connexion</span>
         </div>
         <div id="content">
-            <form id="formLogin" method="post" action="./php/traiteForm.php">
+            <form id="formLogin" method="post" action="./php/traiteForm ">
                 <h1>Connexion</h1>
                 <input id="email" type="email" name="email"  placeholder="Votre adresse mail"><br>
                 <input id="mdp" type="password" name="mdp"  placeholder="Votre mot de passe"><br>
@@ -70,7 +70,7 @@ include './php/Fonctions.php';
                     <a href="http://localhost/projet_int/HTML/form_mdp_perdu.html" id="mdpLostxt"> J'ai oublié mon mot de passe </a>
                 </p>
                 <p id="new">
-                    Nouveau sur EasyWaitingRoom ? <a href="formRegister.php" id="subscribe">S'inscrire</a>
+                    Nouveau sur EasyWaitingRoom ? <a href="formRegister" id="subscribe">S'inscrire</a>
                 </p>
             </form>
         </div>
@@ -99,7 +99,7 @@ include './php/Fonctions.php';
                                     </p>
                                 </div>
                                 <div class="span3" id="footerArea2">
-                                    <a href="recherche.php"><h3>Recherche</h3></a>
+                                    <a href="recherche"><h3>Recherche</h3></a>
                                         <!-- <p>
                                         <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
                                                         <span style="text-transform:none;">2 hours ago</span>
@@ -118,7 +118,7 @@ include './php/Fonctions.php';
 
                                 </div>
                                 <div class="span3" id="footerArea3">
-                                    <a href="about.php"><h3>Meet the Team</h3></a>
+                                    <a href="about"><h3>Meet the Team</h3></a>
                                 </div>
                                 <div class="span3" id="footerArea4">
                                     <h3>Get in Touch</h3>
@@ -131,7 +131,7 @@ include './php/Fonctions.php';
                                         <li>
                                             <i class="general foundicon-mail icon"></i>
                                             <span class="field">Email:</span><br />
-                                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
+                                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
                                         </li>
                                         <li>
                                             <i class="general foundicon-home icon" style="margin-bottom:50px"></i>

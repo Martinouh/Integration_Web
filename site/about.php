@@ -51,8 +51,8 @@ include 'php/Fonctions.php';
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
-                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
+                        <a href="index" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -236,7 +236,7 @@ include 'php/Fonctions.php';
                 </div>
                 <div class="span3" id="footerArea2">
 
-                    <a href="recherche.php"><h3>Recherche</h3></a>
+                    <a href="recherche"><h3>Recherche</h3></a>
                     <!-- <p>
                         <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
                         <span style="text-transform:none;">2 hours ago</span>
@@ -256,7 +256,7 @@ include 'php/Fonctions.php';
                 </div>
                 <div class="span3" id="footerArea3">
 
-                    <a href="about.php"><h3>Meet the Team</h3></a>
+                    <a href="about"><h3>Meet the Team</h3></a>
                     <!-- <p>
                     </p> -->
                 </div>
@@ -275,7 +275,7 @@ include 'php/Fonctions.php';
                             <i class="general foundicon-mail icon"></i>
                             <span class="field">Email:</span>
                             <br />
-                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
+                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
                         </li>
                         <li>
                             <i class="general foundicon-home icon" style="margin-bottom:50px"></i>

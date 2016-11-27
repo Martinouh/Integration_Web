@@ -58,8 +58,8 @@ if(!isset($_SESSION['is'])) {
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
-                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
+                        <a href="index" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -94,7 +94,7 @@ if(!isset($_SESSION['is'])) {
                     <div id="divHeaderText" class="page-content">
                         <div id="divHeaderLine1">Bienvenue sur Easy Waiting Room.</div><br />
                         <div id="divHeaderLine2">Trouvez rapidement la salle d'attente qui vous convient!</div><br />
-                        <div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="recherche.php">Faire ma recherche</a></div>
+                        <div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="recherche">Faire ma recherche</a></div>
                     </div>
 
                     <div id="headerSeparator2"></div>
@@ -227,7 +227,7 @@ if(!isset($_SESSION['is'])) {
                 </div>
                 <div class="span3" id="footerArea2">
 
-                    <a href="recherche.php"><h3>Recherche</h3></a>
+                    <a href="recherche"><h3>Recherche</h3></a>
                     <!-- <p>
                         <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
                         <span style="text-transform:none;">2 hours ago</span>
@@ -247,7 +247,7 @@ if(!isset($_SESSION['is'])) {
                 </div>
                 <div class="span3" id="footerArea3">
 
-                    <a href="about.php"><h3>Meet the Team</h3></a>
+                    <a href="about"><h3>Meet the Team</h3></a>
                     <!-- <p>
                     </p> -->
                 </div>
@@ -266,7 +266,7 @@ if(!isset($_SESSION['is'])) {
                             <i class="general foundicon-mail icon"></i>
                             <span class="field">Email:</span>
                             <br />
-                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
+                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
                         </li>
                         <li>
                             <i class="general foundicon-home icon" style="margin-bottom:50px"></i>

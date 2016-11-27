@@ -59,7 +59,7 @@ if(isset($medecin['avatar'])){
            function favoris(){
                event.preventDefault();
                var idMedecin = <?php echo $_GET['id']?> ;
-               $.post('./php/traiteForm.php?rq=favoris&idMed='+idMedecin, function (data) {
+               $.post('./php/traiteForm?rq=favoris&idMed='+idMedecin, function (data) {
                    if (data==0){
                        $('#favIcon').attr('src','images/favIcon5.png');
                    }
@@ -82,8 +82,8 @@ if(isset($medecin['avatar'])){
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
-                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
+                        <a href="index" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">

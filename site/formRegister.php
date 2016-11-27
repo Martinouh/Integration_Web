@@ -32,8 +32,8 @@ include './php/Fonctions.php';
         <div class="row-fluid">
               <div class="span12">
                   <div id="divLogo" class="pull-left">
-                      <a href="index.php" id="divSiteTitle">E.W.R</a><br />
-                      <a href="index.php" id="divTagLine">Easy Waiting Room</a>
+                      <a href="index" id="divSiteTitle">E.W.R</a><br />
+                      <a href="index" id="divTagLine">Easy Waiting Room</a>
                   </div>
                   <div id="divMenuRight" class="pull-right">
                       <div class="navbar">
@@ -60,7 +60,7 @@ include './php/Fonctions.php';
         </div>
 
         <div id="contentRegister">
-            <form id="formRegister" method="post" action="./php/traiteForm.php">
+            <form id="formRegister" method="post" action="./php/traiteForm">
                 <h1 id="registerFormH1">Inscription</h1>
                 <label for="nom">Nom :</label>
                 <input id="nom" name="nom" required type="text" placeholder="Votre nom"><br>
@@ -96,7 +96,7 @@ include './php/Fonctions.php';
                     </p>
                 </div>
                 <div class="span3" id="footerArea2">
-                    <a href="recherche.php"><h3>Recherche</h3></a>
+                    <a href="recherche"><h3>Recherche</h3></a>
                         <!-- <p>
                         <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
                                         <span style="text-transform:none;">2 hours ago</span>
@@ -115,7 +115,7 @@ include './php/Fonctions.php';
 
                 </div>
                 <div class="span3" id="footerArea3">
-                    <a href="about.php"><h3>Meet the Team</h3></a>
+                    <a href="about"><h3>Meet the Team</h3></a>
                 </div>
                 <div class="span3" id="footerArea4">
                     <h3>Get in Touch</h3>
@@ -128,7 +128,7 @@ include './php/Fonctions.php';
                         <li>
                             <i class="general foundicon-mail icon"></i>
                             <span class="field">Email:</span><br />
-                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
+                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
                         </li>
                         <li>
                             <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
