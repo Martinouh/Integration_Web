@@ -126,7 +126,7 @@ include './php/Fonctions.php';
                 <div class="span4 sidebar">
 
                     <div class="sidebox">
-                        <h3 class="sidebox-title">Contact Information</h3>
+                        <h3 class="sidebox-title">Contact</h3>
                     <p>
                         <address><strong>Easy Waiting Room</strong><br />
                         Avenue du Ciseau, 15<br />
@@ -165,6 +165,7 @@ include './php/Fonctions.php';
 </div>
 <div id="footerOuterSeparator"></div>
 
+
 <div id="divFooter" class="footerArea">
 
     <div class="container">
@@ -174,55 +175,26 @@ include './php/Fonctions.php';
             <div class="row-fluid">
                 <div class="span3" id="footerArea1">
 
-                    <h3>About EWR </h3>
-
-                    <!-- <p>
-
-                    </p> -->
-
+                    <h3>À Propos</h3>
                     <p>
                         <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
                         <a href="#" title="Privacy Policy">Vie privée</a><br />
-                        <a href="#" title="FAQ">FAQ</a><br />
-                        <a href="#" title="Sitemap">Sitemap</a>
+                        <a href="#" title="Sitemap">plan d'accès</a>
                     </p>
 
                 </div>
                 <div class="span3" id="footerArea2">
 
                     <a href="recherche"><h3>Recherche</h3></a>
-                    <!-- <p>
-                        <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
-                        <span style="text-transform:none;">2 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
-                        <span style="text-transform:none;">5 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
-                        <span style="text-transform:none;">19 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">VIEW ALL POSTS</a>
-                    </p> -->
-
-                </div>
-                <div class="span3" id="footerArea3">
-
-                    <a href="about"><h3>Meet the Team</h3></a>
-                    <!-- <p>
-                    </p> -->
                 </div>
                 <div class="span3" id="footerArea4">
 
-                    <h3>Get in Touch</h3>
-
+                    <h3>Nous contacter </h3>
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>
-                            <span class="field">Phone:</span>
-                            <br />
+                            <span class="field">Téléphone:</span>
+                            <br >
                             (+32) 479798123
                         </li>
                         <li>
@@ -248,7 +220,7 @@ include './php/Fonctions.php';
             <div class="row-fluid">
                 <div class="span12">
                     <p class="copyright">
-                        Copyright © 2016 EasyWaitingRoom. All Rights Reserved.
+                        Copyright © 2016 EasyWaitingRoom. Tous droits réservés .
                     </p>
 
                     <p class="social_bookmarks">
@@ -272,7 +244,7 @@ include './php/Fonctions.php';
 <script src="scripts/default.js" type="text/javascript"></script>
 
 
-
+<script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
 
 
 </body>

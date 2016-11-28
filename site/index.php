@@ -145,51 +145,6 @@ if(!isset($_SESSION['is'])) {
                         <li><img src="images/salzburg-x.jpg" class="img-polaroid">  </li>
                     </ul>
                 </div>
-
-                <!-- <hr style="margin:45px 0 35px" /> -->
-
-                <!-- <div class="lead">
-                    <h2>Featured Content.</h2>
-                    <h3>Content on this page is for presentation purposes only.</h3>
-                </div>
-                <br />
-
-                <div class="row-fluid">
-                    <div class="span8">
-
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-
-                        <p>
-                            <img src="images/spring-is-coming.jpg" class="img-polaroid" style="margin:12px 0px;">
-                        </p>
-
-                        <p>Content on this page is for presentation purposes only. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-
-                    </div>
-                    <div class="span4 sidebar">
-
-                        <div class="sidebox">
-                            <h3 class="sidebox-title">Sample Sidebar Content</h3>
-                            <p>Lorem Ipsum is simply dummy text of the printing and <a href="#">typesetting industry</a>. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
-                        </div>
-
-                        <br />
-
-                        <div class="sidebox">
-                            <h3 class="sidebox-title">Sample Sidebar Content</h3>
-                            <p>
-                            <div class="input-append">
-                                <input class="span8" id="inpEmail" size="16" type="text"><button class="btn" type="button">Action</button>
-                            </div>
-                            </p>
-                        </div>
-
-                    </div>
-                </div> -->
-
             </div>
 
         </div>
@@ -211,11 +166,6 @@ if(!isset($_SESSION['is'])) {
                 <div class="span3" id="footerArea1">
 
                     <h3>À Propos</h3>
-
-                    <!-- <p>
-
-                    </p> -->
-
                     <p>
                         <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
                         <a href="#" title="Privacy Policy">Vie privée</a><br />
@@ -226,22 +176,6 @@ if(!isset($_SESSION['is'])) {
                 <div class="span3" id="footerArea2">
 
                     <a href="recherche"><h3>Recherche</h3></a>
-                    <!-- <p>
-                        <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
-                        <span style="text-transform:none;">2 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
-                        <span style="text-transform:none;">5 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
-                        <span style="text-transform:none;">19 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">VIEW ALL POSTS</a>
-                    </p> -->
-
                 </div>
                 <div class="span3" id="footerArea4">
 
@@ -249,8 +183,8 @@ if(!isset($_SESSION['is'])) {
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>
-                            <span class="field">Phone:</span>
-                            <br />
+                            <span class="field">Téléphone:</span>
+                            <br >
                             (+32) 479798123
                         </li>
                         <li>

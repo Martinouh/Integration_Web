@@ -94,7 +94,7 @@ include 'php/Fonctions.php';
                 <p>
                     Nous sommes un groupe de six étudiants de <a target="_blank" href="http://www.ephec.be/cours-du-jours/nos-formations/informatique-3">l'EPHEC</a> en technologie de l'informatique.<br>
                     Dans le cadre de nos études, il nous a été demandé de réaliser un projet reprenant diverses technologies vue lors de notre formation.<br>
-                    Nous nous étions fixé comme objectif de réaliser un site qui permettrait aux gens de gagner du temps en sachant consulter le nombre de personnes dans une salle d'attente.<br>
+                    Nous nous étions fixé comme objectif de réaliser un site permettant aux gens de gagner du temps en consultant le nombre de personnes dans une salle d'attente.<br>
                     D'où <strong><a href="#">EasyWaitingRoom</a></strong>
                 </p>
                 <hr>
@@ -154,54 +154,7 @@ include 'php/Fonctions.php';
                 </div>
                 <hr>
             </div>
-            <!-- End Main Content Area here -->
-
-            <!-- Edit Sidebar Content here -->
-            <div class="span4 sidebar">
-
-                <!-- <div class="sidebox">
-                    <h3 class="sidebox-title">Sample Sidebar Content</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and <a href="#">typesetting industry</a>.</p>
-                    <p> Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
-
-                    <h4 class="sidebox-title">Sidebar Categories</h4>
-                    <ul>
-                        <li><a href="#">Quisque diam lorem sectetuer adipiscing</a></li>
-                        <li><a href="#">Interdum vitae, adipiscing dapibus ac</a></li>
-                        <li><a href="#">Scelerisque ipsum auctor vitae, pede</a></li>
-                        <li><a href="#">Donec eget iaculis lacinia non erat</a></li>
-                        <li><a href="#">Lacinia dictum elementum velit fermentum</a></li>
-                        <li><a href="#">Donec in velit vel ipsum auctor pulvinar</a></li>
-                    </ul>
-
-
-                    <h4 class="sidebox-title">Our Skills</h4>
-
-                    <h5>Web Design ( 40% )</h5>
-                    <div class="progress progress-info">
-                        <div class="bar" style="width: 20%"></div>
-                    </div>
-
-                    <h5>Wordpress ( 80% )</h5>
-                    <div class="progress progress-success">
-                        <div class="bar" style="width: 40%"></div>
-                    </div>
-
-                    <h5>Branding ( 100% )</h5>
-                    <div class="progress progress-warning">
-                        <div class="bar" style="width: 60%"></div>
-                    </div>
-
-                    <h5>SEO Optmization ( 60% )</h5>
-                    <div class="progress progress-danger">
-                        <div class="bar" style="width: 80%"></div>
-                    </div>
-
-
-                </div> -->
-
-            </div>
-            <!--End Sidebar Content here-->
+            <div class="span4 sidebar">            </div>
         </div>
 
         <div id="footerInnerSeparator"></div>
@@ -220,55 +173,26 @@ include 'php/Fonctions.php';
             <div class="row-fluid">
                 <div class="span3" id="footerArea1">
 
-                    <h3>About EWR </h3>
-
-                    <!-- <p>
-
-                    </p> -->
-
+                    <h3>À Propos</h3>
                     <p>
                         <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
                         <a href="#" title="Privacy Policy">Vie privée</a><br />
-                        <a href="#" title="FAQ">FAQ</a><br />
-                        <a href="#" title="Sitemap">Sitemap</a>
+                        <a href="#" title="Sitemap">plan d'accès</a>
                     </p>
 
                 </div>
                 <div class="span3" id="footerArea2">
 
                     <a href="recherche"><h3>Recherche</h3></a>
-                    <!-- <p>
-                        <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
-                        <span style="text-transform:none;">2 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
-                        <span style="text-transform:none;">5 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
-                        <span style="text-transform:none;">19 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">VIEW ALL POSTS</a>
-                    </p> -->
-
-                </div>
-                <div class="span3" id="footerArea3">
-
-                    <a href="about"><h3>Meet the Team</h3></a>
-                    <!-- <p>
-                    </p> -->
                 </div>
                 <div class="span3" id="footerArea4">
 
-                    <h3>Get in Touch</h3>
-
+                    <h3>Nous contacter </h3>
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>
-                            <span class="field">Phone:</span>
-                            <br />
+                            <span class="field">Téléphone:</span>
+                            <br >
                             (+32) 479798123
                         </li>
                         <li>
@@ -294,7 +218,7 @@ include 'php/Fonctions.php';
             <div class="row-fluid">
                 <div class="span12">
                     <p class="copyright">
-                        Copyright © 2016 EasyWaitingRoom. All Rights Reserved.
+                        Copyright © 2016 EasyWaitingRoom. Tous droits réservés .
                     </p>
 
                     <p class="social_bookmarks">
@@ -318,7 +242,7 @@ include 'php/Fonctions.php';
 <script src="scripts/default.js" type="text/javascript"></script>
 
 
-
+<script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
 
 
 </body>
