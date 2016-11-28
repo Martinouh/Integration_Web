@@ -210,7 +210,7 @@ if(!isset($_SESSION['is'])) {
             <div class="row-fluid">
                 <div class="span3" id="footerArea1">
 
-                    <h3>About EWR </h3>
+                    <h3>À Propos</h3>
 
                     <!-- <p>
 
@@ -219,8 +219,7 @@ if(!isset($_SESSION['is'])) {
                     <p>
                         <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
                         <a href="#" title="Privacy Policy">Vie privée</a><br />
-                        <a href="#" title="FAQ">FAQ</a><br />
-                        <a href="#" title="Sitemap">Sitemap</a>
+                        <a href="#" title="Sitemap">plan d'accès</a>
                     </p>
 
                 </div>
@@ -244,16 +243,9 @@ if(!isset($_SESSION['is'])) {
                     </p> -->
 
                 </div>
-                <div class="span3" id="footerArea3">
-
-                    <a href="about"><h3>Meet the Team</h3></a>
-                    <!-- <p>
-                    </p> -->
-                </div>
                 <div class="span3" id="footerArea4">
 
-                    <h3>Get in Touch</h3>
-
+                    <h3>Nous contacter </h3>
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>
@@ -284,7 +276,7 @@ if(!isset($_SESSION['is'])) {
             <div class="row-fluid">
                 <div class="span12">
                     <p class="copyright">
-                        Copyright © 2016 EasyWaitingRoom. All Rights Reserved.
+                        Copyright © 2016 EasyWaitingRoom. Tous droits réservés .
                     </p>
 
                     <p class="social_bookmarks">
