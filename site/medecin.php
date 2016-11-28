@@ -62,7 +62,7 @@ if(isset($medecin['avatar'])){
            function favoris(){
                event.preventDefault();
                var idMedecin = <?php echo $_GET['id']?> ;
-               $.post('./php/traiteForm?rq=favoris&idMed='+idMedecin, function (data) {
+               $.post('./php/traiteForm.php?rq=favoris&idMed='+idMedecin, function (data) {
                    if (data==0){
                        $('#favIcon').attr('src','images/favIcon5.png');
                    }

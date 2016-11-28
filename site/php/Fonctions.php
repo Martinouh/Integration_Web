@@ -148,21 +148,53 @@ function listeFavoris(){
     } catch (PDOException $e) {
         printf('Erreur'. $e->getMessage());
     }
-
     foreach($_SESSION['user']['favoris'] as $key=>$value) {
-        echo $key.' '.$value;
-        /*$query = $db->query("SELECT nom,prenom  FROM professionnels WHERE id='$value' ");
+        $query = $db->query("SELECT nom,prenom  FROM professionnels WHERE id='$value' ");
         $retour = $query->fetchAll(PDO::FETCH_ASSOC);
-        print_r($retour);
-        /*$html[]='<tr>';
-                $html[]='<td><a href = "../php/medecin.php?'.$value.'">'.$retour['prenom'].' '.$retour['nom'].'</a></td >';
+        $html[]='<tr>';
+                $html[]='<td><a href = "../site/medecin.php?id='.$value.'">'.$retour[0]['prenom'].' '.$retour[0]['nom'].'</a></td>';
+                $html[]='<td><a href="deleteFavoris"><img src="images/deleteIcon2.png" class="icon" alt="'.$value.'" id="deleteFavoris"/></a></td >';
                 $html[]='</tr>';
-
-            return implode("\n",$html);*/
     }
+    return implode("\n",$html);
 }
 
-function sendMailMdpPerdu(){
+function mdpPerdu(){
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    $email = $_POST['email'];
+    $html = array();
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur'. $e->getMessage());
+    }
+    $query = $db->query("SELECT * FROM utilisateurs WHERE email = '$email'");
+    $nbResultats = $query->rowCount();
+    if($nbResultats!=0){
+        $html[] = '<h2>Confirmation</h2>';
+        $html[] = '<p>Un email vous a été envoyé à l\'adresse: <b>'.$_POST['email'].'</b>.</p>';
+        $html[] = '<p>Pour réinitialiser votre mot de passe, veuillez suivre le lien indiqué dans l\'email.</p>';
+        sendMailConfirmation();
+
+    }
+    echo implode("\n",$html);
+}
+
+
+function sendMailConfirmation(){
+    $to = $_POST['email'];
+    $msg='test';
+    $subject = '@EWR-Récupération de votre mot de passe.';
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset="UTF-8"' . "\r\n";
+    $headers .= 'To: <'.$_POST['email'].'>' . "\r\n";
+    $headers .= 'From: <martinouh@easywaitingroom.be>' . "\r\n";
+    $headers .= 'Reply-To: <noReply@easywaitingroom.be>' . "\r\n";
+    mail($to, $subject, $msg, $headers);
 }
 
 function search(){
