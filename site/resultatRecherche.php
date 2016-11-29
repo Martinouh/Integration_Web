@@ -1,7 +1,14 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Rom
+ * Date: 29/11/2016
+ * Time: 18:49
+ */
 session_start();
-include './php/Fonctions.php';
+include 'php/Fonctions.php';
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +17,7 @@ include './php/Fonctions.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <!-- Icons -->
@@ -27,43 +34,7 @@ include './php/Fonctions.php';
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
     <script src="scripts/jquery.min.js"></script>
-    <style>
-        #searchIcon{
-            width:3%;
-            margin-bottom: .8%;
-        }
-        #searchIcon:focus{
-            outline: none;
-        }
-        #suggestions{
-            margin-top: 5%;
-            display: none;
-        }
-    </style>
-    <script>
-        function showHint(hint){
-            $.get("./php/getHint.php?q=" + hint, function (data) {
-                if(data) {
-                    $('#suggestions').remove();
-                    $('#searchIcon').after('<div id="suggestions"></div>');
-                    $('#suggestions').fadeIn().html('<h2>Suggestions:</h2></br>' + data);
-                }else{
-                    $('#suggestions').fadeOut();
-                    $('#suggestions').remove();
 
-                }
-            });
-        }
-/*        function getResults(){
-            event.preventDefault();
-            $('#suggestions').remove();
-            var requete = $('#searchBar').val();
-            $.get("./php/traiteForm.php?rq=search&requete="+requete,function(data){
-                $('#searchBarDiv').after('<div id="suggestions"></div>');
-                $('#suggestions').fadeIn().html(data);
-            });
-        }/*
-    </script>
 
 </head>
 <body id="pageBody">
@@ -99,17 +70,43 @@ include './php/Fonctions.php';
 <div class="container">
     <div class="divPanel page-content">
         <div class="breadcrumbs">
-            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Recherche</span>
+            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Résultat de la recherche</span>
+            <div id="map" style="width:100%;height:500px"></div>
         </div>
-        <div id="textSearch">
-            <p style ='text-align:center' ><h1 style ='text-align:center' >Recherche du professionel</h1></p>
-        </div>
-        <div id="searchBarDiv">
-            <form action="resultatRecherche.php" method="get">
-                <input type="text" name="barre" id="searchBar" placeholder="recherche..." onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image" onclick="getResults()"/>
-            </form>
-        </div>
+        <?php  search();?>
     </div>
+    <script>
+
+
+        function myMap() {
+            var myArray = <?php echo $_POST['adresseMed'];?>;
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {
+                center: new google.maps.LatLng(50.4669,4.86746),
+                zoom: 8
+            };
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var geocoder = new google.maps.Geocoder();
+            for(i=0;i<myArray.length;i++) {
+                geocoder.geocode({address: myArray[i]}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var marker = new google.maps.Marker(
+                            {
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            }
+
+        }
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyCA_hrOWnYWoP_MO8-8y_35Gy1gIGtBF7I"></script>
+
 </div>
 
 <!-- Fix footer ligne blanche bug -->

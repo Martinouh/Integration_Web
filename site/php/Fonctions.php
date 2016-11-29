@@ -202,6 +202,7 @@ function search(){
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
     $html = array();
+    $adresse = array();
     $jour=date('N');
     try {
         $db = new PDO($dsn, $user, $password);
@@ -210,7 +211,7 @@ function search(){
     } catch (PDOException $e) {
         printf('Erreur'. $e->getMessage());
     }
-    $requete = htmlspecialchars($_GET['requete']);
+    $requete = htmlspecialchars($_GET['barre']);
     $query = $db->query("SELECT * FROM professionnels WHERE nom LIKE '$requete%' ORDER BY nom");
     $nbResultats = $query->rowCount();
     if($nbResultats !=0){
@@ -222,6 +223,8 @@ function search(){
             $id=$données['id'];
             $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
             $horaire = $query2->fetchAll();
+            $adresse[] = $données['adresse'];
+            $html[] =  '<div style="float:left;padding:1%"> ';
             $html[] =  '<h4><u><a href="../site/medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
             $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$données['adresse'].'</p>';
             if($horaire[0][$jour]) {
@@ -230,10 +233,14 @@ function search(){
                 $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
             }
             $html[] =  '<p>'.$données['nbre_pers'].' personnes dans la salle d\'attente</p>';
+            $html[] =  '</div> ';
+
         }
     }else{
         $html[] = 'Désolé, aucune concordance trouvée dans notre base de données.';
     }
+    $_POST['adresseMed'] = json_encode($adresse);
+    echo $_POST['adresseMed'];
     echo implode('',$html);
 }
 
