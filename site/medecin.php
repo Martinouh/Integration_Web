@@ -52,8 +52,8 @@ if(isset($medecin['avatar'])){
     <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="scripts/default.js" type="text/javascript"></script>
     <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
-    <script src="../js/jquery-3.1.1.js" type="text/javascript"></script>
-    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="./js/jquery-3.1.1.js" type="text/javascript"></script>
+    <script src="./js/jquery-ui.min.js" type="text/javascript"></script>
     <script>
 
            $(function () {
