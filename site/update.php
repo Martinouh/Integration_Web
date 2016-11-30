@@ -57,7 +57,7 @@ include '/php/Fonctions.php';
                 <h1>
                      Mettre mon profil à jour:
                 </h1>
-        <form action="../php/traiteForm.php" method="post" id="formUpdate">
+        <form action="php/traiteForm" method="post" id="formUpdate">
             <label for="nom">Nom </label>
             <input id="nom" name="nom" required type="text"value="<?php echo $_SESSION['user'][0]['nom']?>"><br>
             <label for="prenom">Prénom </label>
