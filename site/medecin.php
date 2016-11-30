@@ -32,7 +32,7 @@ if(isset($medecin['avatar'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <!-- Icons -->
@@ -52,8 +52,8 @@ if(isset($medecin['avatar'])){
     <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="scripts/default.js" type="text/javascript"></script>
     <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
-    <script src="../js/jquery-3.1.1.js"></script>
-    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/jquery-3.1.1.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
     <script>
 
            $(function () {
