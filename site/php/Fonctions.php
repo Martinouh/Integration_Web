@@ -148,21 +148,53 @@ function listeFavoris(){
     } catch (PDOException $e) {
         printf('Erreur'. $e->getMessage());
     }
-
     foreach($_SESSION['user']['favoris'] as $key=>$value) {
-        echo $key.' '.$value;
-        /*$query = $db->query("SELECT nom,prenom  FROM professionnels WHERE id='$value' ");
+        $query = $db->query("SELECT nom,prenom  FROM professionnels WHERE id='$value' ");
         $retour = $query->fetchAll(PDO::FETCH_ASSOC);
-        print_r($retour);
-        /*$html[]='<tr>';
-                $html[]='<td><a href = "../php/medecin.php?'.$value.'">'.$retour['prenom'].' '.$retour['nom'].'</a></td >';
+        $html[]='<tr>';
+                $html[]='<td><a href = "../site/medecin.php?id='.$value.'">'.$retour[0]['prenom'].' '.$retour[0]['nom'].'</a></td>';
+                $html[]='<td><a href="deleteFavoris"><img src="images/deleteIcon2.png" class="icon" alt="'.$value.'" id="deleteFavoris"/></a></td >';
                 $html[]='</tr>';
-
-            return implode("\n",$html);*/
     }
+    return implode("\n",$html);
 }
 
-function sendMailMdpPerdu(){
+function mdpPerdu(){
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    $email = $_POST['email'];
+    $html = array();
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur'. $e->getMessage());
+    }
+    $query = $db->query("SELECT * FROM utilisateurs WHERE email = '$email'");
+    $nbResultats = $query->rowCount();
+    if($nbResultats!=0){
+        $html[] = '<h2>Confirmation</h2>';
+        $html[] = '<p>Un email vous a été envoyé à l\'adresse: <b>'.$_POST['email'].'</b>.</p>';
+        $html[] = '<p>Pour réinitialiser votre mot de passe, veuillez suivre le lien indiqué dans l\'email.</p>';
+        sendMailConfirmation();
+
+    }
+    echo implode("\n",$html);
+}
+
+
+function sendMailConfirmation(){
+    $to = $_POST['email'];
+    $msg='test';
+    $subject = '@EWR-Récupération de votre mot de passe.';
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset="UTF-8"' . "\r\n";
+    $headers .= 'To: <'.$_POST['email'].'>' . "\r\n";
+    $headers .= 'From: <martinouh@easywaitingroom.be>' . "\r\n";
+    $headers .= 'Reply-To: <noReply@easywaitingroom.be>' . "\r\n";
+    mail($to, $subject, $msg, $headers);
 }
 
 function search(){
@@ -170,6 +202,7 @@ function search(){
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
     $html = array();
+    $adresse = array();
     $jour=date('N');
     try {
         $db = new PDO($dsn, $user, $password);
@@ -178,7 +211,7 @@ function search(){
     } catch (PDOException $e) {
         printf('Erreur'. $e->getMessage());
     }
-    $requete = htmlspecialchars($_GET['requete']);
+    $requete = htmlspecialchars($_GET['barre']);
     $query = $db->query("SELECT * FROM professionnels WHERE nom LIKE '$requete%' ORDER BY nom");
     $nbResultats = $query->rowCount();
     if($nbResultats !=0){
@@ -190,6 +223,8 @@ function search(){
             $id=$données['id'];
             $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
             $horaire = $query2->fetchAll();
+            $adresse[] = $données['adresse'];
+            $html[] =  '<div style="float:left;padding:1%"> ';
             $html[] =  '<h4><u><a href="../site/medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
             $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$données['adresse'].'</p>';
             if($horaire[0][$jour]) {
@@ -198,10 +233,14 @@ function search(){
                 $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
             }
             $html[] =  '<p>'.$données['nbre_pers'].' personnes dans la salle d\'attente</p>';
+            $html[] =  '</div> ';
+
         }
     }else{
         $html[] = 'Désolé, aucune concordance trouvée dans notre base de données.';
     }
+    $_POST['adresseMed'] = json_encode($adresse);
+    echo $_POST['adresseMed'];
     echo implode('',$html);
 }
 

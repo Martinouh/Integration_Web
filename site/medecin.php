@@ -29,7 +29,10 @@ if(isset($medecin['avatar'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <title>Rechercher un professionnel</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <!-- Icons -->
@@ -59,7 +62,7 @@ if(isset($medecin['avatar'])){
            function favoris(){
                event.preventDefault();
                var idMedecin = <?php echo $_GET['id']?> ;
-               $.post('./php/traiteForm?rq=favoris&idMed='+idMedecin, function (data) {
+               $.post('./php/traiteForm.php?rq=favoris&idMed='+idMedecin, function (data) {
                    if (data==0){
                        $('#favIcon').attr('src','images/favIcon5.png');
                    }

@@ -23,9 +23,10 @@ include './php/Fonctions.php';
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
     <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/custom.js"></script>
     <style>
         table{
-            width: 100%
+            width: 75%
         }
         tr{
             border-bottom: solid 1px #dddddd;
@@ -39,7 +40,10 @@ include './php/Fonctions.php';
         }
         td{
             padding: 1%;
-
+        }
+        h1{
+            border-bottom: solid white 1px;
+            padding: 1%;
         }
     </style>
 </head>
@@ -64,7 +68,7 @@ include './php/Fonctions.php';
                             <div class="nav-collapse collapse">
                                 <ul class="nav nav-pills ddmenu">
                                     <?php echo genereMenu('profil') ?>
-                                </ul>
+                                </ul>ssss
                             </div>
                         </div>
                     </div>
@@ -72,37 +76,34 @@ include './php/Fonctions.php';
                 <div class="breadcrumbs">
                     <a href="index.html">Home</a> &nbsp;/&nbsp; <span>profil</span>
                 </div>
-                <h1>
-                    Détails personnels:
-                </h1>
-                <a href="update.php"><img src="images/updateIcon.png" id="updateIcon"/></a><a href="deleteAccount.php"><img src="images/deleteIcon.png" id="deleteIcon"/></a>
+                <div id="infoPerso">
+                    <h1>
+                        Détails personnels:
+                    </h1>
+                    <a href="update.php"><img src="images/updateIcon.png" id="updateIcon"/></a><a href="deleteAccount.php"><img src="images/deleteIcon2.png" id="deleteIcon"/></a>
 
-                <table>
-                    <tr>
-                        <td>Informations</td>
-                        <td><?php echo $_SESSION['user'][0]['prenom'].' '.$_SESSION['user'][0]['prenom'];?></td>
-                    </tr>
-                    <tr>
-                        <td>Adresse mail</td>
-                        <td><?php echo $_SESSION['user'][0]['email'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Téléphone</td>
-                        <td><?php echo $_SESSION['user'][0]['telephone'] ?></td>
-                    </tr>
-                    <tr>
-                    </tr>
-                </table>
-
-                <h1>
-                    Favoris:
-                </h1>
-                <table>
-                    <tr>
-                        <th>Nom du professionnel</th>
-                    </tr>
-
+                    <table>
+                        <tr>
+                            <td>Informations</td>
+                            <td><?php echo $_SESSION['user'][0]['prenom'].' '.$_SESSION['user'][0]['prenom'];?></td>
+                        </tr>
+                        <tr>
+                            <td>Adresse mail</td>
+                            <td><?php echo $_SESSION['user'][0]['email'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Téléphone</td>
+                            <td><?php echo $_SESSION['user'][0]['telephone'] ?></td>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </table>
+                </div>
+                    <h1>
+                        Favoris:
+                    </h1>
+                    <table>
                         <?php echo listeFavoris();?>
-                </table>
+                    </table>
 </body>
 </html>

@@ -20,6 +20,8 @@ if (isset($_GET['rq'])){
             break;
         case 'favoris':favoris();
             break;
+        case 'mdpPerdu':mdpPerdu();
+            break;
     }
 }
     if (isset($_POST['soumettre-rdv'])){

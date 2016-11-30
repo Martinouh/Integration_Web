@@ -7,7 +7,10 @@ include './php/Fonctions.php';
 <head>
     <meta charset="UTF-8">
     <title>Rechercher un professionnel</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <!-- Icons -->
@@ -51,7 +54,7 @@ include './php/Fonctions.php';
                 }
             });
         }
-        function getResults(){
+/*        function getResults(){
             event.preventDefault();
             $('#suggestions').remove();
             var requete = $('#searchBar').val();
@@ -59,7 +62,7 @@ include './php/Fonctions.php';
                 $('#searchBarDiv').after('<div id="suggestions"></div>');
                 $('#suggestions').fadeIn().html(data);
             });
-        }
+        }/*
     </script>
 
 </head>
@@ -102,7 +105,9 @@ include './php/Fonctions.php';
             <p style ='text-align:center' ><h1 style ='text-align:center' >Recherche du professionel</h1></p>
         </div>
         <div id="searchBarDiv">
-            <input type="text" id="searchBar" placeholder="recherche..." onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image" onclick="getResults()"/>
+            <form action="resultatRecherche.php" method="get">
+                <input type="text" name="barre" id="searchBar" placeholder="recherche..." onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image" onclick="getResults()"/>
+            </form>
         </div>
     </div>
 </div>

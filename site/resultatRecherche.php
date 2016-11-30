@@ -1,16 +1,23 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Rom
+ * Date: 29/11/2016
+ * Time: 18:49
+ */
 session_start();
-include './php/Fonctions.php';
+include 'php/Fonctions.php';
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Connexion</title>
+    <title>Rechercher un professionnel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <!-- Icons -->
@@ -25,8 +32,10 @@ include './php/Fonctions.php';
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/jquery.min.js"></script>
+
+
 </head>
 <body id="pageBody">
 <div id="decorative2">
@@ -36,8 +45,8 @@ include './php/Fonctions.php';
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index" id="divSiteTitle">E.W.R</a><br />
-                        <a href="index" id="divTagLine">Easy Waiting Room</a>
+                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -47,7 +56,7 @@ include './php/Fonctions.php';
                             </button>
                             <div class="nav-collapse collapse">
                                 <ul class="nav nav-pills ddmenu">
-                                    <?php echo genereMenu('connexion')?>
+                                    <?php echo genereMenu('recherche') ?>
                                 </ul>
                             </div>
                         </div>
@@ -61,33 +70,56 @@ include './php/Fonctions.php';
 <div class="container">
     <div class="divPanel page-content">
         <div class="breadcrumbs">
-            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Connexion</span>
+            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Résultat de la recherche</span>
+            <div id="map" style="width:100%;height:500px"></div>
         </div>
-        <div id="content">
-            <form id="formLogin" method="post" action="php/traiteForm.php ">
-                <h1>Connexion</h1>
-                <input id="email" type="email" name="email"  placeholder="Votre adresse mail"><br>
-                <input id="mdp" type="password" name="mdp"  placeholder="Votre mot de passe"><br>
-                <input id="connect" name="login_submit" type="submit" value="Connexion">
-                <p id="mdpLost">
-                    <a href="mdpPerdu.php" id="mdpLostxt"> J'ai oublié mon mot de passe </a>
-                </p>
-                <p id="new">
-                    Nouveau sur EasyWaitingRoom ? <a href="formRegister.php" id="subscribe">S'inscrire</a>
-                </p>
-            </form>
-        </div>
+        <?php  search();?>
     </div>
+    <script>
+
+
+        function myMap() {
+            var myArray = <?php echo $_POST['adresseMed'];?>;
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {
+                center: new google.maps.LatLng(50.4669,4.86746),
+                zoom: 8
+            };
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var geocoder = new google.maps.Geocoder();
+            for(i=0;i<myArray.length;i++) {
+                geocoder.geocode({address: myArray[i]}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var marker = new google.maps.Marker(
+                            {
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            }
+
+        }
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyCA_hrOWnYWoP_MO8-8y_35Gy1gIGtBF7I"></script>
+
 </div>
+
 <!-- Fix footer ligne blanche bug -->
 <div class="container">
     <br>
     <br>
     <br>
     <br>
+    <br>
+    <br>
 </div>
 
-                <div id="footerOuterSeparator"></div>
+<div id="footerOuterSeparator"></div>
 
 <div id="divFooter" class="footerArea">
 

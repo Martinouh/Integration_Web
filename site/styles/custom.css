@@ -101,14 +101,19 @@ input{
     margin-left: 94%;
     margin-top: -4%
 }
-
 #deleteIcon{
-    width: 3.2%;
     margin-left: 97%;
-    margin-top: -4.4%
-
+    margin-top: -4%;
+    width: 2%
 }
 
+
+.icon{
+    width: 6%;
+}
+#deleteFavoris{
+    margin-left: 90%
+}
 
 #updateButton{
     background-color: #2f96b4;
