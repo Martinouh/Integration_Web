@@ -2,57 +2,43 @@
 session_start();
 include 'php/Fonctions.php';
 ?>
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>About</title>
+    <meta charset="UTF-8">
+    <title>Rechercher un professionnel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <!-- Icons -->
     <link href="scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
-    <!--[if lt IE 8]>
-    <link href="scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="scripts/icons/social/stylesheets/social_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
-    <![endif]-->
     <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome.min.css">
-    <!--[if IE 7]>
-    <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome-ie7.min.css">
-    <![endif]-->
 
 
+    <link href="scripts/carousel/style.css" rel="stylesheet" type="text/css" />
 
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/jquery.min.js"></script>
 </head>
 <body id="pageBody">
-
 <div id="decorative2">
     <div class="container">
-
         <div class="divPanel topArea notop nobottom">
             <div class="row-fluid">
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index" id="divSiteTitle">E.W.R</a><br />
-                        <a href="index" id="divTagLine">Easy Waiting Room</a>
+                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -62,104 +48,124 @@ include 'php/Fonctions.php';
                             </button>
                             <div class="nav-collapse collapse">
                                 <ul class="nav nav-pills ddmenu">
-                                    <?php echo genereMenu('about')?>
+                                    <?php echo genereMenu('recherche') ?>
                                 </ul>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
-<div id="contentOuterSeparator"></div>
-
 <div class="container">
-
     <div class="divPanel page-content">
-
         <div class="breadcrumbs">
-            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>A propos</span>
+            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Résultat de la recherche</span>
+            <div id="map" style="width:100%;height:500px"></div>
         </div>
-
-        <div class="row-fluid">
-            <!--Edit Main Content Area here-->
-            <div class="span8" id="divMain">
-
-                <h1>About Us</h1>
-                <hr>
-                <p>
-                    Nous sommes un groupe de six étudiants de <a target="_blank" href="http://www.ephec.be/cours-du-jours/nos-formations/informatique-3">l'EPHEC</a> en technologie de l'informatique.<br>
-                    Dans le cadre de nos études, il nous a été demandé de réaliser un projet reprenant diverses technologies vue lors de notre formation.<br>
-                    Nous nous étions fixé comme objectif de réaliser un site permettant aux gens de gagner du temps en consultant le nombre de personnes dans une salle d'attente.<br>
-                    D'où <strong><a href="#">EasyWaitingRoom</a></strong>
-                </p>
-                <hr>
-                <h3>L'Equipe</h3>
-
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/matthieu.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Matthieu">   </div>
-                    <div class="span10">
-                        <p><b>Matthieu Clerbois</b><br> Product Owner</p>
-                    </div>
-                </div>
-                <hr>
-
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/martin.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Martin">   </div>
-                    <div class="span10">
-                        <p><b>Martin Gorlier</b><br>S'occupe du Réseau</p>
-                    </div>
-                </div>
-                <hr>
-
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/romain.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Romain">   </div>
-                    <div class="span10">
-                        <p><b>Romain Charlier</b><br>S'occupe du backend</p>
-                    </div>
-                </div>
-                <hr>
-
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/maximilien.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Maximilien">   </div>
-                    <div class="span10">
-                        <p><b>Maximilien Van Roey</b><br>S'occupe du frontend</p>
-                    </div>
-                </div>
-                <hr>
-
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/victorien.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Victorien">   </div>
-                    <div class="span10">
-                        <p><b>Victorien Derasse</b><br>S'occupe du système raspberry</p>
-                    </div>
-                </div>
-                <hr>
-
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/francois.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Francois">   </div>
-                    <div class="span10">
-                        <p><b>François Scholsen</b><br>S'occupe du système raspberry</p>
-                    </div>
-                </div>
-                <hr>
-            </div>
-            <div class="span4 sidebar">            </div>
-        </div>
-
-        <div id="footerInnerSeparator"></div>
+        <?php  search();?>
     </div>
+    <script>
 
+
+        function myMap() {
+            var myArray = <?php echo $_POST['adresseMed'];?>;
+            var myArray2 = <?php echo $_POST['info'];?>;
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {
+                center: new google.maps.LatLng(50.4669,4.86746),
+                zoom: 9
+            };
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var geocoder = new google.maps.Geocoder();
+            for(i=0;i<myArray.length;i++) {
+                var infowindow = new google.maps.InfoWindow({
+                    content: myArray2[i]
+                });
+                geocoder.geocode({address: myArray[i]}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var marker = new google.maps.Marker(
+                            {
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+                        google.maps.event.addListener(marker, 'click', function() {
+                            map.setZoom(11);
+                            map.setCenter(marker.getPosition());
+
+                        });
+                        google.maps.event.addListener(marker, 'mouseover', function() {
+                            infowindow.open(map,marker);
+                        });
+                        google.maps.event.addListener(marker, 'mouseout', function() {
+                            infowindow.close(map,marker);
+                        });
+
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            }
+            var marker = new google.maps.Marker(
+                {
+                    map: map,
+                    animation: google.maps.Animation.BOUNCE
+            });
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var infoWindow = new google.maps.InfoWindow(
+                        {
+                            content: '<div style="width:100%;min-height: 10px">Votre position.</div>'
+                        });
+                    marker.setPosition(pos);
+                    map.setCenter(pos);
+                    google.maps.event.addListener(marker, 'mouseover', function() {
+                        infoWindow.open(map,marker);
+                    });
+                    google.maps.event.addListener(marker, 'mouseout', function() {
+                        infoWindow.close(map,marker);
+                    });
+
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+        }
+
+
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyCA_hrOWnYWoP_MO8-8y_35Gy1gIGtBF7I"></script>
+
+</div>
+
+<!-- Fix footer ligne blanche bug -->
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
 
 <div id="footerOuterSeparator"></div>

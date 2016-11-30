@@ -1,6 +1,6 @@
 ﻿<?php
 session_start();
-include '../php/Fonctions.php';
+include './php/Fonctions.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -39,6 +39,25 @@ include '../php/Fonctions.php';
 
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 	<script src="email/validation.js" type="text/javascript"></script>
+    <script>
+        function submitContact(){
+            var formData = new FormData($('#formContact')[0]);
+            $.ajax({
+                url: './php/traiteForm?rq=submitContact',
+                type: 'POST',
+                data: formData,
+                async: true,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    $('#formContact').html(data);
+                }
+
+            })
+        }
+    </script>
+
 </head>
 <body id="pageBody">
 
@@ -50,8 +69,8 @@ include '../php/Fonctions.php';
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
-                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
+                        <a href="index" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -81,7 +100,7 @@ include '../php/Fonctions.php';
     <div class="divPanel page-content">
 
         <div class="breadcrumbs">
-                <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
+                <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
             </div>
 
         <div class="row-fluid">
@@ -91,18 +110,15 @@ include '../php/Fonctions.php';
                    	<h3 style="color:#FF6633;"><?php echo $_GET[msg];?></h3>
 					<hr>
 			<!--Start Contact form -->
-<form name="enq" method="post" action="email/" onsubmit="return validation();">
-  <fieldset>
-
-	<input type="text" name="name" id="name" value=""  class="input-block-level" placeholder="Nom" />
-    <input type="text" name="email" id="email" value="" class="input-block-level" placeholder="Email" />
-    <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Message"></textarea>
-    <div class="actions">
-	<input type="submit" value="Send Your Message" name="submit" id="submitButton" class="btn btn-info pull-right" title="Envoyer" />
-	</div>
-
-	</fieldset>
-</form>
+                    <form name="enq" method="post" id="formContact" onsubmit="submitContact()">
+                        <fieldset>
+                            <input type="text" name="email" id="email" value="" class="input-block-level" placeholder="Email" />
+                            <input type="text" name="sujet" id="sujet" value=""  class="input-block-level" placeholder="Sujet" />
+                            <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Message"></textarea>
+                            <div class="actions">
+                                <input type="submit" value="Envoyer" name="submit" id="submitButton" class="btn btn-info pull-right" title="Click here to submit your message!" />
+                        </fieldset>
+                    </form>
 			<!--End Contact form -->
                 </div>
 
@@ -110,14 +126,14 @@ include '../php/Fonctions.php';
                 <div class="span4 sidebar">
 
                     <div class="sidebox">
-                        <h3 class="sidebox-title">Contact Information</h3>
+                        <h3 class="sidebox-title">Contact</h3>
                     <p>
                         <address><strong>Easy Waiting Room</strong><br />
                         Avenue du Ciseau, 15<br />
                         1348, Ottignies-Louvain-la-Neuve<br />
                         <abbr title="Phone">P:</abbr>(+32) 479798123</address>
                         <address>  <strong>Email</strong><br />
-                        <a href="mailto:martinouh@easywaitingroom.be">martinouh@easywaitingroom.be</a></address>
+                        <a href="mailto:contact@easywaitingroom.be">contact@easywaitingroom.be</a></address>
                     </p>
 
 					 <!-- Start Side Categories -->
@@ -145,9 +161,10 @@ include '../php/Fonctions.php';
         <div id="footerInnerSeparator"></div>
     </div>
 
+    </div>
 </div>
-
 <div id="footerOuterSeparator"></div>
+
 
 <div id="divFooter" class="footerArea">
 
@@ -158,62 +175,36 @@ include '../php/Fonctions.php';
             <div class="row-fluid">
                 <div class="span3" id="footerArea1">
 
-                    <h3>About EWR </h3>
-
-                    <!-- <p>
-
-                    </p> -->
-
+                    <h3>À Propos</h3>
                     <p>
                         <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
                         <a href="#" title="Privacy Policy">Vie privée</a><br />
-                        <a href="#" title="FAQ">FAQ</a><br />
-                        <a href="#" title="Sitemap">Sitemap</a>
+                        <a href="#" title="Sitemap">plan d'accès</a>
                     </p>
 
                 </div>
                 <div class="span3" id="footerArea2">
 
-                    <a href="recherche.php"><h3>Recherche</h3></a>
-                    <!-- <p>
-                        <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
-                        <span style="text-transform:none;">2 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
-                        <span style="text-transform:none;">5 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
-                        <span style="text-transform:none;">19 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">VIEW ALL POSTS</a>
-                    </p> -->
-
+                    <a href="recherche"><h3>Recherche</h3></a>
                 </div>
                 <div class="span3" id="footerArea3">
-
-                    <a href="about.php"><h3>Meet the Team</h3></a>
-                    <!-- <p>
-                    </p> -->
+                    <a href="#"><h3>Fonctionnement</h3></a>
                 </div>
                 <div class="span3" id="footerArea4">
 
-                    <h3>Get in Touch</h3>
-
+                    <h3>Nous contacter </h3>
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>
-                            <span class="field">Phone:</span>
-                            <br />
+                            <span class="field">Téléphone:</span>
+                            <br >
                             (+32) 479798123
                         </li>
                         <li>
                             <i class="general foundicon-mail icon"></i>
                             <span class="field">Email:</span>
                             <br />
-                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
+                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
                         </li>
                         <li>
                             <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
@@ -232,7 +223,7 @@ include '../php/Fonctions.php';
             <div class="row-fluid">
                 <div class="span12">
                     <p class="copyright">
-                        Copyright © 2016 EasyWaitingRoom. All Rights Reserved.
+                        Copyright © 2016 EasyWaitingRoom. Tous droits réservés .
                     </p>
 
                     <p class="social_bookmarks">
@@ -256,7 +247,7 @@ include '../php/Fonctions.php';
 <script src="scripts/default.js" type="text/javascript"></script>
 
 
-
+<script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
 
 
 </body>

@@ -38,6 +38,66 @@ function genereStatuts(){
     }
 }
 
+function enregistreMessage(){
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    $date = date('Y-m-d H:i:s');
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur'. $e->getMessage());
+    }
+    $req1 = $db->prepare('INSERT INTO messages (sujet, corps, dateCreation, email) VALUES (:sujet, :corps, :dateCreation, :email)');
+    if($req1->execute(array(
+        'sujet' => $_POST['sujet'],
+        'corps' => $_POST['message'],
+        'dateCreation' => $date,
+        'email' => $_POST['email']
+    ))){
+        echo 'msg enregistré';
+    }
+
+
+}
+
+function favoris()
+{
+    $idMedecin = $_GET['idMed'];
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    $isFav=-1;
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur' . $e->getMessage());
+    }
+    foreach ($_SESSION['user']['favoris'] as $key => $value) {
+            if ($value == $idMedecin) {
+                $isFav=1;
+                unset($_SESSION['user']['favoris'][$key]);
+            }
+    }
+
+    if($isFav==-1){
+        $req2 = $db->prepare('INSERT INTO favoris (idUtilisateur, idPro) VALUES (:idUtilisateur, :idPro)');
+        $req2->execute(array(
+            'idUtilisateur' => $_SESSION['user'][0]['id'],
+            'idPro' => $idMedecin
+        ));
+        array_push($_SESSION['user']['favoris'],$idMedecin);
+        echo '0';
+    }
+    else{
+        $db->query("DELETE FROM favoris WHERE idPro='$idMedecin'");
+        echo '1';
+    }
+}
 function genereMenu($page){
     $menuAnonyme=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php','Connexion'=>'connexion.php');
     $menuMembre=array('Accueil'=>'index.php','Recherche'=>'recherche.php','A propos de nous'=>'about.php','Nous contacter'=>'contact.php');
@@ -56,7 +116,7 @@ function genereMenu($page){
             $compteur++;
         }
         $html[]="<div id='dash'><a href='profil.php' id='profil' #$compteur class='dash' style='border-right: solid 1px; color: white;  #$compteur'>".$_SESSION['user'][0]['prenom'].' '.$_SESSION['user'][0]['nom']."</a>";
-        $html[]="<a href='deconnexion.php'><img src='images/decoIcon.png' style='width: 2%'/></a></div>";
+        $html[]="<a href='deconnexion.php'><img src='./images/decoIcon.png' style='width: 2%'/></a></div>";
 
     }
     switch($page){
@@ -76,13 +136,34 @@ function genereMenu($page){
 
 }
 
-function sendMailMdpPerdu(){
-}
-
-function search(){
+function listeFavoris(){
+    $html = array();
     $dsn = 'mysql:dbname=db7;host=137.74.43.201';
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur'. $e->getMessage());
+    }
+    foreach($_SESSION['user']['favoris'] as $key=>$value) {
+        $query = $db->query("SELECT nom,prenom  FROM professionnels WHERE id='$value' ");
+        $retour = $query->fetchAll(PDO::FETCH_ASSOC);
+        $html[]='<tr>';
+                $html[]='<td><a href = "../site/medecin.php?id='.$value.'">'.$retour[0]['prenom'].' '.$retour[0]['nom'].'</a></td>';
+                $html[]='<td><a href="deleteFavoris"><img src="images/deleteIcon2.png" class="icon" alt="'.$value.'" id="deleteFavoris"/></a></td >';
+                $html[]='</tr>';
+    }
+    return implode("\n",$html);
+}
+
+function mdpPerdu(){
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    $email = $_POST['email'];
     $html = array();
     try {
         $db = new PDO($dsn, $user, $password);
@@ -91,20 +172,77 @@ function search(){
     } catch (PDOException $e) {
         printf('Erreur'. $e->getMessage());
     }
-    $requete = htmlspecialchars($_GET['requete']);
+    $query = $db->query("SELECT * FROM utilisateurs WHERE email = '$email'");
+    $nbResultats = $query->rowCount();
+    if($nbResultats!=0){
+        $html[] = '<h2>Confirmation</h2>';
+        $html[] = '<p>Un email vous a été envoyé à l\'adresse: <b>'.$_POST['email'].'</b>.</p>';
+        $html[] = '<p>Pour réinitialiser votre mot de passe, veuillez suivre le lien indiqué dans l\'email.</p>';
+        sendMailConfirmation();
+
+    }
+    echo implode("\n",$html);
+}
+
+
+function sendMailConfirmation(){
+    $to = $_POST['email'];
+    $msg='test';
+    $subject = '@EWR-Récupération de votre mot de passe.';
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset="UTF-8"' . "\r\n";
+    $headers .= 'To: <'.$_POST['email'].'>' . "\r\n";
+    $headers .= 'From: <martinouh@easywaitingroom.be>' . "\r\n";
+    $headers .= 'Reply-To: <noReply@easywaitingroom.be>' . "\r\n";
+    mail($to, $subject, $msg, $headers);
+}
+
+function search(){
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    $html = array();
+    $info = array();
+    $adresse = array();
+    $jour=date('N');
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur'. $e->getMessage());
+    }
+    $requete = htmlspecialchars($_GET['barre']);
     $query = $db->query("SELECT * FROM professionnels WHERE nom LIKE '$requete%' ORDER BY nom");
     $nbResultats = $query->rowCount();
     if($nbResultats !=0){
         $html[] = '<meta charset="UTF-8">';
-        $html[] = '<h2>Résultat de votre recherche.</h2>';
-        $html[] = '<p>Nous avons trouvé '.$nbResultats;
+        $html[] = '<h2 >Résultat de votre recherche:</h2>';
+        $html[] = '<p style="border-bottom: solid 1px lightgrey; padding: 1%">Nous avons trouvé '.$nbResultats;
         $html[] =  $nbResultats > 1 ? ' résultats' : ' résultat'.' dans notre base de données. Voici le(s) médedecin(s) que nous avons trouvé(s) :<br/>';
-            while($données = $query->fetch(PDO::FETCH_ASSOC)){
-                $html[] =  '<a href="medecin.php?id='.$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a>';
+        while($données = $query->fetch(PDO::FETCH_ASSOC)){
+            $id=$données['id'];
+            $adresse[] = $données['adresse'];
+            $info[] = $données['prenom'].' '.$données['nom'];
+            $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
+            $horaire = $query2->fetchAll();
+            $html[] =  '<div style="float:left;padding:1%"> ';
+            $html[] =  '<h4><u><a href="../medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
+            $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$données['adresse'].'</p>';
+            if($horaire[0][$jour]) {
+                $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Ouvert aujourd\' hui de '. $horaire[0][$jour] . '</p>';
+            }else{
+                $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
             }
+            $html[] =  '<p>'.$données['nbre_pers'].' personnes dans la salle d\'attente</p>';
+            $html[] =  '</div> ';
+
+        }
     }else{
         $html[] = 'Désolé, aucune concordance trouvée dans notre base de données.';
     }
+    $_POST['adresseMed'] = json_encode($adresse);
+    $_POST['info'] = json_encode($info);
     echo implode('',$html);
 }
 
@@ -121,7 +259,7 @@ function login()
     } catch (PDOException $e) {
         printf('Erreur' . $e->getMessage());
     }
-    $req = $db->query('select nom,prenom,semence,mdp,telephone,email,group_concat(id_profil separator "," ) as profilid from utilisateurs left join profil_utilisateur on id_utilisateur=utilisateurs.id where email="'.$_POST['email'].'" group by utilisateurs.id');
+    $req = $db->query('select id,nom,prenom,semence,mdp,telephone,email,group_concat(id_profil separator "," ) as profilid from utilisateurs left join profil_utilisateur on id_utilisateur=utilisateurs.id where email="'.$_POST['email'].'" group by utilisateurs.id');
     $retour = $req->fetchAll(PDO::FETCH_ASSOC);
     $profilId = array();
     foreach ($retour as $key => $value) {
@@ -151,11 +289,20 @@ function login()
     }
     if (isset($retour[0])) {
         $mdp = md5($retour[0]['semence'] . $_POST['mdp']);
+        $tabFavoris=array();
         if ($retour[0]['mdp'] == $mdp) {
             $_SESSION['user'] = $retour;
+            $idUser = $_SESSION['user'][0]['id'];
+            $req2 = $db->query("select idPro from favoris where idUtilisateur ='$idUser'");
+            $favoris =  $req2->fetchAll(PDO::FETCH_ASSOC);
+            foreach($favoris as $key=>$value){
+                foreach($value as $k=>$v){
+                    $tabFavoris[]=$v;
+                }
+            }
+            $_SESSION['user']['favoris'] = $tabFavoris;
             genereStatuts();
-            header('Location: ../site/index.php');
-
+            header('Location: ../index.php');
         }else {
             echo 'Connexion refusée';
         }
@@ -180,16 +327,16 @@ function newRegister(){
     $req1 = $db->prepare('INSERT INTO utilisateurs (nom, prenom, semence, mdp, telephone, dateCreation, email) VALUES (:nom, :prenom, :semence, :mdp, :telephone, :dateCreation, :email)');
     $req2 = $db->prepare('INSERT INTO profil_utilisateur (id_utilisateur, id_profil) VALUES (:id_utilisateur, :id_profil)');
     if($req1->execute(array(
-        'nom' => $_POST['nom'],
-        'prenom' => $_POST['prenom'],
-        'semence' => $semence,
-        'mdp' => $mdp,
-        'telephone' => $_POST['telephone'],
-        'dateCreation' => $date,
-        'email' => $_POST['mail']
-    )) &&$req2->execute(array(
-        'id_utilisateur' => $db->lastInsertId(),
-        'id_profil' => '2'
+            'nom' => $_POST['nom'],
+            'prenom' => $_POST['prenom'],
+            'semence' => $semence,
+            'mdp' => $mdp,
+            'telephone' => $_POST['telephone'],
+            'dateCreation' => $date,
+            'email' => $_POST['mail']
+        )) &&$req2->execute(array(
+            'id_utilisateur' => $db->lastInsertId(),
+            'id_profil' => '2'
         ))){
         echo '<meta charset="UTF-8">Inscription réussie';
     }else{
@@ -209,6 +356,16 @@ function traiteRequete($rq){
     switch($rq){
         case 'form_register': $envoi['formInscription'] = chargeTemplate($rq);
     }
+
+}
+
+function updateAccount(){
+    $mdp=md5($_SESSION['user'][0]['semence'].$_POST['mdp']);
+    if($mdp==$_SESSION['user'][0]['mdp']){
+    }else{
+
+    }
+
 
 }
 

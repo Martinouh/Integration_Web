@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rom
- * Date: 14/11/2016
- * Time: 20:42
- */
 session_start();
-include '../php/Fonctions.php';
+include '/php/Fonctions.php';
 ?>
 
 <html>
@@ -63,7 +57,7 @@ include '../php/Fonctions.php';
                 <h1>
                      Mettre mon profil à jour:
                 </h1>
-        <form action="../php/traiteForm.php" method="post" id="formUpdate">
+        <form action="php/traiteForm" method="post" id="formUpdate">
             <label for="nom">Nom </label>
             <input id="nom" name="nom" required type="text"value="<?php echo $_SESSION['user'][0]['nom']?>"><br>
             <label for="prenom">Prénom </label>
@@ -80,4 +74,3 @@ include '../php/Fonctions.php';
 
 </body>
 </html>
-

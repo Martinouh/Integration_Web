@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rom
- * Date: 12/11/2016
- * Time: 17:50
- */
 session_start();
-include '../php/Fonctions.php';
+include './php/Fonctions.php';
 if(!isset($_SESSION['is'])) {
     anonyme();
 }
@@ -64,8 +58,8 @@ if(!isset($_SESSION['is'])) {
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.php" id="divSiteTitle">E.W.R</a><br />
-                        <a href="index.php" id="divTagLine">Easy Waiting Room</a>
+                        <a href="index" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -98,9 +92,9 @@ if(!isset($_SESSION['is'])) {
                     <div id="headerSeparator"></div>
 
                     <div id="divHeaderText" class="page-content">
-                        <div id="divHeaderLine1">Bienvenue sur Easy Waiting Room.</div><br />
-                        <div id="divHeaderLine2">Trouvez rapidement la salle d'attente qui vous convient!</div><br />
-                        <div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="recherche.php">Faire ma recherche</a></div>
+                        <div id="divHeaderLine1">EasyWaitingRoom</div><br />
+                        <div id="divHeaderLine2">Diminuer les files d'attente, augmenter le rendement</div><br />
+                        <div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="recherche">Faire ma recherche</a></div>
                     </div>
 
                     <div id="headerSeparator2"></div>
@@ -125,17 +119,17 @@ if(!isset($_SESSION['is'])) {
 
                 <h1>Bienvenue sur EasyWaitingRoom</h1>
 
-                <p>
-                    Notre produit, vise à faire économiser du temps que des personnes perdraient dans une salle d'attente chez un médecin,
-                    en comptant les allées et venues de malades dans la salle d'attente et en rendant un temps d'attente moyen pour le médecin recherché ou le plus proche de nous.<br/>
-                  Pour utiliser notre produit aucun compte n'est requis sauf si vous voulez prendre un rendez-vous avec un médecin.
+                <p>E.W.R. est une solution pratique pour éviter les files d'attente interminables et attirer les clients lors des baisses de fréquentations.<br>
+                    N'importe quel client saura, en temps réel, l'affluence de votre établissement grâce à notre site internet facile d'accès et simple d'utilisation.<br>
+                    Un système de favori indiquera également les commerces les plus fréquentés possédant le plus petit temps d'attente.<br>
+                    L'objectif d'EasyWaitingRoom est de permettre aux personnes désireuses de se rendre chez un professionnel disposant d'une salle d'attente (médecin, coiffeur, dentiste,...), de pouvoir consulter le nombre de personnes dans celle-ci afin de ne pas perdre de temps.<br>
                 </p>
 
                 <hr style="margin:45px 0 35px" />
 
                 <div class="lead">
-                    <h2>Salles d'attentes partenaires</h2>
-                    <h3>Bientôt la vôtre !?</h3>
+                    <h2>Salles d'attente partenaires</h2>
+                    <h3>Bientôt la vôtre ?</h3>
                 </div>
                 <br />
 
@@ -153,51 +147,6 @@ if(!isset($_SESSION['is'])) {
                         <li><img src="images/salzburg-x.jpg" class="img-polaroid">  </li>
                     </ul>
                 </div>
-
-                <!-- <hr style="margin:45px 0 35px" /> -->
-
-                <!-- <div class="lead">
-                    <h2>Featured Content.</h2>
-                    <h3>Content on this page is for presentation purposes only.</h3>
-                </div>
-                <br />
-
-                <div class="row-fluid">
-                    <div class="span8">
-
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-
-                        <p>
-                            <img src="images/spring-is-coming.jpg" class="img-polaroid" style="margin:12px 0px;">
-                        </p>
-
-                        <p>Content on this page is for presentation purposes only. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-
-                    </div>
-                    <div class="span4 sidebar">
-
-                        <div class="sidebox">
-                            <h3 class="sidebox-title">Sample Sidebar Content</h3>
-                            <p>Lorem Ipsum is simply dummy text of the printing and <a href="#">typesetting industry</a>. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
-                        </div>
-
-                        <br />
-
-                        <div class="sidebox">
-                            <h3 class="sidebox-title">Sample Sidebar Content</h3>
-                            <p>
-                            <div class="input-append">
-                                <input class="span8" id="inpEmail" size="16" type="text"><button class="btn" type="button">Action</button>
-                            </div>
-                            </p>
-                        </div>
-
-                    </div>
-                </div> -->
-
             </div>
 
         </div>
@@ -218,62 +167,36 @@ if(!isset($_SESSION['is'])) {
             <div class="row-fluid">
                 <div class="span3" id="footerArea1">
 
-                    <h3>About EWR </h3>
-
-                    <!-- <p>
-
-                    </p> -->
-
+                    <h3>À Propos</h3>
                     <p>
                         <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
                         <a href="#" title="Privacy Policy">Vie privée</a><br />
-                        <a href="#" title="FAQ">FAQ</a><br />
-                        <a href="#" title="Sitemap">Sitemap</a>
+                        <a href="#" title="Sitemap">plan d'accès</a>
                     </p>
 
                 </div>
                 <div class="span3" id="footerArea2">
 
-                    <a href="recherche.php"><h3>Recherche</h3></a>
-                    <!-- <p>
-                        <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
-                        <span style="text-transform:none;">2 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
-                        <span style="text-transform:none;">5 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
-                        <span style="text-transform:none;">19 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">VIEW ALL POSTS</a>
-                    </p> -->
-
+                    <a href="recherche"><h3>Recherche</h3></a>
                 </div>
                 <div class="span3" id="footerArea3">
-
-                    <a href="about.php"><h3>Meet the Team</h3></a>
-                    <!-- <p>
-                    </p> -->
+                    <a href="#"><h3>Fonctionnement</h3></a>
                 </div>
                 <div class="span3" id="footerArea4">
 
-                    <h3>Get in Touch</h3>
-
+                    <h3>Nous contacter </h3>
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>
-                            <span class="field">Phone:</span>
-                            <br />
+                            <span class="field">Téléphone:</span>
+                            <br >
                             (+32) 479798123
                         </li>
                         <li>
                             <i class="general foundicon-mail icon"></i>
                             <span class="field">Email:</span>
                             <br />
-                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
+                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
                         </li>
                         <li>
                             <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
@@ -292,7 +215,7 @@ if(!isset($_SESSION['is'])) {
             <div class="row-fluid">
                 <div class="span12">
                     <p class="copyright">
-                        Copyright © 2016 EasyWaitingRoom. All Rights Reserved.
+                        Copyright © 2016 EasyWaitingRoom. Tous droits réservés .
                     </p>
 
                     <p class="social_bookmarks">

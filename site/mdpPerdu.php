@@ -6,10 +6,7 @@ include './php/Fonctions.php';
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Rechercher un professionnel</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>Connexion</title>
 
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -27,35 +24,7 @@ include './php/Fonctions.php';
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
     <script src="scripts/jquery.min.js"></script>
-    <style>
-        #searchIcon{
-            width:3%;
-            margin-bottom: .8%;
-        }
-        #searchIcon:focus{
-            outline: none;
-        }
-        #suggestions{
-            margin-top: 5%;
-            display: none;
-        }
-    </style>
-    <script>
-        function showHint(hint){
-            $.get("./php/getHint.php?q=" + hint, function (data) {
-                if(data) {
-                    $('#suggestions').remove();
-                    $('#searchIcon').after('<div id="suggestions"></div>');
-                    $('#suggestions').fadeIn().html('<h2>Suggestions:</h2></br>' + data);
-                }else{
-                    $('#suggestions').fadeOut();
-                    $('#suggestions').remove();
-
-                }
-            });
-        }
-    </script>
-
+    <script src="scripts/custom.js"></script>
 </head>
 <body id="pageBody">
 <div id="decorative2">
@@ -76,7 +45,7 @@ include './php/Fonctions.php';
                             </button>
                             <div class="nav-collapse collapse">
                                 <ul class="nav nav-pills ddmenu">
-                                    <?php echo genereMenu('recherche') ?>
+                                    <?php echo genereMenu('connexion')?>
                                 </ul>
                             </div>
                         </div>
@@ -90,91 +59,83 @@ include './php/Fonctions.php';
 <div class="container">
     <div class="divPanel page-content">
         <div class="breadcrumbs">
-            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Recherche</span>
+            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Récupération de mot de passe</span>
         </div>
-        <div id="textSearch">
-            <p style ='text-align:center' ><h1 style ='text-align:center' >Recherche du professionel</h1></p>
-        </div>
-        <div id="searchBarDiv">
-            <form action="resultatRecherche.php" method="get">
-                <input type="text" name="barre" id="searchBar" placeholder="recherche..." onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image"/>
+        <div id="content">
+            <form id="formMdpPerdu" method="post" action="php/traiteForm.php" onsubmit="mdpPerdu()">
+                <h1>Récupérer mon mot de passe</h1>
+                <input id="email" type="email" name="email"  placeholder="Email associée à votre compte"><br>
+                <input  name="mdpPerdu_submit" type="submit" value="Envoyer">
             </form>
         </div>
     </div>
 </div>
 
-<!-- Fix footer ligne blanche bug -->
-<div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-</div>
-
 <div id="footerOuterSeparator"></div>
-
 <div id="divFooter" class="footerArea">
-
     <div class="container">
-
         <div class="divPanel">
-
             <div class="row-fluid">
                 <div class="span3" id="footerArea1">
-
-                    <h3>À Propos</h3>
+                    <h3>About EWR </h3>
                     <p>
                         <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
                         <a href="#" title="Privacy Policy">Vie privée</a><br />
-                        <a href="#" title="Sitemap">plan d'accès</a>
+                        <a href="#" title="FAQ">FAQ</a><br />
+                        <a href="#" title="Sitemap">Sitemap</a>
                     </p>
-
                 </div>
                 <div class="span3" id="footerArea2">
+                    <a href="recherche.php"><h3>Recherche</h3></a>
+                    <!-- <p>
+                    <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
+                                    <span style="text-transform:none;">2 hours ago</span>
+                                </p>
+                                <p>
+                                    <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
+                                    <span style="text-transform:none;">5 hours ago</span>
+                                </p>
+                                <p>
+                                    <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
+                                    <span style="text-transform:none;">19 hours ago</span>
+                                </p>
+                                <p>
+                                    <a href="#" title="">VIEW ALL POSTS</a>
+                                </p> -->
 
-                    <a href="recherche"><h3>Recherche</h3></a>
                 </div>
                 <div class="span3" id="footerArea3">
                     <a href="#"><h3>Fonctionnement</h3></a>
                 </div>
                 <div class="span3" id="footerArea4">
-
-                    <h3>Nous contacter </h3>
+                    <h3>Get in Touch</h3>
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>
-                            <span class="field">Téléphone:</span>
-                            <br >
-                            (+32) 479798123
+                            <span class="field">Phone:</span>
+                            <br />(+32) 479798123
                         </li>
                         <li>
                             <i class="general foundicon-mail icon"></i>
-                            <span class="field">Email:</span>
-                            <br />
-                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
+                            <span class="field">Email:</span><br />
+                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
                         </li>
                         <li>
                             <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
-                            <span class="field">Adresse:</span>
-                            <br />
+                            <span class="field">Adresse:</span><br />
                             Avenue du Ciseau, 15<br />
                             1348, Ottignies-Louvain-la-Neuve<br />
                             Belgique
                         </li>
                     </ul>
-
                 </div>
             </div>
-
             <br /><br />
             <div class="row-fluid">
                 <div class="span12">
                     <p class="copyright">
-                        Copyright © 2016 EasyWaitingRoom. Tous droits réservés .
+                        Copyright © 2016 EasyWaitingRoom. All Rights Reserved.
                     </p>
-
                     <p class="social_bookmarks">
                         <a href="#"><i class="social foundicon-facebook"></i> Facebook</a>
                         <a href=""><i class="social foundicon-twitter"></i> Twitter</a>
@@ -184,11 +145,8 @@ include './php/Fonctions.php';
                 </div>
             </div>
             <br />
-
         </div>
-
     </div>
-
 </div>
 
 <script src="scripts/jquery.min.js" type="text/javascript"></script>
@@ -198,6 +156,6 @@ include './php/Fonctions.php';
 
 <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
 
-
 </body>
+
 </html>
