@@ -92,8 +92,8 @@ if(!isset($_SESSION['is'])) {
                     <div id="headerSeparator"></div>
 
                     <div id="divHeaderText" class="page-content">
-                        <div id="divHeaderLine1">Bienvenue sur Easy Waiting Room.</div><br />
-                        <div id="divHeaderLine2">Trouvez rapidement la salle d'attente qui vous convient!</div><br />
+                        <div id="divHeaderLine1">EasyWaitingRoom</div><br />
+                        <div id="divHeaderLine2">Diminuer les files d'attente, augmenter le rendement</div><br />
                         <div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="recherche">Faire ma recherche</a></div>
                     </div>
 
@@ -119,7 +119,9 @@ if(!isset($_SESSION['is'])) {
 
                 <h1>Bienvenue sur EasyWaitingRoom</h1>
 
-                <p>
+                <p>E.W.R. est une solution pratique pour éviter les files d'attente interminables et attirer les clients lors des baisses de fréquentations.<br>
+                    N'importe quel client saura, en temps réel, l'affluence de votre établissement grâce à notre site internet facile d'accès et simple d'utilisation.<br>
+                    Un système de favori indiquera également les commerces les plus fréquentés possédant le plus petit temps d'attente.<br>
                     L'objectif d'EasyWaitingRoom est de permettre aux personnes désireuses de se rendre chez un professionnel disposant d'une salle d'attente (médecin, coiffeur, dentiste,...), de pouvoir consulter le nombre de personnes dans celle-ci afin de ne pas perdre de temps.<br>
                 </p>
 
