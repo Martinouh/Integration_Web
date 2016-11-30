@@ -10,7 +10,7 @@ include './php/Fonctions.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <!-- Icons -->
@@ -144,6 +144,9 @@ include './php/Fonctions.php';
                 <div class="span3" id="footerArea2">
 
                     <a href="recherche"><h3>Recherche</h3></a>
+                </div>
+                <div class="span3" id="footerArea3">
+                    <a href="#"><h3>Fonctionnement</h3></a>
                 </div>
                 <div class="span3" id="footerArea4">
 

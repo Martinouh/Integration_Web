@@ -225,7 +225,7 @@ function search(){
             $horaire = $query2->fetchAll();
             $adresse[] = $données['adresse'];
             $html[] =  '<div style="float:left;padding:1%"> ';
-            $html[] =  '<h4><u><a href="../site/medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
+            $html[] =  '<h4><u><a href="../medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
             $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$données['adresse'].'</p>';
             if($horaire[0][$jour]) {
                 $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Ouvert aujourd\' hui de '. $horaire[0][$jour] . '</p>';

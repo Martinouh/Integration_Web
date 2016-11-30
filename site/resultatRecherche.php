@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rom
- * Date: 29/11/2016
- * Time: 18:49
- */
 session_start();
 include 'php/Fonctions.php';
 ?>
@@ -141,6 +135,9 @@ include 'php/Fonctions.php';
                 <div class="span3" id="footerArea2">
 
                     <a href="recherche"><h3>Recherche</h3></a>
+                </div>
+                <div class="span3" id="footerArea3">
+                    <a href="#"><h3>Fonctionnement</h3></a>
                 </div>
                 <div class="span3" id="footerArea4">
 

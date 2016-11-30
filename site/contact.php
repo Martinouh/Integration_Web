@@ -187,6 +187,9 @@ include './php/Fonctions.php';
 
                     <a href="recherche"><h3>Recherche</h3></a>
                 </div>
+                <div class="span3" id="footerArea3">
+                    <a href="#"><h3>Fonctionnement</h3></a>
+                </div>
                 <div class="span3" id="footerArea4">
 
                     <h3>Nous contacter </h3>

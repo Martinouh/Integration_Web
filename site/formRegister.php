@@ -115,7 +115,7 @@ include './php/Fonctions.php';
 
                 </div>
                 <div class="span3" id="footerArea3">
-                    <a href="about"><h3>Meet the Team</h3></a>
+                    <a href="#"><h3>Fonctionnement</h3></a>
                 </div>
                 <div class="span3" id="footerArea4">
                     <h3>Get in Touch</h3>
