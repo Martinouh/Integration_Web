@@ -54,15 +54,6 @@ include './php/Fonctions.php';
                 }
             });
         }
-/*        function getResults(){
-            event.preventDefault();
-            $('#suggestions').remove();
-            var requete = $('#searchBar').val();
-            $.get("./php/traiteForm.php?rq=search&requete="+requete,function(data){
-                $('#searchBarDiv').after('<div id="suggestions"></div>');
-                $('#suggestions').fadeIn().html(data);
-            });
-        }/*
     </script>
 
 </head>
@@ -106,7 +97,7 @@ include './php/Fonctions.php';
         </div>
         <div id="searchBarDiv">
             <form action="resultatRecherche.php" method="get">
-                <input type="text" name="barre" id="searchBar" placeholder="recherche..." onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image" onclick="getResults()"/>
+                <input type="text" name="barre" id="searchBar" placeholder="recherche..." onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image"/>
             </form>
         </div>
     </div>

@@ -28,8 +28,6 @@ include 'php/Fonctions.php';
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
     <script src="scripts/jquery.min.js"></script>
-
-
 </head>
 <body id="pageBody">
 <div id="decorative2">
@@ -74,14 +72,18 @@ include 'php/Fonctions.php';
 
         function myMap() {
             var myArray = <?php echo $_POST['adresseMed'];?>;
+            var myArray2 = <?php echo $_POST['info'];?>;
             var mapCanvas = document.getElementById("map");
             var mapOptions = {
                 center: new google.maps.LatLng(50.4669,4.86746),
-                zoom: 8
+                zoom: 9
             };
             var map = new google.maps.Map(mapCanvas, mapOptions);
             var geocoder = new google.maps.Geocoder();
             for(i=0;i<myArray.length;i++) {
+                var infowindow = new google.maps.InfoWindow({
+                    content: myArray2[i]
+                });
                 geocoder.geocode({address: myArray[i]}, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         var marker = new google.maps.Marker(
@@ -89,13 +91,66 @@ include 'php/Fonctions.php';
                                 map: map,
                                 position: results[0].geometry.location
                             });
+                        google.maps.event.addListener(marker, 'click', function() {
+                            map.setZoom(11);
+                            map.setCenter(marker.getPosition());
+
+                        });
+                        google.maps.event.addListener(marker, 'mouseover', function() {
+                            infowindow.open(map,marker);
+                        });
+                        google.maps.event.addListener(marker, 'mouseout', function() {
+                            infowindow.close(map,marker);
+                        });
+
                     } else {
                         alert('Geocode was not successful for the following reason: ' + status);
                     }
                 });
             }
+            var marker = new google.maps.Marker(
+                {
+                    map: map,
+                    animation: google.maps.Animation.BOUNCE
+            });
 
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var infoWindow = new google.maps.InfoWindow(
+                        {
+                            content: '<div style="width:100%;min-height: 10px">Votre position.</div>'
+                        });
+                    marker.setPosition(pos);
+                    map.setCenter(pos);
+                    google.maps.event.addListener(marker, 'mouseover', function() {
+                        infoWindow.open(map,marker);
+                    });
+                    google.maps.event.addListener(marker, 'mouseout', function() {
+                        infoWindow.close(map,marker);
+                    });
+
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
         }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+        }
+
+
 
     </script>
 

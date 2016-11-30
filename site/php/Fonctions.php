@@ -202,6 +202,7 @@ function search(){
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
     $html = array();
+    $info = array();
     $adresse = array();
     $jour=date('N');
     try {
@@ -221,9 +222,10 @@ function search(){
         $html[] =  $nbResultats > 1 ? ' résultats' : ' résultat'.' dans notre base de données. Voici le(s) médedecin(s) que nous avons trouvé(s) :<br/>';
         while($données = $query->fetch(PDO::FETCH_ASSOC)){
             $id=$données['id'];
+            $adresse[] = $données['adresse'];
+            $info[] = $données['prenom'].' '.$données['nom'];
             $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
             $horaire = $query2->fetchAll();
-            $adresse[] = $données['adresse'];
             $html[] =  '<div style="float:left;padding:1%"> ';
             $html[] =  '<h4><u><a href="../medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
             $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$données['adresse'].'</p>';
@@ -240,7 +242,7 @@ function search(){
         $html[] = 'Désolé, aucune concordance trouvée dans notre base de données.';
     }
     $_POST['adresseMed'] = json_encode($adresse);
-    echo $_POST['adresseMed'];
+    $_POST['info'] = json_encode($info);
     echo implode('',$html);
 }
 
