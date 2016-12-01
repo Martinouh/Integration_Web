@@ -34,6 +34,10 @@ if(!isset($_SESSION['is'])) {
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
     <script src="scripts/jquery.min.js"></script>
+    <!-- CDN for datetimepicker -->
+    <link rel="stylesheet" type="text/css" href="js/datetimepicker/jquery.datetimepicker.css"/ >
+    <script src="js/datetimepicker/jquery.js"></script>
+    <script src="js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
     <style>
         #searchIcon{
             width:3%;
@@ -52,11 +56,6 @@ if(!isset($_SESSION['is'])) {
             $('#datetimepicker').datetimepicker();
         });
     </script>
-    <!-- CDN for datetimepicker -->
-    <link rel="stylesheet" type="text/css" href="../js/datetimepicker/jquery.datetimepicker.css"/ >
-    <script src="../js/datetimepicker/jquery.js"></script>
-    <script src="../js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
-
 </head>
 <body>
 <div id="decorative2">
