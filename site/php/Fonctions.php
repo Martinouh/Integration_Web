@@ -381,11 +381,16 @@ function soumissionRDV(){
         printf('Erreur'. $e->getMessage());
     }
     $doctor_name=$_POST['doctor-name'];
-    $doc_id = $db->query("SELECT id FROM professionnels WHERE nom LIKE '$doctor_name'");
+    $req_doc_id = $db->prepare("SELECT id FROM professionnels WHERE nom LIKE '%:name%' ");
+    $req_doc_id->bindParam(':name',$doctor_name, PDO::PARAM_STR);
+    $req_doc_id->execute();
+    $doc_id = $req_doc_id->fetch(PDO::FETCH_ASSOC);
 //    $doc_mail = $db->query("SELECT mail FROM professionnels WHERE nom LIKE '$doctor_name'");
     $doc_mail = "francois2401@gmail.com";
-    $myTime = strtotime($_POST['appointment-date']);
-    $rdv_date= date("Y-m-d H:i:s", $myTime);
+    print_r($doc_id);
+//    $myTime = strtotime($_POST['appointment-date']);
+//    $rdv_date= date("Y-m-d H:i:s", $myTime);
+    $rdv_date= $_POST['appointment-date'];
     $email_client=$_POST['email-client'];
     $objet=$_POST['objet'];
     $message=$_POST['message'];

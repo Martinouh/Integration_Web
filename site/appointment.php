@@ -34,10 +34,6 @@ if(!isset($_SESSION['is'])) {
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
     <script src="scripts/jquery.min.js"></script>
-    <!-- CDN for datetimepicker -->
-    <link rel="stylesheet" type="text/css" href="js/datetimepicker/jquery.datetimepicker.css"/ >
-    <script src="js/datetimepicker/jquery.js"></script>
-    <script src="js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
     <style>
         #searchIcon{
             width:3%;
@@ -51,11 +47,10 @@ if(!isset($_SESSION['is'])) {
             display: none;
         }
     </style>
-    <script>
-        $( document ).ready( function() {
-            $('#datetimepicker').datetimepicker();
-        });
-    </script>
+
+    <!-- CDN for datetimepicker -->
+    <link rel="stylesheet" type="text/css" href="https://github.com/xdan/datetimepicker/jquery.datetimepicker.css"/ >
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
 <div id="decorative2">
@@ -90,26 +85,27 @@ if(!isset($_SESSION['is'])) {
     </div>
 </div>
     <div class="container">
-
-        <div class="breadcrumbs">
-            <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Prendre rendez-vous</span>
-        </div>
-        <div id="content">
-            <form id="formAppointment" method="post" action="../php/traiteForm.php">
-                <h1>Prendre un rendez-vous</h1>
-                <label for="doctor-name">Nom du Docteur : </label>
-                <input id="doctor-name" type="text" name="doctor-name"  placeholder="Quel docteur souhaitez-vous rencontrer ?"><br>
-                <label for="appointment-date">Date souhaitée : </label>
-                <input id="datetimepicker" type="text" name="appointment-date"  placeholder="Date souhaitée pour le rendez-vous"><br>
-                <label for="email-client">Votre adresse e-mail: </label>
-                <input id="email-client" type="text" name="email-client"  placeholder="Pour vous contacter"><br>
-                <label for="objet">Objet du rendez-vous : </label>
-                <input id="objet" type="text" name="objet"  placeholder="Objet du rendez-vous"><br>
-                <label for="message">Message : </label>
-                <textarea id="message" name="message"  placeholder="Message, remarques, commentaires, ..." rows="4"></textarea><br>
-                <input id="soumettre-rdv" name="soumettre-rdv" type="submit" value="Soumettre" class="btn btn-inverse" >
-                <input type="reset" value="Annuler" class="btn btn-danger">
-            </form>
+        <div class="divPanel page-content">
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Prendre rendez-vous</span>
+            </div>
+            <div id="content">
+                <form id="formAppointment" method="post" action="php/traiteForm.php">
+                    <h1>Prendre un rendez-vous</h1>
+                    <label for="doctor-name">Nom du Docteur : </label>
+                    <input id="doctor-name" type="text" name="doctor-name"  placeholder="Quel docteur souhaitez-vous rencontrer ?"><br>
+                    <label for="appointment-date">Date souhaitée : </label>
+                    <input id="datetimepicker" type="text" name="appointment-date"  placeholder="Date souhaitée pour le rendez-vous"><br>
+                    <label for="email-client">Votre adresse e-mail: </label>
+                    <input id="email-client" type="text" name="email-client"  placeholder="Pour vous contacter"><br>
+                    <label for="objet">Objet du rendez-vous : </label>
+                    <input id="objet" type="text" name="objet"  placeholder="Objet du rendez-vous"><br>
+                    <label for="message">Message : </label>
+                    <textarea id="message" name="message"  placeholder="Message, remarques, commentaires, ..." rows="4"></textarea><br>
+                    <input id="soumettre-rdv" name="soumettre-rdv" type="submit" value="Soumettre" class="btn btn-inverse" >
+                    <input type="reset" value="Annuler" class="btn btn-danger">
+                </form>
+            </div>
         </div>
     </div>
 
@@ -201,11 +197,20 @@ if(!isset($_SESSION['is'])) {
 
 </div>
 
-<script src="scripts/jquery.min.js" type="text/javascript"></script>
 <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="scripts/default.js" type="text/javascript"></script>
 
 
 <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
+<script>
+    $( document ).ready( function() {
+        $('#datetimepicker').datepicker();
+    });
+
+</script>
 </body>
+</html>
