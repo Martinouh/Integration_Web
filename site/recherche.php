@@ -97,7 +97,7 @@ include './php/Fonctions.php';
         </div>
         <div id="searchBarDiv">
             <form action="resultatRecherche.php" method="get">
-                <input type="text" name="barre" id="searchBar" placeholder="recherche..." onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image"/>
+                <input type="text" name="barre" id="searchBar" placeholder="Ecrire ici le nom du professionel" onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image"/>
             </form>
         </div>
     </div>
