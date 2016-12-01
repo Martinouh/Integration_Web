@@ -381,32 +381,35 @@ function soumissionRDV(){
         printf('Erreur'. $e->getMessage());
     }
     $doctor_name=$_POST['doctor-name'];
+    $doc_id = $db->query("SELECT id FROM professionnels WHERE nom LIKE '$doctor_name'");
+//    $doc_mail = $db->query("SELECT mail FROM professionnels WHERE nom LIKE '$doctor_name'");
+    $doc_mail = "francois2401@gmail.com";
     $myTime = strtotime($_POST['appointment-date']);
     $rdv_date= date("Y-m-d H:i:s", $myTime);
     $email_client=$_POST['email-client'];
     $objet=$_POST['objet'];
     $message=$_POST['message'];
 
-    $req = $db->prepare('INSERT INTO rdv (doctor_name, rdv_date, email_client,objet,message) VALUES (:doctor_name, :rdv_date, :email_client, :objet, :message)');
+    $req = $db->prepare('INSERT INTO rdv (date,id_utilisateur,id_professionnel) VALUES (:date,:id_utilisateur :id_professionnel)');
     if($req->execute(array(
-            'doctor_name' => $doctor_name,
-            'rdv_date' => $rdv_date,
-            'email_client' => $email_client,
-            'objet' => $objet,
-            'message' => $message
+            'date' => $rdv_date,
+//            'id_utilisateur' => $_SESSION['user'][0]['id'],
+            'id_utilisateur' => 25,
+            'id_professionnel' => $doc_id
         ))){
         echo '<meta charset="UTF-8">Demande de rendez-vous soumise.';
-        $to = "example@example.com";
-        $subject = 'le sujet';
-        $msg = 'Bonjour !';
-        $headers = 'From: example@example.com' . "\r\n" .
-            'Reply-To: example@example.com' . "\r\n" .
+        $to = $doc_mail;
+        $subject = $objet;
+        $msg = $message;
+        $headers = 'From: '.$email_client. "\r\n" .
+            'Reply-To: '. $email_client . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
-        mail($to, $subject, $msg,$headers);
+        if(mail($to, $subject, $msg,$headers)) {
+            header('Location: appointment.php');
+        }
     }else{
         echo 'Erreur';
     }
-
 }
 
 ?>
