@@ -6,7 +6,7 @@
 	$query = $_POST['message'];
 	$email_from = $name.'<'.$email.'>';
 
- $to="martinouh@gmail.com";
+ $to="contact@easywaitingroom.be";
  $subject="Enquiry!";
  $headers  = 'MIME-Version: 1.0' . "\r\n";
  $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -25,10 +25,10 @@
    ";
 
 	if(mail($to,$subject,$message,$headers)){
-		header("Location:../contact.php?msg=Message envoyé! Merci de nous avoir contacté.");
+		header("Location:../contact?msg=Message envoyé! Merci de nous avoir contacté.");
     }
 	else{
-		header("Location:../contact.php?msg=Erreur lors de l'envoi du message!");
+		header("Location:../contact?msg=Erreur lors de l'envoi du message!");
         //contact:-your-email@your-domain.com
     }
 
