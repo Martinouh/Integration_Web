@@ -1,3 +1,7 @@
+﻿<?php
+session_start();
+include './php/Fonctions.php';
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
