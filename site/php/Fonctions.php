@@ -223,7 +223,7 @@ function search(){
         while($données = $query->fetch(PDO::FETCH_ASSOC)){
             $id=$données['id'];
             $adresse[] = $données['adresse'];
-            $info[] = $données['prenom'].' '.$données['nom'].'<br>'.$données['nbre_pers'];
+            $info[] = $données['prenom'].' '.$données['nom'].'<br>'.$données['nbre_pers'].'personne(s) dans la salle';
             $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
             $horaire = $query2->fetchAll();
             $html[] =  '<div style="float:left;padding:1%"> ';
