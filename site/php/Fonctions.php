@@ -213,7 +213,7 @@ function search(){
         printf('Erreur'. $e->getMessage());
     }
     $requete = htmlspecialchars($_GET['barre']);
-    if($requete = ''){
+    if($requete == ''){
         $query = $db->query("SELECT * FROM professionnels");
         $nbResultats = $query->rowCount();
         if($nbResultats !=0){
