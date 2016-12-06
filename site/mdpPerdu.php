@@ -6,7 +6,10 @@ include './php/Fonctions.php';
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Connexion</title>
+    <title>Mot de passe perdu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -62,13 +65,23 @@ include './php/Fonctions.php';
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Récupération de mot de passe</span>
         </div>
         <div id="content">
-            <form id="formMdpPerdu" method="post" action="php/traiteForm.php" onsubmit="mdpPerdu()">
+            <form id="formMdpPerdu" method="post" action="php/traiteForm" onsubmit="mdpPerdu()">
                 <h1>Récupérer mon mot de passe</h1>
                 <input id="email" type="email" name="email"  placeholder="Email associée à votre compte"><br>
                 <input  name="mdpPerdu_submit" type="submit" value="Envoyer">
             </form>
         </div>
     </div>
+</div>
+
+<!-- Fix footer ligne blanche bug -->
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
 
 <div id="footerOuterSeparator"></div>
