@@ -23,10 +23,14 @@
 		 $query
 
    ";
-	if(mail($to,$subject,$message,$headers))
+
+	if(mail($to,$subject,$message,$headers)){
 		header("Location:../contact.php?msg=Message envoyé! Merci de nous avoir contacté.");
-	else
+    }
+	else{
 		header("Location:../contact.php?msg=Erreur lors de l'envoi du message!");
-		//contact:-your-email@your-domain.com
+        //contact:-your-email@your-domain.com
+    }
+
  }
 ?>
