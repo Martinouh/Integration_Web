@@ -213,72 +213,37 @@ function search(){
         printf('Erreur'. $e->getMessage());
     }
     $requete = htmlspecialchars($_GET['barre']);
-    if($requete == ''){
-        $query = $db->query("SELECT * FROM professionnels");
-        $nbResultats = $query->rowCount();
-        if($nbResultats !=0){
-            $html[] = '<meta charset="UTF-8">';
-            $html[] = '<h2 >Résultat de votre recherche:</h2>';
-            $html[] = '<p style="border-bottom: solid 1px lightgrey; padding: 1%">Nous avons trouvé '.$nbResultats;
-            $html[] =  $nbResultats > 1 ? ' résultats' : ' résultat'.' dans notre base de données. Voici le(s) médedecin(s) que nous avons trouvé(s) :<br/>';
-            while($données = $query->fetch(PDO::FETCH_ASSOC)){
-                $id=$données['id'];
-                $adresse[] = $données['adresse'];
-                $info[] = $données['prenom'].' '.$données['nom'].'<br>'.$données['nbre_pers'].'personne(s) dans la salle';
-                $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
-                $horaire = $query2->fetchAll();
-                $html[] =  '<div style="float:left;padding:1%"> ';
-                $html[] =  '<h4><u><a href="../medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
-                $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$données['adresse'].'</p>';
-                if($horaire[0][$jour]) {
-                    $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Ouvert aujourd\' hui de '. $horaire[0][$jour] . '</p>';
-                }else{
-                    $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
-                }
-                $html[] =  '<p>'.$données['nbre_pers'].' personnes dans la salle d\'attente</p>';
-                $html[] =  '</div> ';
-
+    $query = $db->query("SELECT * FROM professionnels WHERE nom LIKE '$requete%' ORDER BY nom");
+    $nbResultats = $query->rowCount();
+    if($nbResultats !=0){
+        $html[] = '<meta charset="UTF-8">';
+        $html[] = '<h2 >Résultat de votre recherche:</h2>';
+        $html[] = '<p style="border-bottom: solid 1px lightgrey; padding: 1%">Nous avons trouvé '.$nbResultats;
+        $html[] =  $nbResultats > 1 ? ' résultats' : ' résultat'.' dans notre base de données. Voici le(s) médedecin(s) que nous avons trouvé(s) :<br/>';
+        while($données = $query->fetch(PDO::FETCH_ASSOC)){
+            $id=$données['id'];
+            $adresse[] = $données['adresse'];
+            $info[] = $données['prenom'].' '.$données['nom'].'<br>'.$données['nbre_pers'].' personne(s) dans la salle';
+            $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
+            $horaire = $query2->fetchAll();
+            $html[] =  '<div style="float:left;padding:1%"> ';
+            $html[] =  '<h4><u><a href="../medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
+            $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$données['adresse'].'</p>';
+            if($horaire[0][$jour]) {
+                $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Ouvert aujourd\' hui de '. $horaire[0][$jour] . '</p>';
+            }else{
+                $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
             }
-        }else{
-            $html[] = 'Désolé, aucune concordance trouvée dans notre base de données.';
+            $html[] =  '<p>'.$données['nbre_pers'].' personnes dans la salle d\'attente</p>';
+            $html[] =  '</div> ';
+
         }
-        $_POST['adresseMed'] = json_encode($adresse);
-        $_POST['info'] = json_encode($info);
-        echo implode('',$html);
     }else{
-        $query = $db->query("SELECT * FROM professionnels WHERE nom LIKE '$requete%' ORDER BY nom");
-        $nbResultats = $query->rowCount();
-        if($nbResultats !=0){
-            $html[] = '<meta charset="UTF-8">';
-            $html[] = '<h2 >Résultat de votre recherche:</h2>';
-            $html[] = '<p style="border-bottom: solid 1px lightgrey; padding: 1%">Nous avons trouvé '.$nbResultats;
-            $html[] =  $nbResultats > 1 ? ' résultats' : ' résultat'.' dans notre base de données. Voici le(s) médedecin(s) que nous avons trouvé(s) :<br/>';
-            while($données = $query->fetch(PDO::FETCH_ASSOC)){
-                $id=$données['id'];
-                $adresse[] = $données['adresse'];
-                $info[] = $données['prenom'].' '.$données['nom'].'<br>'.$données['nbre_pers'].'personne(s) dans la salle';
-                $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
-                $horaire = $query2->fetchAll();
-                $html[] =  '<div style="float:left;padding:1%"> ';
-                $html[] =  '<h4><u><a href="../medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
-                $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$données['adresse'].'</p>';
-                if($horaire[0][$jour]) {
-                    $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Ouvert aujourd\' hui de '. $horaire[0][$jour] . '</p>';
-                }else{
-                    $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
-                }
-                $html[] =  '<p>'.$données['nbre_pers'].' personnes dans la salle d\'attente</p>';
-                $html[] =  '</div> ';
-
-            }
-        }else{
-            $html[] = 'Désolé, aucune concordance trouvée dans notre base de données.';
-        }
-        $_POST['adresseMed'] = json_encode($adresse);
-        $_POST['info'] = json_encode($info);
-        echo implode('',$html);
+        $html[] = 'Désolé, aucune concordance trouvée dans notre base de données.';
     }
-
+    $_POST['adresseMed'] = json_encode($adresse);
+    $_POST['info'] = json_encode($info);
+    echo implode('',$html);
 }
 
 
