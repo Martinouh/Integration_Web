@@ -27,6 +27,10 @@
 		header("Location:../contact.php?msg=Message envoyé! Merci de nous avoir contacté.");
 	else
 		header("Location:../contact.php?msg=Erreur lors de l'envoi du message!");
+        echo $to;
+        echo $subject;
+        echo $message;
+        echo$headers;
 		//contact:-your-email@your-domain.com
  }
 ?>
