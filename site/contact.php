@@ -91,7 +91,7 @@ include './php/Fonctions.php';
                    	<h3 style="color:#FF6633;"><?php echo $_GET[msg];?></h3>
 					<hr>
 			<!--Start Contact form -->
-            <form name="enq" method="post" action="email/" onsubmit="return validation();">
+            <form name="enq" method="post" action="email/index" onsubmit="return validation();">
               <fieldset>
 
                 <input type="text" name="name" id="name" value=""  class="input-block-level" placeholder="Nom" />
