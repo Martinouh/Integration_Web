@@ -14,22 +14,15 @@ include './php/Fonctions.php';
     <link href="scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome.min.css">
-    <link href="scripts/carousel/style.css" rel="stylesheet" type="text/css" />
+
+
+<link href="scripts/carousel/style.css" rel="stylesheet" type="text/css" />
+
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
-
-    <script>
-        if(formRegister.mdp1 != formRegister.mdp2){
-            document.getElementById('msgErreurMdp').InnerHTML('veuillez indiquer des mots de passes identiques!');
-            document.getElementById("validation").disabled = true;
-        }
-        else{
-            document.getElementById("validation").disabled = false;
-        }
-    </script>
 </head>
 
 <body id="pageBody">
@@ -77,13 +70,8 @@ include './php/Fonctions.php';
                 <input id="mail" required type="email" name="mail" placeholder="Votre mail"><br>
                 <label for="telephone">Tel :</label>
                 <input id="telephone" type="tel" name="telephone" placeholder="Votre numéro de téléphone"><br>
-                <label for="mdp1">Mot de passe :</label>
-                <input id="mdp1" required type="password" name="mdp" placeholder="Votre mot de passe"><br>
-                <label for="mdp2">Confirmer Mot de passe :</label>
-                <input id="mdp2" required type="password" name="confmdp" placeholder="Entrez à nouveau votre mdp"><br>
-                <p id="msgErreurMdp" style="color:#FF6633;">
-
-                </p>
+                <label for="mdp2">Mot de passe :</label>
+                <input id="mdp2" required type="password" name="mdp" placeholder="Votre mot de passe"><br>
                 <br>
                 <input  id="validation" name="insc_submit" type="submit" value="S'inscrire">
             </form>
