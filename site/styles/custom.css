@@ -65,6 +65,12 @@ input{
   padding-top: 1%;
   padding-bottom: 1%;
 }
+
+#selectBox{
+    height: 45px;
+}
+
+
 #buttonSearch{
   margin-bottom: 1%;
   margin-left: 1%;

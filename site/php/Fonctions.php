@@ -213,7 +213,12 @@ function search(){
         printf('Erreur'. $e->getMessage());
     }
     $requete = htmlspecialchars($_GET['barre']);
-    $query = $db->query("SELECT * FROM professionnels WHERE nom LIKE '$requete%' ORDER BY nom");
+    if($_GET['select']){
+        $select = $_GET['select'];
+        $query = $db->query("SELECT * FROM professionnels WHERE nom LIKE '$requete%'and type='$select' ORDER BY nom");
+    }else{
+        $query = $db->query("SELECT * FROM professionnels WHERE nom LIKE '$requete%' ORDER BY nom");
+    }
     $nbResultats = $query->rowCount();
     if($nbResultats !=0){
         $html[] = '<meta charset="UTF-8">';
@@ -234,7 +239,7 @@ function search(){
             }else{
                 $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
             }
-            $html[] =  '<p>'.$données['nbre_pers'].' personnes dans la salle d\'attente</p>';
+            $html[] =  '<p><b>'.$données['nbre_pers'].' personnes dans la salle d\'attente</b></p>';
             $html[] =  '</div> ';
 
         }
@@ -260,7 +265,9 @@ function login()
         printf('Erreur' . $e->getMessage());
     }
     $req = $db->query('select id,nom,prenom,semence,mdp,telephone,email,group_concat(id_profil separator "," ) as profilid from utilisateurs left join profil_utilisateur on id_utilisateur=utilisateurs.id where email="'.$_POST['email'].'" group by utilisateurs.id');
+    $req3 = $db->query('select * from professionels where mail="'.$_POST['email'].'" ');
     $retour = $req->fetchAll(PDO::FETCH_ASSOC);
+    $retour2 = $req3->fetchAll(PDO::FETCH_ASSOC);
     $profilId = array();
     foreach ($retour as $key => $value) {
         $retour[$key]['profilid'] = array();
@@ -287,7 +294,10 @@ function login()
             }
         }
     }
-    if (isset($retour[0])) {
+    if($retour2[0]){
+
+    }
+    elseif (isset($retour[0])) {
         $mdp = md5($retour[0]['semence'] . $_POST['mdp']);
         $tabFavoris=array();
         if ($retour[0]['mdp'] == $mdp) {

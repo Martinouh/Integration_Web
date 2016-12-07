@@ -74,6 +74,7 @@ include 'php/Fonctions.php';
             var myArray = <?php echo $_POST['adresseMed'];?>;
             var myArray2 = <?php echo $_POST['info'];?>;
             var mapCanvas = document.getElementById("map");
+            var markers = new Array();
             var mapOptions = {
                 center: new google.maps.LatLng(50.4669,4.86746),
                 zoom: 9
@@ -86,21 +87,21 @@ include 'php/Fonctions.php';
                 });
                 geocoder.geocode({address: myArray[i]}, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
-                        var marker = new google.maps.Marker(
+                        markers[i] = new google.maps.Marker(
                             {
                                 map: map,
                                 position: results[0].geometry.location
                             });
-                        google.maps.event.addListener(marker, 'click', function() {
+                        google.maps.event.addListener(markers[i], 'click', function() {
                             map.setZoom(11);
-                            map.setCenter(marker.getPosition());
+                            map.setCenter(markers[i].getPosition());
 
                         });
-                        google.maps.event.addListener(marker, 'mouseover', function() {
-                            infowindow.open(map,marker);
+                        google.maps.event.addListener(markers[i], 'mouseover', function() {
+                            infowindow.open(map,markers[i]);
                         });
-                        google.maps.event.addListener(marker, 'mouseout', function() {
-                            infowindow.close(map,marker);
+                        google.maps.event.addListener(markers[i], 'mouseout', function() {
+                            infowindow.close(map,markers[i]);
                         });
 
                     } else {

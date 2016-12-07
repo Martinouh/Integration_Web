@@ -41,12 +41,14 @@ include './php/Fonctions.php';
         }
     </style>
     <script>
-        function showHint(hint){
-            $.get("./php/getHint.php?q=" + hint, function (data) {
+        function showHint(){
+            var select = $('#selectBox').val();
+            var hint = $('#searchBar').val();
+            $.get("./php/getHint.php?q="+hint+"&select="+select, function (data) {
                 if(data) {
                     $('#suggestions').remove();
                     $('#searchIcon').after('<div id="suggestions"></div>');
-                    $('#suggestions').fadeIn().html('<h2>Suggestions:</h2></br>' + data);
+                    $('#suggestions').fadeIn().html('<h3>Suggestions:</h3>' + data);
                 }else{
                     $('#suggestions').fadeOut();
                     $('#suggestions').remove();
@@ -93,11 +95,19 @@ include './php/Fonctions.php';
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Recherche</span>
         </div>
         <div id="textSearch">
-            <p style ='text-align:center' ><h1 style ='text-align:center' >Recherche du professionel</h1></p>
+            <p style ='text-align:center' ><h1 style ='text-align:center' >Recherche d'une salle d'attente</h1></p>
         </div>
         <div id="searchBarDiv">
             <form action="resultatRecherche.php" method="get">
-                <input type="text" name="barre" id="searchBar" placeholder="Ecrire ici le nom du professionel" onkeyup="showHint(this.value)"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image"/>
+                <select name="select" id="selectBox" onchange="showHint()">
+                    <option value ="">--Type de salle d'attente--</option>
+                    <option value="medecin">Médecin</option>
+                    <option value="dentiste">Dentiste</option>
+                    <option value="kiné">Kinésithérapeute</option>
+                    <option value="salle de sport">Salle de sport</option>
+                    <option value="poste">La Poste</option>
+                </select>
+                <input type="text" name="barre" id="searchBar" placeholder="Recherchez sur base du nom de famille" onkeyup="showHint()"/><input type="image" id="searchIcon" src="images/iconLoupe.png" name="mon_image"/>
             </form>
         </div>
     </div>
@@ -105,6 +115,10 @@ include './php/Fonctions.php';
 
 <!-- Fix footer ligne blanche bug -->
 <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>

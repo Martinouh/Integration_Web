@@ -1,5 +1,7 @@
 <?php
     $requete = $_GET['q'];
+    $select = $_GET['select'];
+
     $hint=array();
     if($requete) {
         $dsn = 'mysql:dbname=db7;host=137.74.43.201';
@@ -12,7 +14,8 @@
         } catch (PDOException $e) {
             printf('Erreur' . $e->getMessage());
         }
-        $query = $db->query("SELECT id,nom FROM professionnels WHERE nom LIKE '$requete%' ORDER BY nom");
+
+        $query = $db->query("SELECT id,nom FROM professionnels WHERE nom LIKE '$requete%' and type='$select' ORDER BY nom");
         $nbResultats = $query->rowCount();
         if ($nbResultats > 0) {
             while ($données = $query->fetch(PDO::FETCH_ASSOC)) {
