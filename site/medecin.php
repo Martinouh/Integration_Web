@@ -138,7 +138,8 @@ if(isset($medecin['avatar'])){
                     <p id="nomMedecin"><img src="images/peopleIcon.jpg"/><?php echo $medecin['prenom'].' '.$medecin['nom']?></p>
                     <p id="telMedecin"><img src="images/telIcon.png"/><?php echo $medecin['telephone']?></p>
                     <p id="adresseMedecin"><img src="images/mapIcon4.png"/><?php echo $medecin['adresse']?></p>
-                <p id="siteMedecin"><img src="images/webIcon2.png"/><a href=http://www.<?php echo $medecin['site']?>><?php echo $medecin['site']?></p>
+                    <p id="siteMedecin"><img src="images/webIcon2.png"/><a href=http://www.<?php echo $medecin['site']?>><?php echo $medecin['site']?></p>
+                    <p > xx personnes dans la salle d'attente </p>
                 </div>
                 <?php echo $medecin['gMap']?>
                
