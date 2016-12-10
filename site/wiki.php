@@ -83,7 +83,7 @@ include 'php/Fonctions.php';
         <div class="breadcrumbs">
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
         </div>
-        
+
       <!-- Docs nav
       ================================================== -->
       <div class="row">
@@ -512,14 +512,14 @@ include 'php/Fonctions.php';
 
     </section>
 
-
+            <div id="footerInnerSeparator"></div>
         </div>
       </div>
 
     </div>
 
 
-
+      <div id="footerOuterSeparator"></div>
       <!-- Footer
       ================================================== -->
       <div id="divFooter" class="footerArea">
