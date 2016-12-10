@@ -50,7 +50,7 @@ include 'php/Fonctions.php';
 	z-index: 999;
 	right: 20px;
 	bottom: 20px;
-	background: #27AE61 url("up-arrow.png") no-repeat center 43%;
+	background: #27AE61 url("images/up-arrow.png") no-repeat center 43%;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
 	border-radius: 30px;
