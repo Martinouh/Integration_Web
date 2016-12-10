@@ -92,7 +92,7 @@ if(!isset($_SESSION['is'])) {
                     <div id="headerSeparator"></div>
 
                     <div id="divHeaderText" class="page-content">
-                        <div id="divHeaderLine1">EasyWaitingRoom</div><br />
+                        <div id="divHeaderLine1">Easy Waiting Room</div><br />
                         <div id="divHeaderLine2">Diminuer les files, augmenter la productivité</div><br />
                         <div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="recherche">Faire ma recherche</a></div>
                     </div>
