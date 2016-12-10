@@ -57,7 +57,7 @@ include 'php/Fonctions.php';
 }
     </style>
     <script>
-    var amountScrolled = 300;
+    var amountScrolled = 10;
 
 $(window).scroll(function() {
 	if ( $(window).scrollTop() > amountScrolled ) {
