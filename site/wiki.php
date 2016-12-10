@@ -75,9 +75,15 @@ include 'php/Fonctions.php';
         </div>
     </div>
 
+    <div id="contentOuterSeparator"></div>
+
 
     <div class="container">
 
+        <div class="breadcrumbs">
+            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
+        </div>
+        
       <!-- Docs nav
       ================================================== -->
       <div class="row">
