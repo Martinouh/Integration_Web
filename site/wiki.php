@@ -17,9 +17,8 @@ include 'php/Fonctions.php';
   <link href="scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
   
-  <link href="assets/css/bootstrap.css" rel="stylesheet">
-  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="assets/css/docs.css" rel="stylesheet">
   <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/font-awesome.css" type="text/css" />
