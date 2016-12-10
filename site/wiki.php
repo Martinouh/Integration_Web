@@ -111,8 +111,6 @@ $('a.back-to-top').click(function() {
 
 <div id="contentOuterSeparator"></div>
 
-<a href="#" class="back-to-top">Back to Top</a>
-
 <div class="container">
 
     <div class="divPanel page-content">
@@ -283,6 +281,6 @@ $('a.back-to-top').click(function() {
 
 <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
 
-
+<a href="#" class="back-to-top">Back to Top</a>
 </body>
 </html>
