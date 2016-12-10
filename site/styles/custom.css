@@ -673,6 +673,16 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: 'So
 #decorative2 {z-index:100 !important}
 
 @media (max-width: 979px) {
+    .bs-docs-sidenav {
+      width: auto;
+      margin-bottom: 20px;
+    }
+    .bs-docs-sidenav.affix {
+      position: static;
+      width: auto;
+      top: 0;
+    }
+    
      #divLogo {margin-bottom:10px;}
 
 
@@ -701,6 +711,17 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: 'So
 
 
 @media (max-width: 767px) {
+
+    .bs-docs-sidenav {
+      width: auto;
+      margin-bottom: 20px;
+    }
+    .bs-docs-sidenav.affix {
+      position: static;
+      width: auto;
+      top: 0;
+    }
+
     #divLogo {margin-top:10px;margin-bottom:10px;}
 
     #divSiteTitle {font-size: 25px;}
