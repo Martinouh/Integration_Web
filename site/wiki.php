@@ -6,13 +6,18 @@ include 'php/Fonctions.php';
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Responsive Bootstrap Theme Classic Documentation</title>
+  <title>EWR - Wiki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Follow this documentation to edit your FREE Business Bootstrap theme with easy follow instructions.">
-  <meta name="keywords" content="Responsive Bootstrap theme, bootstrap documentation, editing logo, editing slider, changing backgrounds, editing tabs, editing carousel, setting up bootstrap contact form, ">
-  <meta name="author" content="Html5TemplatesDreamweaver">
+
 
   <!-- Le styles -->
+  <link href="styles/custom.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome.min.css">
+  <link href="scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+  
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="assets/css/docs.css" rel="stylesheet">
