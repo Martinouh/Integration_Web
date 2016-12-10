@@ -40,40 +40,6 @@ include 'php/Fonctions.php';
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
-    <style>
-    .back-to-top {
-    	display: none;
-    	width: 60px;
-    	height: 60px;
-    	text-indent: -9999px;
-    	position: fixed;
-    	z-index: 999;
-    	right: 20px;
-    	bottom: 20px;
-    	background: url("images/up-arrow.png") no-repeat center 43%;
-    	-webkit-border-radius: 30px;
-    	-moz-border-radius: 30px;
-    	border-radius: 30px;
-    }
-    </style>
-    <script>
-        var amountScrolled = 10;
-
-        $(window).scroll(function() {
-        	if ( $(window).scrollTop() > amountScrolled ) {
-        		$('a.back-to-top').fadeIn('slow');
-        	} else {
-        		$('a.back-to-top').fadeOut('slow');
-        	}
-        });
-
-        $('a.back-to-top').click(function() {
-        	$('html, body').animate({
-        		scrollTop: 0
-        	}, 700);
-        	return false;
-        });
-    </script>
 </head>
 <body id="pageBody">
 
@@ -110,8 +76,6 @@ include 'php/Fonctions.php';
 </div>
 
 <div id="contentOuterSeparator"></div>
-
-<a href="#" class="back-to-top">Back to Top</a>
 
 <div class="container">
 
