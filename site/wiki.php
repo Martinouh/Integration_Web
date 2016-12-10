@@ -80,15 +80,18 @@ include 'php/Fonctions.php';
 
     <div class="container">
 
-        <div class="breadcrumbs">
+        <!-- <div class="breadcrumbs">
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
-        </div>
+        </div> -->
 
       <!-- Docs nav
       ================================================== -->
       <div class="row">
         <div class="span3 bs-docs-sidebar">
           <ul class="nav nav-list bs-docs-sidenav">
+              <div class="breadcrumbs">
+                  <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
+              </div>
             <li><a href="#installation"><i class="icon-chevron-right"></i> Installation</a></li>
             <li><a href="#pagestructure"><i class="icon-chevron-right"></i> Page Structure</a></li>
             <li><a href="#logosettings"><i class="icon-chevron-right"></i> Editing Logo</a></li>
