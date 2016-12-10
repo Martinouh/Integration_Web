@@ -5,43 +5,28 @@ include 'php/Fonctions.php';
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Wiki</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <title>Responsive Bootstrap Theme Classic Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Follow this documentation to edit your FREE Business Bootstrap theme with easy follow instructions.">
+  <meta name="keywords" content="Responsive Bootstrap theme, bootstrap documentation, editing logo, editing slider, changing backgrounds, editing tabs, editing carousel, setting up bootstrap contact form, ">
+  <meta name="author" content="Html5TemplatesDreamweaver">
 
-    <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+  <!-- Le styles -->
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="assets/css/docs.css" rel="stylesheet">
+  <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/font-awesome.css" type="text/css" />
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <![endif]-->
 
-    <!-- Icons -->
-    <link href="scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
-    <!--[if lt IE 8]>
-    <link href="scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="scripts/icons/social/stylesheets/social_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
-    <![endif]-->
-    <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome.min.css">
-    <!--[if IE 7]>
-    <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome-ie7.min.css">
-    <![endif]-->
-
-
-
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
-    <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 </head>
-<body id="pageBody">
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
 
     <div id="decorative2">
         <div class="container">
@@ -80,18 +65,15 @@ include 'php/Fonctions.php';
 
     <div class="container">
 
-        <!-- <div class="breadcrumbs">
+        <div class="breadcrumbs">
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
-        </div> -->
+        </div>
 
       <!-- Docs nav
       ================================================== -->
       <div class="row">
         <div class="span3 bs-docs-sidebar">
           <ul class="nav nav-list bs-docs-sidenav">
-              <div class="breadcrumbs">
-                  <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
-              </div>
             <li><a href="#installation"><i class="icon-chevron-right"></i> Installation</a></li>
             <li><a href="#pagestructure"><i class="icon-chevron-right"></i> Page Structure</a></li>
             <li><a href="#logosettings"><i class="icon-chevron-right"></i> Editing Logo</a></li>
