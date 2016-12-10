@@ -6,7 +6,7 @@ include 'php/Fonctions.php';
 <html>
 <head>
     <meta charset="utf-8">
-    <title>About</title>
+    <title>Wiki</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -42,6 +42,39 @@ include 'php/Fonctions.php';
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 </head>
 <body id="pageBody">
+
+    <div id="decorative2">
+        <div class="container">
+
+            <div class="divPanel topArea notop nobottom">
+                <div class="row-fluid">
+                    <div class="span12">
+
+                        <div id="divLogo" class="pull-left">
+                            <a href="index" id="divSiteTitle">E.W.R</a><br />
+                            <a href="index" id="divTagLine">Easy Waiting Room</a>
+                        </div>
+
+                        <div id="divMenuRight" class="pull-right">
+                        <div class="navbar">
+                            <button type="button" class="btn btn-navbar-highlight btn-large btn-primary" data-toggle="collapse" data-target=".nav-collapse">
+                                NAVIGATION <span class="icon-chevron-down icon-white"></span>
+                            </button>
+                            <div class="nav-collapse collapse">
+                                <ul class="nav nav-pills ddmenu">
+                                   <?php echo genereMenu('contact')?>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
     <div class="container">
 
