@@ -89,7 +89,7 @@ include 'php/Fonctions.php';
             <!--Edit Main Content Area here-->
             <div class="span8" id="divMain">
 
-                <h1>About Us</h1>
+                <h1>Bienvenue sur notre Wiki</h1>
                 <hr>
                 <p>
                     Nous sommes un groupe de six étudiants de <a target="_blank" href="http://www.ephec.be/cours-du-jours/nos-formations/informatique-3">l'EPHEC</a> en technologie de l'informatique.<br>
@@ -98,11 +98,16 @@ include 'php/Fonctions.php';
                     D'où <strong><a href="#">EasyWaitingRoom</a></strong>
                 </p>
                 <hr>
-                <h3>L'Equipe</h3>
+                <h3>Fonctionnement du détecteur</h3>
 
                 <div class="row-fluid">
                     <div class="span2">
-                        <img src="images/matthieu.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Matthieu">   </div>
+                        <iframe src="https://player.vimeo.com/video/195118738" width="640" height="368" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <p>
+                            <a href="https://vimeo.com/195118738">D&eacute;monstration du capteur EasyWaitingRoom</a>
+                            from <a href="https://vimeo.com/user60141868">Martin G</a> on
+                            <a href="https://vimeo.com">Vimeo</a>.
+                        </p>
                     <div class="span10">
                         <p><b>Matthieu Clerbois</b><br> Product Owner</p>
                     </div>
