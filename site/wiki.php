@@ -40,40 +40,6 @@ include 'php/Fonctions.php';
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
-
-    <style>
-    a.back-to-top {
-	display: none;
-	width: 60px;
-	height: 60px;
-	text-indent: -9999px;
-	position: fixed;
-	z-index: 999;
-	right: 20px;
-	bottom: 20px;
-	background: #27AE61 url("up-arrow.png") no-repeat center 43%;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	border-radius: 30px;
-}
-    </style>
-    <script>
-    var amountScrolled = 150;
-
-$(window).scroll(function() {
-if ( $(window).scrollTop() > amountScrolled ) {
-    $('a.back-to-top').fadeIn('slow');
-} else {
-    $('a.back-to-top').fadeOut('slow');
-}
-});
-$('a.back-to-top').click(function() {
-	$('html, body').animate({
-		scrollTop: 0
-	}, 700);
-	return false;
-});
-    </script>
 </head>
 <body id="pageBody">
 
@@ -277,10 +243,6 @@ $('a.back-to-top').click(function() {
 <script src="scripts/jquery.min.js" type="text/javascript"></script>
 <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="scripts/default.js" type="text/javascript"></script>
-<script src="scripts/jquery-ui.js" type="text/javascript"></script>
 
-<script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
-
-<a href="#" class="back-to-top">Back to Top</a>
 </body>
 </html>
