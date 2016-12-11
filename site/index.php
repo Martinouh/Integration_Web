@@ -176,15 +176,21 @@ if(!isset($_SESSION['is'])) {
 
                 </div>
                 <div class="span3" id="footerArea2">
-
                     <a href="recherche"><h3>Recherche</h3></a>
                 </div>
                 <div class="span3" id="footerArea3">
-                    <a href="#"><h3>Fonctionnement</h3></a>
+                    <a href="wiki"><h3>Wiki</h3></a>
+                    <p>
+                        Si vous vous posez des questions, tel que ;<br>
+                        <a href="wiki.php#capteur">"comment fonctionne ce capteur ?"</a><br>
+                        <a href="wiki.php#fonctionnement">"comment puis-je rechercher une salle d'attente ?"</a><br>
+                        <a href="wiki.php#effectuer_recherche">"comment ajouter une salle d'attente dans mes favoris ?"</a><br>
+                        C'est par ici qu'il faut vous rendre !
+                    </p>
                 </div>
                 <div class="span3" id="footerArea4">
 
-                    <h3>Nous contacter </h3>
+                <a href="contact"><h3>Nous contacter </h3></a>
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>

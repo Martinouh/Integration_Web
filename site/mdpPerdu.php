@@ -86,69 +86,71 @@ include './php/Fonctions.php';
 
 <div id="footerOuterSeparator"></div>
 <div id="divFooter" class="footerArea">
+
     <div class="container">
+
         <div class="divPanel">
+
             <div class="row-fluid">
                 <div class="span3" id="footerArea1">
-                    <h3>About EWR </h3>
+
+                    <h3>À Propos</h3>
                     <p>
                         <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
                         <a href="#" title="Privacy Policy">Vie privée</a><br />
-                        <a href="#" title="FAQ">FAQ</a><br />
-                        <a href="#" title="Sitemap">Sitemap</a>
+                        <a href="#" title="Sitemap">plan d'accès</a>
                     </p>
-                </div>
-                <div class="span3" id="footerArea2">
-                    <a href="recherche.php"><h3>Recherche</h3></a>
-                    <!-- <p>
-                    <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
-                                    <span style="text-transform:none;">2 hours ago</span>
-                                </p>
-                                <p>
-                                    <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
-                                    <span style="text-transform:none;">5 hours ago</span>
-                                </p>
-                                <p>
-                                    <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
-                                    <span style="text-transform:none;">19 hours ago</span>
-                                </p>
-                                <p>
-                                    <a href="#" title="">VIEW ALL POSTS</a>
-                                </p> -->
 
                 </div>
+                <div class="span3" id="footerArea2">
+                    <a href="recherche"><h3>Recherche</h3></a>
+                </div>
                 <div class="span3" id="footerArea3">
-                    <a href="#"><h3>Fonctionnement</h3></a>
+                    <a href="wiki"><h3>Wiki</h3></a>
+                    <p>
+                        Si vous vous posez des questions, tel que ;<br>
+                        <a href="wiki.php#capteur">"comment fonctionne ce capteur ?"</a><br>
+                        <a href="wiki.php#fonctionnement">"comment puis-je rechercher une salle d'attente ?"</a><br>
+                        <a href="wiki.php#effectuer_recherche">"comment ajouter une salle d'attente dans mes favoris ?"</a><br>
+                        C'est par ici qu'il faut vous rendre !
+                    </p>
                 </div>
                 <div class="span3" id="footerArea4">
-                    <h3>Get in Touch</h3>
+
+                <a href="contact"><h3>Nous contacter </h3></a>
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>
-                            <span class="field">Phone:</span>
-                            <br />(+32) 479798123
+                            <span class="field">Téléphone:</span>
+                            <br >
+                            (+32) 479798123
                         </li>
                         <li>
                             <i class="general foundicon-mail icon"></i>
-                            <span class="field">Email:</span><br />
-                            <a href="mailto:martinouh@easywaitingroom.be" title="Email">martinouh@easywaitingroom.be</a>
+                            <span class="field">Email:</span>
+                            <br />
+                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
                         </li>
                         <li>
                             <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
-                            <span class="field">Adresse:</span><br />
+                            <span class="field">Adresse:</span>
+                            <br />
                             Avenue du Ciseau, 15<br />
                             1348, Ottignies-Louvain-la-Neuve<br />
                             Belgique
                         </li>
                     </ul>
+
                 </div>
             </div>
+
             <br /><br />
             <div class="row-fluid">
                 <div class="span12">
                     <p class="copyright">
-                        Copyright © 2016 EasyWaitingRoom. All Rights Reserved.
+                        Copyright © 2016 EasyWaitingRoom. Tous droits réservés .
                     </p>
+
                     <p class="social_bookmarks">
                         <a href="#"><i class="social foundicon-facebook"></i> Facebook</a>
                         <a href=""><i class="social foundicon-twitter"></i> Twitter</a>
@@ -158,8 +160,11 @@ include './php/Fonctions.php';
                 </div>
             </div>
             <br />
+
         </div>
+
     </div>
+
 </div>
 
 <script src="scripts/jquery.min.js" type="text/javascript"></script>

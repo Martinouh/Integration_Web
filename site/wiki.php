@@ -92,15 +92,28 @@ include 'php/Fonctions.php';
                 <h1>Bienvenue sur notre Wiki</h1>
                 <hr>
                 <p>
-                    Ce wiki a pour but d'aider toute personne voulant comprendre comment fonctionne notre détecteur ou éprouvant des difficultés avec certaines fonctionnalités de notre site. <br>Si toutefois, vous ne trouveriez pas d'informations sur quelque chose. <br>
+                    Ce wiki a pour but d'aider toute personne voulant comprendre comment fonctionne notre capteur ou éprouvant des difficultés avec certaines fonctionnalités de notre site. <br>Si toutefois, vous ne trouveriez pas d'informations sur quelque chose. <br>
                     Nous vous invitons à nous contacter via la page <strong><a href="contact.php">contact</a></strong> et nous nous ferons un plaisir d'ajouter ces informations dans notre wiki.
                 </p>
                 <hr>
+                <h3><a href="#capteur">Notre Capteur</a></h3>
                 <h3><a href="#fonctionnement">Fonctionnement du capteur</a></h3>
-                <br>
-                <h3><a href="#effectuer_recherche">Comment effectuer une recherche</a>
+                <h3><a href="#effectuer_recherche">Comment effectuer une recherche</a></h3>
                 <hr>
-
+                <h3 id="capteur">Notre Capteur</h3>
+                <br>
+                <img src="images/rpi.jpg" width="auto" height="auto" alt="image_capteur">
+                <p>
+                    Notre capteur, est conçu autour du raspberry pi 2. Il est muni d'une clé wifi afin de se connecter au réseau et d'une caméra pour détecter les entrées et sorties.<br>
+                    Celui-ci fonctionne sur secteur, mais présente un grand avantage, effectivement sa consommation annuelle ne s'élève qu'à 4-5€.<br>
+                    Nous aimerons dans un futur proche, proposer comme amélioration, une boite en bois avec un design sobre, fabriquée par un menuisier local.
+                </p>
+                <br>
+                <img src="images/rpi_porte.jpg" width="auto" height="auto" alt="image_capteur_porte">
+                <p>
+                    Le capteur se positionne au-dessus de la porte d'entrée, de manière à ce qu'il puisse avoir une vue aérienne sur les personnes entrantes et sortantes.
+                </p>
+                <hr>
                 <h3 id="fonctionnement">Fonctionnement du capteur</h3>
 
                 <br>
@@ -167,15 +180,21 @@ include 'php/Fonctions.php';
 
                 </div>
                 <div class="span3" id="footerArea2">
-
                     <a href="recherche"><h3>Recherche</h3></a>
                 </div>
                 <div class="span3" id="footerArea3">
-                    <a href="#"><h3>Fonctionnement</h3></a>
+                    <a href="wiki"><h3>Wiki</h3></a>
+                    <p>
+                        Si vous vous posez des questions, tel que ;<br>
+                        <a href="wiki.php#capteur">"comment fonctionne ce capteur ?"</a><br>
+                        <a href="wiki.php#fonctionnement">"comment puis-je rechercher une salle d'attente ?"</a><br>
+                        <a href="wiki.php#effectuer_recherche">"comment ajouter une salle d'attente dans mes favoris ?"</a><br>
+                        C'est par ici qu'il faut vous rendre !
+                    </p>
                 </div>
                 <div class="span3" id="footerArea4">
 
-                    <h3>Nous contacter </h3>
+                <a href="contact"><h3>Nous contacter </h3></a>
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>

@@ -89,81 +89,87 @@ include './php/Fonctions.php';
 
                 <div id="footerOuterSeparator"></div>
 
-<div id="divFooter" class="footerArea">
+                <div id="divFooter" class="footerArea">
 
-    <div class="container">
+                    <div class="container">
 
-        <div class="divPanel">
+                        <div class="divPanel">
 
-            <div class="row-fluid">
-                <div class="span3" id="footerArea1">
+                            <div class="row-fluid">
+                                <div class="span3" id="footerArea1">
 
-                    <h3>À Propos</h3>
-                    <p>
-                        <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
-                        <a href="#" title="Privacy Policy">Vie privée</a><br />
-                        <a href="#" title="Sitemap">plan d'accès</a>
-                    </p>
+                                    <h3>À Propos</h3>
+                                    <p>
+                                        <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
+                                        <a href="#" title="Privacy Policy">Vie privée</a><br />
+                                        <a href="#" title="Sitemap">plan d'accès</a>
+                                    </p>
 
-                </div>
-                <div class="span3" id="footerArea2">
+                                </div>
+                                <div class="span3" id="footerArea2">
+                                    <a href="recherche"><h3>Recherche</h3></a>
+                                </div>
+                                <div class="span3" id="footerArea3">
+                                    <a href="wiki"><h3>Wiki</h3></a>
+                                    <p>
+                                        Si vous vous posez des questions, tel que ;<br>
+                                        <a href="wiki.php#capteur">"comment fonctionne ce capteur ?"</a><br>
+                                        <a href="wiki.php#fonctionnement">"comment puis-je rechercher une salle d'attente ?"</a><br>
+                                        <a href="wiki.php#effectuer_recherche">"comment ajouter une salle d'attente dans mes favoris ?"</a><br>
+                                        C'est par ici qu'il faut vous rendre !
+                                    </p>
+                                </div>
+                                <div class="span3" id="footerArea4">
 
-                    <a href="recherche"><h3>Recherche</h3></a>
-                </div>
-                <div class="span3" id="footerArea3">
-                    <a href="#"><h3>Fonctionnement</h3></a>
-                </div>
-                <div class="span3" id="footerArea4">
+                                <a href="contact"><h3>Nous contacter </h3></a>
+                                    <ul id="contact-info">
+                                        <li>
+                                            <i class="general foundicon-phone icon"></i>
+                                            <span class="field">Téléphone:</span>
+                                            <br >
+                                            (+32) 479798123
+                                        </li>
+                                        <li>
+                                            <i class="general foundicon-mail icon"></i>
+                                            <span class="field">Email:</span>
+                                            <br />
+                                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
+                                        </li>
+                                        <li>
+                                            <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
+                                            <span class="field">Adresse:</span>
+                                            <br />
+                                            Avenue du Ciseau, 15<br />
+                                            1348, Ottignies-Louvain-la-Neuve<br />
+                                            Belgique
+                                        </li>
+                                    </ul>
 
-                    <h3>Nous contacter </h3>
-                    <ul id="contact-info">
-                        <li>
-                            <i class="general foundicon-phone icon"></i>
-                            <span class="field">Téléphone:</span>
-                            <br >
-                            (+32) 479798123
-                        </li>
-                        <li>
-                            <i class="general foundicon-mail icon"></i>
-                            <span class="field">Email:</span>
+                                </div>
+                            </div>
+
+                            <br /><br />
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <p class="copyright">
+                                        Copyright © 2016 EasyWaitingRoom. Tous droits réservés .
+                                    </p>
+
+                                    <p class="social_bookmarks">
+                                        <a href="#"><i class="social foundicon-facebook"></i> Facebook</a>
+                                        <a href=""><i class="social foundicon-twitter"></i> Twitter</a>
+                                        <a href="#"><i class="social foundicon-pinterest"></i> Pinterest</a>
+                                        <a href="#"><i class="social foundicon-rss"></i> Rss</a>
+                                    </p>
+                                </div>
+                            </div>
                             <br />
-                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
-                        </li>
-                        <li>
-                            <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
-                            <span class="field">Adresse:</span>
-                            <br />
-                            Avenue du Ciseau, 15<br />
-                            1348, Ottignies-Louvain-la-Neuve<br />
-                            Belgique
-                        </li>
-                    </ul>
+
+                        </div>
+
+                    </div>
 
                 </div>
-            </div>
-
-            <br /><br />
-            <div class="row-fluid">
-                <div class="span12">
-                    <p class="copyright">
-                        Copyright © 2016 EasyWaitingRoom. Tous droits réservés .
-                    </p>
-
-                    <p class="social_bookmarks">
-                        <a href="#"><i class="social foundicon-facebook"></i> Facebook</a>
-                        <a href=""><i class="social foundicon-twitter"></i> Twitter</a>
-                        <a href="#"><i class="social foundicon-pinterest"></i> Pinterest</a>
-                        <a href="#"><i class="social foundicon-rss"></i> Rss</a>
-                    </p>
-                </div>
-            </div>
-            <br />
-
-        </div>
-
-    </div>
-
-</div>
 
 <script src="scripts/jquery.min.js" type="text/javascript"></script>
 <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

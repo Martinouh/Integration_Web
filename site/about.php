@@ -92,7 +92,7 @@ include 'php/Fonctions.php';
                 <h1>About Us</h1>
                 <hr>
                 <p>
-                    Nous sommes un groupe de six étudiants de <a target="_blank" href="http://www.ephec.be/cours-du-jours/nos-formations/informatique-3">l'EPHEC</a> en technologie de l'informatique.<br>
+                    Nous sommes un groupe de cinq étudiants de <a target="_blank" href="http://www.ephec.be/cours-du-jours/nos-formations/informatique-3">l'EPHEC</a> en technologie de l'informatique.<br>
                     Dans le cadre de nos études, il nous a été demandé de réaliser un projet reprenant diverses technologies vue lors de notre formation.<br>
                     Nous nous étions fixé comme objectif de réaliser un site permettant aux gens de gagner du temps en consultant le nombre de personnes dans une salle d'attente.<br>
                     D'où <strong><a href="#">EasyWaitingRoom</a></strong>
@@ -144,15 +144,6 @@ include 'php/Fonctions.php';
                     </div>
                 </div>
                 <hr>
-
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/francois.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Francois">   </div>
-                    <div class="span10">
-                        <p><b>François Scholsen</b><br>S'occupe du système raspberry</p>
-                    </div>
-                </div>
-                <hr>
             </div>
             <div class="span4 sidebar">            </div>
         </div>
@@ -182,15 +173,21 @@ include 'php/Fonctions.php';
 
                 </div>
                 <div class="span3" id="footerArea2">
-
                     <a href="recherche"><h3>Recherche</h3></a>
                 </div>
                 <div class="span3" id="footerArea3">
-                    <a href="#"><h3>Fonctionnement</h3></a>
+                    <a href="wiki"><h3>Wiki</h3></a>
+                    <p>
+                        Si vous vous posez des questions, tel que ;<br>
+                        <a href="wiki.php#capteur">"comment fonctionne ce capteur ?"</a><br>
+                        <a href="wiki.php#fonctionnement">"comment puis-je rechercher une salle d'attente ?"</a><br>
+                        <a href="wiki.php#effectuer_recherche">"comment ajouter une salle d'attente dans mes favoris ?"</a><br>
+                        C'est par ici qu'il faut vous rendre !
+                    </p>
                 </div>
                 <div class="span3" id="footerArea4">
 
-                    <h3>Nous contacter </h3>
+                <a href="contact"><h3>Nous contacter </h3></a>
                     <ul id="contact-info">
                         <li>
                             <i class="general foundicon-phone icon"></i>
