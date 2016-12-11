@@ -4,7 +4,7 @@ include './php/Fonctions.php';
 if(!isset($_SESSION['is'])) {
     anonyme();
 }
-
+//session_destroy();
 ?>
 
 <!DOCTYPE HTML>
@@ -69,7 +69,7 @@ if(!isset($_SESSION['is'])) {
                             </button>
                             <div class="nav-collapse collapse">
                                 <ul class="nav nav-pills ddmenu">
-                                    <?php echo genereMenu('accueil')?>
+                                    <?php echo genereMenu('accueil');?>
                                 </ul>
                             </div>
                         </div>
