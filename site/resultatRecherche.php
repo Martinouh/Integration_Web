@@ -28,6 +28,21 @@ include 'php/Fonctions.php';
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
     <script src="scripts/jquery.min.js"></script>
+    <style>
+
+        #iw-container  .iw-title {
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+            padding: 10px;
+            background-color: #48b5e9;
+            color: white;
+            margin: 1px;
+            border-radius: 2px 2px 0 0; /* In accordance with the rounding of the default infowindow corners. */
+            height: 50px;
+        }
+
+    </style>
 </head>
 <body id="pageBody">
 <div id="decorative2">
@@ -71,44 +86,41 @@ include 'php/Fonctions.php';
 
 
         function myMap() {
-            var myArray = <?php echo $_POST['adresseMed'];?>;
-            var myArray2 = <?php echo $_POST['info'];?>;
+            var myArray = <?php echo $_POST['info'];?>;
+            var myArray2 = <?php echo $_POST['coord'];?>;
             var mapCanvas = document.getElementById("map");
-            var markers = new Array();
             var mapOptions = {
-                center: new google.maps.LatLng(50.4669,4.86746),
+                center: new google.maps.LatLng(50.4669, 4.86746),
                 zoom: 9
             };
             var map = new google.maps.Map(mapCanvas, mapOptions);
-            var geocoder = new google.maps.Geocoder();
-            for(i=0;i<myArray.length;i++) {
-                var infowindow = new google.maps.InfoWindow({
-                    content: myArray2[i]
-                });
-                geocoder.geocode({address: myArray[i]}, function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        markers[i] = new google.maps.Marker(
-                            {
-                                map: map,
-                                position: results[0].geometry.location
-                            });
-                        google.maps.event.addListener(markers[i], 'click', function() {
-                            map.setZoom(11);
-                            map.setCenter(markers[i].getPosition());
-
-                        });
-                        google.maps.event.addListener(markers[i], 'mouseover', function() {
-                            infowindow.open(map,markers[i]);
-                        });
-                        google.maps.event.addListener(markers[i], 'mouseout', function() {
-                            infowindow.close(map,markers[i]);
-                        });
-
-                    } else {
-                        alert('Geocode was not successful for the following reason: ' + status);
+            for (i = 0; i < myArray.length; i++) {
+                var myLatLng = {lat: myArray2[i], lng: myArray2[i + 1]};
+                marker = new google.maps.Marker(
+                    {
+                        map: map,
+                        position: new google.maps.LatLng(myArray2[i], myArray2[i+1]),
+                    });
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infoWindow.setContent(myArray[i]);
+                        infoWindow.open(map, marker);
                     }
-                });
+                })(marker, i));
+                var infoWindow = new google.maps.InfoWindow(), marker, i;
             }
+        /*
+                         google.maps.event.addListener(marker, 'click', function() {
+                         map.setZoom(11);
+                         map.setCenter(marker.getPosition());
+
+                         });
+                         google.maps.event.addListener(marker, 'mouseover', function() {
+                         infowindow.open(map,marker);
+                         });
+                         google.maps.event.addListener(marker, 'mouseout', function() {
+                         infowindow.close(map,marker);
+                         });*/
             var marker = new google.maps.Marker(
                 {
                     map: map,
@@ -143,6 +155,7 @@ include 'php/Fonctions.php';
                 handleLocationError(false, infoWindow, map.getCenter());
             }
         }
+
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
