@@ -64,11 +64,12 @@ include './php/Fonctions.php';
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Connexion</span>
         </div>
         <div id="content">
-            <form id="formLogin" method="post" action="php/traiteForm.php">
+            <form id="formLogin" method="post" action="php/traiteForm">
                 <h1>Connexion</h1>
                 <input id="email" type="email" name="email"  placeholder="Votre adresse mail"><br>
                 <input id="mdp" type="password" name="mdp"  placeholder="Votre mot de passe"><br>
-                <input id="connect" name="login_submit" type="submit" value="Connexion">
+                <input id="connect1" class="connect" name="login_submit_pro" type="submit" value="Connexion professionnel">
+                <input id="connect2" class="connect" name="login_submit" type="submit" value="Connexion particulier">
                 <p id="mdpLost">
                     <a href="mdpPerdu.php" id="mdpLostxt"> J'ai oublié mon mot de passe </a>
                 </p>
