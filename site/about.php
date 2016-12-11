@@ -16,7 +16,7 @@ include 'php/Fonctions.php';
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <!-- Icons -->
@@ -33,11 +33,11 @@ include 'php/Fonctions.php';
 
 
 
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 </head>
@@ -92,7 +92,7 @@ include 'php/Fonctions.php';
                 <h1>About Us</h1>
                 <hr>
                 <p>
-                    Nous sommes un groupe de cinq étudiants de <a target="_blank" href="http://www.ephec.be/cours-du-jours/nos-formations/informatique-3">l'EPHEC</a> en technologie de l'informatique.<br>
+                    Nous sommes un groupe de cinq étudiants de <a target="_blank" href="https://www.ephec.be/cours-du-jours/nos-formations/informatique-3">l'EPHEC</a> en technologie de l'informatique.<br>
                     Dans le cadre de nos études, il nous a été demandé de réaliser un projet reprenant diverses technologies vue lors de notre formation.<br>
                     Nous nous étions fixé comme objectif de réaliser un site permettant aux gens de gagner du temps en consultant le nombre de personnes dans une salle d'attente.<br>
                     D'où <strong><a href="#">EasyWaitingRoom</a></strong>

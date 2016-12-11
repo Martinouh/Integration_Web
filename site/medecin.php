@@ -48,10 +48,10 @@ if(isset($medecin['avatar'])){
 
     <link href="scripts/carousel/style.css" rel="stylesheet" type="text/css" />
 
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -138,11 +138,11 @@ if(isset($medecin['avatar'])){
                     <p id="nomMedecin"><img src="images/peopleIcon.jpg"/><?php echo $medecin['prenom'].' '.$medecin['nom']?></p>
                     <p id="telMedecin"><img src="images/telIcon.png"/><?php echo $medecin['telephone']?></p>
                     <p id="adresseMedecin"><img src="images/mapIcon4.png"/><?php echo $medecin['adresse']?></p>
-                    <p id="siteMedecin"><img src="images/webIcon2.png"/><a href=http://www.<?php echo $medecin['site']?>><?php echo $medecin['site']?></p>
+                    <p id="siteMedecin"><img src="images/webIcon2.png"/><a href=https://www.<?php echo $medecin['site']?>><?php echo $medecin['site']?></p>
                     <p > xx personnes dans la salle d'attente </p>
                 </div>
                 <?php echo $medecin['gMap']?>
-               
+
         </div>
     </div>
 </div>
