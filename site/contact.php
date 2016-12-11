@@ -31,14 +31,22 @@ include './php/Fonctions.php';
         <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome-ie7.min.css">
     <![endif]-->
 
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.1.1.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 	<script src="email/validation.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+
+
 </head>
 <body id="pageBody">
 
@@ -88,21 +96,20 @@ include './php/Fonctions.php';
                 <div class="span8" id="divMain">
 
                     <h1>Nous contacter</h1>
-                   	<h3 style="color:#FF6633;"><?php echo $_GET[msg];?></h3>
+                    <div class="js"></div>
+
+                    <h3 style="color:#FF6633;"><?php echo $_GET[msg];?></h3>
 					<hr>
 			<!--Start Contact form -->
-            <form name="enq" method="post" action="email/index" onsubmit="return validation();">
-              <fieldset>
-
-                <input type="text" name="name" id="name" value=""  class="input-block-level" placeholder="Nom" />
-                <input type="text" name="email" id="email" value="" class="input-block-level" placeholder="Email" />
-                <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Message"></textarea>
-                <div class="actions">
-                <input type="submit" value="Envoyer" name="submit" id="submitButton" class="btn btn-info pull-right" title="Cliquez ici pour envoyer votre message!" />
-                </div>
-             </fieldset>
-
-            </form>
+                    <form name="enq" method="post" id="form">
+                        <fieldset>
+                            <input type="text" name="email" id="email" value="" class="input-block-level" placeholder="Email" />
+                            <input type="text" name="sujet" id="sujet" value=""  class="input-block-level" placeholder="Sujet" />
+                            <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Message"></textarea>
+                            <div class="actions">
+                                <input type="submit" value="Envoyer" name="submitContact" id="submitButton" class="btn btn-info pull-right" title="Click here to submit your message!" />
+                        </fieldset>
+                    </form>
 			<!--End Contact form -->
                 </div>
 
@@ -170,7 +177,7 @@ include './php/Fonctions.php';
                 <div class="span3" id="footerArea2">
                     <a href="recherche"><h3>Recherche</h3></a>
                 </div>
-                <div class="span3" id="footerArea3">
+     <div class="span3" id="footerArea3">
                     <a href="wiki"><h3>Wiki</h3></a>
                     <p>
                         Si vous vous posez des questions, tel que ;<br>
@@ -235,6 +242,9 @@ include './php/Fonctions.php';
 <script src="scripts/jquery.min.js" type="text/javascript"></script>
 <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="scripts/default.js" type="text/javascript"></script>
+
+
+<script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
 
 
 </body>
