@@ -386,7 +386,7 @@ function updateProfilPro(){
         printf('Erreur'. $e->getMessage());
     }
     if($req1=$db->query('UPDATE professionnels SET nom="'.$_POST['nom'].'", prenom="'.$_POST['prenom'].'", telephone="'.$_POST['telephone'].'",mail="'.$_POST['mail'].'",site="'.$_POST['site'].'" where id="'.$id.'" ')
-       && $req2=$db->query('UPDATE adresse SET num="'.$_POST['num'].'", rue="'.$_POST['rue'].'", cp="'.$_POST['cp'].'", ville="'.$_POST['ville'].'"') ){
+       && $req2=$db->query('UPDATE adresse SET num="'.$_POST['num'].'", rue="'.$_POST['rue'].'", cp="'.$_POST['cp'].'", ville="'.$_POST['ville'].'" where idPro="'.$id.'"') ){
         echo 'Mise à jour réussie';
         $_SESSION['user'][0]['nom'] = $_POST['nom'];
         $_SESSION['user'][0]['prenom'] = $_POST['prenom'];
