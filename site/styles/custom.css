@@ -42,7 +42,7 @@ input{
  #mdp2{
    margin-bottom: 2%;
  }
- #connect{
+ .connect{
    margin-bottom:1%;
    text-align: center;
    background-color: #2f96b4;
@@ -70,6 +70,16 @@ input{
     height: 45px;
 }
 
+.js{
+    border: solid 1px grey;
+    width: 30%;
+    padding: 1%;
+    text-align: center;
+    background-color: #B02A9A;
+    color: white;
+    margin: auto;
+    display: none;
+}
 
 #buttonSearch{
   margin-bottom: 1%;
@@ -80,6 +90,8 @@ input{
   padding:0.5%;
   color:white;
 }
+
+
 #decorative2{
   background-color: rgb(61, 61, 61);
   width: 100%;
