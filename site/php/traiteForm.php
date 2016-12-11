@@ -9,7 +9,7 @@ if(isset($_POST['updateButton'])){
     updateAccount();
 }
 
-if (isset($_POST['login_submit'])){
+if (isset($_POST['login_submit']) or isset($_POST['login_submit_pro'])){
     login();
 }
 if (isset($_GET['rq'])){
@@ -22,9 +22,8 @@ if (isset($_GET['rq'])){
             break;
         case 'mdpPerdu':mdpPerdu();
             break;
+        case 'update_profil_pro': updateProfilPro();
+            break;
     }
 }
-    if (isset($_POST['soumettre-rdv'])){
-        soumissionRDV();
-    }
 ?>

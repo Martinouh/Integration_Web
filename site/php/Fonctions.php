@@ -16,10 +16,16 @@ function isMembre(){
 }
 
 
+function isPro(){
+    return $_SESSION['is']['pro'];
+}
+
+
 function anonyme(){
     $_SESSION['is']['anonym']=1;
     $_SESSION['is']['activ']=false;
     $_SESSION['is']['membre']=false;
+    $_SESSION['is']['pro']=false;
     $_SESSION['is']['admin']=false;
 }
 
@@ -57,7 +63,7 @@ function enregistreMessage(){
         'dateCreation' => $date,
         'email' => $_POST['email']
     ))){
-        echo 'msg enregistré';
+        echo '<h3>Confirmation</h3><p>Votre message a bien été enregistré! Nous y répondrons dès que possible.</p>';
     }
 
 
@@ -119,6 +125,15 @@ function genereMenu($page){
         $html[]="<a href='deconnexion.php'><img src='./images/decoIcon.png' style='width: 2%'/></a></div>";
 
     }
+    if(isPro()){
+        foreach ($menuMembre as $key => $value) {
+            $html[] = "<li class='dropdown  #$compteur' ><a href='$value'>$key</a></li>";
+            $compteur++;
+        }
+        $html[]="<div id='dash'><a href='profilPro.php' id='profil' #$compteur class='dash' style='border-right: solid 1px; color: white;  #$compteur'>".$_SESSION['user'][0]['prenom'].' '.$_SESSION['user'][0]['nom']."</a>";
+        $html[]="<a href='deconnexion.php'><img src='./images/decoIcon.png' style='width: 2%'/></a></div>";
+
+    }
     switch($page){
         case 'accueil': $html=str_replace("#0","active",$html);
             break;
@@ -133,6 +148,8 @@ function genereMenu($page){
         case 'profil': $html=str_replace("#4","color: #B02A9A; border-color: white;",$html);
     }
     return implode("\n",$html);
+    print_r($_SESSION);
+
 
 }
 
@@ -197,13 +214,29 @@ function sendMailConfirmation(){
     mail($to, $subject, $msg, $headers);
 }
 
+function getXmlCoordsFromAdress($address)
+{
+    $coords=array();
+    $base_url="http://maps.googleapis.com/maps/api/geocode/xml?";
+    $request_url = $base_url . "address=" . urlencode($address).'&sensor=false';
+    $xml = simplexml_load_file($request_url) or die("url not loading");
+    $coords['lat']=$coords['lon']='';
+    $coords['status'] = $xml->status ;
+    if($coords['status']=='OK')
+    {
+        $coords['lat'] = $xml->result->geometry->location->lat ;
+        $coords['lon'] = $xml->result->geometry->location->lng ;
+    }
+    return $coords;
+}
+
 function search(){
     $dsn = 'mysql:dbname=db7;host=137.74.43.201';
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
     $html = array();
     $info = array();
-    $adresse = array();
+    $coord = array();
     $jour=date('N');
     try {
         $db = new PDO($dsn, $user, $password);
@@ -227,13 +260,21 @@ function search(){
         $html[] =  $nbResultats > 1 ? ' résultats' : ' résultat'.' dans notre base de données. Voici le(s) médedecin(s) que nous avons trouvé(s) :<br/>';
         while($données = $query->fetch(PDO::FETCH_ASSOC)){
             $id=$données['id'];
-            $adresse[] = $données['adresse'];
-            $info[] = $données['prenom'].' '.$données['nom'].'<br>'.$données['nbre_pers'].' personne(s) dans la salle';
+            if($données['avatar']){
+                $avatar = 'images/avatar/'.$données['avatar'];
+            }else{
+                $avatar= 'images/avatar/unknownIcon.png';
+            }
+            $coord[] = $données['lattitude'];
+            $coord[] = $données['longitude'];
+            $info[] = '<div id="iw-container"><div class="iw-title">'.$données['prenom'].' '.$données['nom'].'</div><img src="'.$avatar.'" style="width:20%; padding: 1%;float: left"/> <b>'.$données['nbre_pers'].' personne(s) dans la salle</b></div>';
             $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
+            $query3 = $db->query("SELECT * FROM adresse WHERE idPro = $id ");
             $horaire = $query2->fetchAll();
+            $adresse = $query3->fetch(PDO::FETCH_ASSOC);
             $html[] =  '<div style="float:left;padding:1%"> ';
-            $html[] =  '<h4><u><a href="../medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
-            $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$données['adresse'].'</p>';
+            $html[] =  '<h4><u><a href="medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
+            $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$adresse['num'].','.$adresse['rue'].','.$adresse['ville'].'</p>';
             if($horaire[0][$jour]) {
                 $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Ouvert aujourd\' hui de '. $horaire[0][$jour] . '</p>';
             }else{
@@ -246,11 +287,10 @@ function search(){
     }else{
         $html[] = 'Désolé, aucune concordance trouvée dans notre base de données.';
     }
-    $_POST['adresseMed'] = json_encode($adresse);
+    $_POST['coord'] = json_encode($coord);
     $_POST['info'] = json_encode($info);
     echo implode('',$html);
 }
-
 
 function login()
 {
@@ -264,61 +304,103 @@ function login()
     } catch (PDOException $e) {
         printf('Erreur' . $e->getMessage());
     }
-    $req = $db->query('select id,nom,prenom,semence,mdp,telephone,email,group_concat(id_profil separator "," ) as profilid from utilisateurs left join profil_utilisateur on id_utilisateur=utilisateurs.id where email="'.$_POST['email'].'" group by utilisateurs.id');
-    $req3 = $db->query('select * from professionels where mail="'.$_POST['email'].'" ');
-    $retour = $req->fetchAll(PDO::FETCH_ASSOC);
-    $retour2 = $req3->fetchAll(PDO::FETCH_ASSOC);
-    $profilId = array();
-    foreach ($retour as $key => $value) {
-        $retour[$key]['profilid'] = array();
-        foreach ($value as $k => $v) {
-            if (isset($value['profilid'])) {
-                $profilId[] = explode(',', $value['profilid']);
-                unset($value['profilid']);
-            }
-        }
-        foreach ($profilId[$key] as $index => $id){
-            switch ($id) {
-                case '1':
-                    $retour[$key]['profilid'][$id] = 'anonyme';
-                    break;
-                case '2':
-                    $retour[$key]['profilid'][$id] = 'activation';
-                    break;
-                case '3':
-                    $retour[$key]['profilid'][$id] = 'membre';
-                    break;
-                case '4':
-                    $retour[$key]['profilid'][$id] = 'admin';
-                    break;
-            }
-        }
-    }
-    if($retour2[0]){
-
-    }
-    elseif (isset($retour[0])) {
-        $mdp = md5($retour[0]['semence'] . $_POST['mdp']);
-        $tabFavoris=array();
-        if ($retour[0]['mdp'] == $mdp) {
-            $_SESSION['user'] = $retour;
-            $idUser = $_SESSION['user'][0]['id'];
-            $req2 = $db->query("select idPro from favoris where idUtilisateur ='$idUser'");
-            $favoris =  $req2->fetchAll(PDO::FETCH_ASSOC);
-            foreach($favoris as $key=>$value){
-                foreach($value as $k=>$v){
-                    $tabFavoris[]=$v;
+    if(isset($_POST['login_submit'])) {
+        $req = $db->query('select id,nom,prenom,semence,mdp,telephone,email,group_concat(id_profil separator "," ) as profilid from utilisateurs left join profil_utilisateur on id_utilisateur=utilisateurs.id where email="' . $_POST['email'] . '" group by utilisateurs.id');
+        $retour = $req->fetchAll(PDO::FETCH_ASSOC);
+        $profilId = array();
+        foreach ($retour as $key => $value) {
+            $retour[$key]['profilid'] = array();
+            foreach ($value as $k => $v) {
+                if (isset($value['profilid'])) {
+                    $profilId[] = explode(',', $value['profilid']);
+                    unset($value['profilid']);
                 }
             }
-            $_SESSION['user']['favoris'] = $tabFavoris;
-            genereStatuts();
-            header('Location: ../index.php');
-        }else {
-            echo 'Connexion refusée';
+            foreach ($profilId[$key] as $index => $id) {
+                switch ($id) {
+                    case '1':
+                        $retour[$key]['profilid'][$id] = 'anonyme';
+                        break;
+                    case '2':
+                        $retour[$key]['profilid'][$id] = 'activation';
+                        break;
+                    case '3':
+                        $retour[$key]['profilid'][$id] = 'membre';
+                        break;
+                    case '4':
+                        $retour[$key]['profilid'][$id] = 'admin';
+                        break;
+                }
+            }
         }
-    }else{
-        echo 'Connexion refusée';
     }
+        if (isset($retour[0])) {
+            $mdp = md5($retour[0]['semence'] . $_POST['mdp']);
+            $tabFavoris = array();
+            if ($retour[0]['mdp'] == $mdp) {
+                $_SESSION['user'] = $retour;
+                $idUser = $_SESSION['user'][0]['id'];
+                $req2 = $db->query("select idPro from favoris where idUtilisateur ='$idUser'");
+                $favoris = $req2->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($favoris as $key => $value) {
+                    foreach ($value as $k => $v) {
+                        $tabFavoris[] = $v;
+                    }
+                }
+                $_SESSION['user']['favoris'] = $tabFavoris;
+                genereStatuts();
+                header('Location: ../index.php');
+            } else {
+                echo 'Connexion refusée';
+            }
+        } else {
+            $req3 = $db->query('select * from professionnels where mail="'.$_POST['email'].'" ');
+            $retour2 = $req3->fetchAll(PDO::FETCH_ASSOC);
+            if(isset($retour2[0])){
+                //$mdp = md5($retour2[0]['semence'] . $_POST['mdp']);
+                $mdp = $_POST['mdp'];
+                if ($retour2[0]['mdp'] == $mdp) {
+                    $req4 = $db->query('select * from adresse where idPro="'.$retour2[0]['id'].'" ');
+                    $adresse  = $req4->fetchAll(PDO::FETCH_ASSOC);
+                    $_SESSION['is']['anonym']=false;
+                    $_SESSION['is']['pro']=1;
+                    $_SESSION['user'] = $retour2;
+                    $_SESSION['user']['adresse'] = $adresse;
+                    header('Location: ../index.php');
+            }
+        }
+    }
+}
+
+
+function updateProfilPro(){
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    $id = $_SESSION['user'][0]['id'];
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur'. $e->getMessage());
+    }
+    if($req1=$db->query('UPDATE professionnels SET nom="'.$_POST['nom'].'", prenom="'.$_POST['prenom'].'", telephone="'.$_POST['telephone'].'",mail="'.$_POST['mail'].'",site="'.$_POST['site'].'" where id="'.$id.'" ')
+       && $req2=$db->query('UPDATE adresse SET num="'.$_POST['num'].'", rue="'.$_POST['rue'].'", cp="'.$_POST['cp'].'", ville="'.$_POST['ville'].'"') ){
+        echo 'Mise à jour réussie';
+        $_SESSION['user'][0]['nom'] = $_POST['nom'];
+        $_SESSION['user'][0]['prenom'] = $_POST['prenom'];
+        $_SESSION['user'][0]['telephone'] = $_POST['telephone'];
+        $_SESSION['user'][0]['mail'] = $_POST['mail'];
+        $_SESSION['user'][0]['site'] = $_POST['site'];
+        $_SESSION['user']['adresse'][0]['num']= $_POST['num'];
+        $_SESSION['user']['adresse'][0]['rue']= $_POST['rue'];
+        $_SESSION['user']['adresse'][0]['cp']= $_POST['cp'];
+        $_SESSION['user']['adresse'][0]['ville']= $_POST['ville'];
+    }else{
+        echo 'Une erreur s\'est produite, réessayez plus tard';
+    }
+
 }
 function newRegister(){
     $dsn = 'mysql:dbname=db7;host=137.74.43.201';
@@ -356,18 +438,6 @@ function newRegister(){
 
 }
 
-function chargeTemplate($t){
-    $file = file('../HTML/'.$t.'.html');
-    return implode('',$file);
-}
-
-function traiteRequete($rq){
-    global $envoi;
-    switch($rq){
-        case 'form_register': $envoi['formInscription'] = chargeTemplate($rq);
-    }
-
-}
 
 function updateAccount(){
     $mdp=md5($_SESSION['user'][0]['semence'].$_POST['mdp']);
