@@ -6,7 +6,7 @@ include 'php/Fonctions.php';
 <html>
 <head>
     <meta charset="utf-8">
-    <title>About</title>
+    <title>EWR - Wiki</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -62,7 +62,7 @@ include 'php/Fonctions.php';
                             </button>
                             <div class="nav-collapse collapse">
                                 <ul class="nav nav-pills ddmenu">
-                                    <?php echo genereMenu('about')?>
+                                    <?php echo genereMenu('inscription')?>
                                 </ul>
                             </div>
                         </div>
@@ -82,7 +82,7 @@ include 'php/Fonctions.php';
     <div class="divPanel page-content">
 
         <div class="breadcrumbs">
-            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>A propos</span>
+            <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Wiki</span>
         </div>
 
         <div class="row-fluid">
@@ -92,74 +92,54 @@ include 'php/Fonctions.php';
                 <h1>Bienvenue sur notre Wiki</h1>
                 <hr>
                 <p>
-                    Nous sommes un groupe de six étudiants de <a target="_blank" href="http://www.ephec.be/cours-du-jours/nos-formations/informatique-3">l'EPHEC</a> en technologie de l'informatique.<br>
-                    Dans le cadre de nos études, il nous a été demandé de réaliser un projet reprenant diverses technologies vue lors de notre formation.<br>
-                    Nous nous étions fixé comme objectif de réaliser un site permettant aux gens de gagner du temps en consultant le nombre de personnes dans une salle d'attente.<br>
-                    D'où <strong><a href="#">EasyWaitingRoom</a></strong>
+                    Ce wiki a pour but d'aider toute personne voulant comprendre comment fonctionne notre détecteur ou éprouvant des difficultés avec certaines fonctionnalités de notre site. <br>Si toutefois, vous ne trouveriez pas d'informations sur quelque chose. <br>
+                    Nous vous invitons à nous contacter via la page <strong><a href="contact.php">contact</a></strong> et nous nous ferons un plaisir d'ajouter ces informations dans notre wiki.
                 </p>
                 <hr>
-                <h3>Fonctionnement du détecteur</h3>
-
-                <div class="row-fluid">
-                    <div class="span2">
-                        <iframe src="https://player.vimeo.com/video/195118738" width="640" height="368" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                        <p>
-                            <a href="https://vimeo.com/195118738">D&eacute;monstration du capteur EasyWaitingRoom</a>
-                            from <a href="https://vimeo.com/user60141868">Martin G</a> on
-                            <a href="https://vimeo.com">Vimeo</a>.
-                        </p>
-                    <div class="span10">
-                        <p><b>Matthieu Clerbois</b><br> Product Owner</p>
-                    </div>
-                </div>
+                <h3><a href="#fonctionnement">Fonctionnement du capteur</a></h3>
+                <br>
+                <h3><a href="#effectuer_recherche">Comment effectuer une recherche</a>
                 <hr>
 
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/martin.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Martin">   </div>
-                    <div class="span10">
-                        <p><b>Martin Gorlier</b><br>S'occupe du Réseau</p>
-                    </div>
-                </div>
+                <h3 id="fonctionnement">Fonctionnement du capteur</h3>
+
+                <br>
+                <iframe src="https://player.vimeo.com/video/195118738" style="margin:5px 0px 15px;" width="auto" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+                <p>
+                    Dans cette vidéo, vous pouvez voir une personne rentrer par la porte. Dès lors, notre capteur la détecte et passe le compteur à 1 (counter: 1). <br>
+                    Cette personne va ensuite sortir, notre capteur retire une personne au compteur (counter: 0).
+                </p>
+
+                <hr>
+                <h3 id="effectuer_recherche">Comment effectuer une recherche</h3>
+                <br>
+                <p>
+                    Pour effectuer une recherche, il vous suffit de vous rendre dans l'onglet "recherche".<br>
+                    Une fois cliqué dessus, vous devriez arriver sur une page ressemblant à celle-ci.
+                </p>
+                <img src="images/page_recherche.png" width="auto" height="auto" alt="page_recherche">
+                <br>
+                <p>
+                    Ensuite, vous avez la possibilité de rechercher par "types de salles d'attente" que souhaitez à l'aide du menu déroulant.
+                </p>
+                <img src="images/select_recherche.png" width="auto" height="auto" alt="select_recherche">
+                <br>
+                <p>
+                    Admettons que vous recherchiez un médecin, pour ce faire vous devez sélectionner médecin et ensuite dans le champ à droite entrer son nom de famille.<br>
+                    Par exemple, nous recherchons le médecin "Van Roey", il suffit d'écrire "va.." <br>
+                    et ensuite un champ de suggestions apparait avec tout le nom des médecins présents dans notre base de données commençant pas ce que vous avez écrit.
+                </p>
+                <br>
+                <img src="images/suggestion_recherche.png" width="auto" height="auto" alt="suggestion_recherche">
+                <p>
+                    Il vous est possible de cliquer sur l'un des noms qui apparait dans les suggestions pour arriver directement sur la page du professionnel.<br>
+                    Dans ce cas-ci, cliquer sur "Van Roey" nous amène directement sur la page du "Dr Maximilien Van Roey".
+                </p>
                 <hr>
 
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/romain.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Romain">   </div>
-                    <div class="span10">
-                        <p><b>Romain Charlier</b><br>S'occupe du backend</p>
-                    </div>
-                </div>
-                <hr>
 
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/maximilien.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Maximilien">   </div>
-                    <div class="span10">
-                        <p><b>Maximilien Van Roey</b><br>S'occupe du frontend</p>
-                    </div>
-                </div>
-                <hr>
-
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/victorien.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Victorien">   </div>
-                    <div class="span10">
-                        <p><b>Victorien Derasse</b><br>S'occupe du système raspberry</p>
-                    </div>
-                </div>
-                <hr>
-
-                <div class="row-fluid">
-                    <div class="span2">
-                        <img src="images/francois.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="Francois">   </div>
-                    <div class="span10">
-                        <p><b>François Scholsen</b><br>S'occupe du système raspberry</p>
-                    </div>
-                </div>
-                <hr>
             </div>
-            <div class="span4 sidebar">            </div>
         </div>
 
         <div id="footerInnerSeparator"></div>
