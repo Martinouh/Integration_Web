@@ -8,7 +8,7 @@ $(document).ready(function() {
             var formData = new FormData($(this)[0]);
            // if(!testOk($(this),btn)) return false;
             $.ajax({
-                url: './php/traiteForm?rq='+rq,
+                url: './php/traiteForm.php?rq='+rq,
                 type: 'POST',
                 data: formData,
                 async: true,
@@ -18,7 +18,6 @@ $(document).ready(function() {
                 success: function (data) {
                     $('.js').html(data);
                     $('.js').fadeIn().delay(4000).fadeOut();
-
                 }
             });
         });

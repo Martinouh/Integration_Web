@@ -25,8 +25,9 @@ include './php/Fonctions.php';
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
 </head>
 <body id="pageBody">
 <div id="decorative2">
@@ -64,7 +65,7 @@ include './php/Fonctions.php';
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Connexion</span>
         </div>
         <div id="content">
-            <form id="formLogin" method="post" action="php/traiteForm">
+            <form id="formLogin" method="post" action="php/traiteForm.php">
                 <h1>Connexion</h1>
                 <input id="email" type="email" name="email"  placeholder="Votre adresse mail"><br>
                 <input id="mdp" type="password" name="mdp"  placeholder="Votre mot de passe"><br>

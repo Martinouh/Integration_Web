@@ -39,10 +39,17 @@ include 'php/Fonctions.php';
             color: white;
             margin: 1px;
             border-radius: 2px 2px 0 0; /* In accordance with the rounding of the default infowindow corners. */
-            height: 50px;
+            height: 40px;
+            padding: 5%
+
         }
 
     </style>
+    <script>
+        function refreshPage(){
+            document.location.href="resultatRecherche.php";
+        }
+    </script>
 </head>
 <body id="pageBody">
 <div id="decorative2">
@@ -111,7 +118,7 @@ include 'php/Fonctions.php';
             var mapCanvas = document.getElementById("map");
             var mapOptions = {
                 center: new google.maps.LatLng(50.4669, 4.86746),
-                zoom: 9
+                zoom: 8
             };
             var map = new google.maps.Map(mapCanvas, mapOptions);
             for (i = 0; i < myArray.length; i++) {
@@ -119,7 +126,7 @@ include 'php/Fonctions.php';
                 marker = new google.maps.Marker(
                     {
                         map: map,
-                        position: new google.maps.LatLng(myArray2[i], myArray2[i+1]),
+                        position: new google.maps.LatLng(myArray2[i].lattitude, myArray2[i].longitude),
                     });
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {

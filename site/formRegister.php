@@ -14,15 +14,13 @@ include './php/Fonctions.php';
     <link href="scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome.min.css">
-
-
 <link href="scripts/carousel/style.css" rel="stylesheet" type="text/css" />
-
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body id="pageBody">
@@ -60,7 +58,7 @@ include './php/Fonctions.php';
         </div>
 
         <div id="contentRegister">
-            <form id="formRegister" method="post" action="./php/traiteForm">
+            <form id="formRegister" method="post" action="./php/traiteForm.php">
                 <h1 id="registerFormH1">Inscription</h1>
                 <label for="nom">Nom :</label>
                 <input id="nom" name="nom" required type="text" placeholder="Votre nom"><br>
@@ -69,11 +67,12 @@ include './php/Fonctions.php';
                 <label for="mail">Email :</label>
                 <input id="mail" required type="email" name="mail" placeholder="Votre mail"><br>
                 <label for="telephone">Tel :</label>
-                <input id="telephone" type="tel" name="telephone" placeholder="Votre numéro de téléphone"><br>
+                <input id="telephone" required type="tel" name="telephone" placeholder="Votre numéro de téléphone"><br>
                 <label for="mdp2">Mot de passe :</label>
-                <input id="mdp2" required type="password" name="mdp" placeholder="Votre mot de passe"><br>
-                <br>
+                <input id="mdp2" required type="password" name="mdp" placeholder="Votre mot de passe">
+                <input id="mdp2" required type="password" name="verif_mdp" placeholder="Vérification du mot de passe"><br>
                 <input  id="validation" name="insc_submit" type="submit" value="S'inscrire">
+                <div class="g-recaptcha" data-sitekey="6Ld3lw4UAAAAAORXQpLAih3H74xOyEM9V4uGKI-Z"></div>
             </form>
         </div>
     </div>

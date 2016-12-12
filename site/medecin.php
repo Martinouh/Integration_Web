@@ -110,7 +110,7 @@ $adresse = $adresse[0];
         <div id="tab-1">
                 <div id="infoGenerales">
                     <?php if($medecin['avatar']){
-                        echo '<img src='.$medecin['avatar'].'/>';
+                        echo '<img src="images/'.$medecin['avatar'].'" style="width:220px; height: 220px;"/>';
 
                     }else{
                         echo '<img src="images/avatar/unknownIcon.png" />';
@@ -127,10 +127,37 @@ $adresse = $adresse[0];
                     <p id="mailMedecin"><img src="images/mailIcon_00000.jpg"/><?php echo $medecin['mail']?></p>
                     <p id="adresseMedecin"><img src="images/mapIcon4.png"/><?php echo $adresse['num'].','.$adresse['rue'].','.$adresse['cp'].' '.$adresse['ville']?></p>
                     <p id="siteMedecin"><img src="images/webIcon2.png"/><a href=http://www.<?php echo $medecin['site']?>><?php echo $medecin['site']?></p>
-                    <?php echo $medecin['gMap']?>
+                    <div id="map" style="border-left:solid 1px;border-right:solid 1px;width:50%;height:300px; position: absolute;top: 100px; left:500px "></div>
                 </div>
 
         </div>
     </div>
 </div>
+                <script>
+                    function myMap() {
+                        var mapCanvas = document.getElementById("map");
+                        var mapOptions = {
+                            center: new google.maps.LatLng(50.4669, 4.86746),
+                            zoom: 8
+                        };
+                        var lat = <?php echo $_GET['lat'];?>;
+                        var long = <?php echo $_GET['long'];?>;
+                        var map = new google.maps.Map(mapCanvas, mapOptions);
+                         marker = new google.maps.Marker(
+                         {
+                         map: map,
+                         position: new google.maps.LatLng(lat, long),
+                         });
+                         google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                         return function () {
+                         infoWindow.setContent(myArray[i]);
+                         infoWindow.open(map, marker);
+                         }
+                         })(marker, i));
+                         var infoWindow = new google.maps.InfoWindow(), marker, i;
+                    }
+
+                </script>
+                <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyCA_hrOWnYWoP_MO8-8y_35Gy1gIGtBF7I"></script>
+
 </body>

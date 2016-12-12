@@ -63,7 +63,7 @@ function enregistreMessage(){
         'dateCreation' => $date,
         'email' => $_POST['email']
     ))){
-        echo '<h3>Confirmation</h3><p>Votre message a bien été enregistré! Nous y répondrons dès que possible.</p>';
+        echo 'Message envoyé!';
     }
 
 
@@ -258,6 +258,7 @@ function search(){
     $info = array();
     $coord = array();
     $jour=date('N');
+    $i=0;
     try {
         $db = new PDO($dsn, $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -265,6 +266,7 @@ function search(){
     } catch (PDOException $e) {
         printf('Erreur'. $e->getMessage());
     }
+    error_reporting(0);
     $requete = htmlspecialchars($_GET['barre']);
     if($_GET['select']){
         $select = $_GET['select'];
@@ -275,31 +277,29 @@ function search(){
     $nbResultats = $query->rowCount();
     if($nbResultats !=0){
         $html[] = '<meta charset="UTF-8">';
-        $html[] = '<h2 >Résultat de votre recherche:</h2>';
+        $html[] = '<h2 >Résultat de votre recherche:<input type="image"  style="width:2%;margin-left: 54%" src="./images/updateIcon.png" onclick="refreshPage()"></h2>';
         $html[] = '<p style="border-bottom: solid 1px lightgrey; padding: 1%">Nous avons trouvé '.$nbResultats;
         $html[] =  $nbResultats > 1 ? ' résultats' : ' résultat'.' dans notre base de données. Voici le(s) médedecin(s) que nous avons trouvé(s) :<br/>';
         while($données = $query->fetch(PDO::FETCH_ASSOC)){
             $id=$données['id'];
             if($données['avatar']){
-                $avatar = 'images/avatar/'.$données['avatar'];
+                $avatar = 'images/'.$données['avatar'];
             }else{
                 $avatar= 'images/avatar/unknownIcon.png';
             }
-
-            $coord[] = $données['lattitude'];
-            $coord[] = $données['longitude'];
+            $coord[$i]['lattitude'] = $données['lattitude'];
+            $coord[$i]['longitude'] = $données['longitude'];
+            $i++;
             $nbre_pers=$données['nbre_pers'];
             $cap_max=$données['capacite_max'];
-            $info[] = '<div id="iw-container"><div class="iw-title">'.$données['prenom'].' '.$données['nom'].'</div><img src="'.$avatar.'" style="width:20%; padding: 1%;float: left"/>'.$capacite.'</div>';
+            $capacite=capacite_med($nbre_pers,$cap_max);     //récupère la capacité
+            $info[] = '<div id="iw-container"><div class="iw-title">'.$données['prenom'].' '.$données['nom'].'</div><img src="'.$avatar.'" style="width:100px; height: 100px; padding: 1%;float: left"/>'.$capacite.'</div>';
             $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
             $query3 = $db->query("SELECT * FROM adresse WHERE idPro = $id ");
             $horaire = $query2->fetchAll();
-            $adresse = $query3->fetch(PDO::FETCH_ASSOC);            
-
-            $capacite=capacite_med($nbre_pers,$cap_max);     //récupère la capacité
-
-            $html[] =  '<div style="float:left;padding:1%; border-style:groove;border-color:#9d2589;"> ';
-            $html[] =  '<h4><u><a href="medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
+            $adresse = $query3->fetch(PDO::FETCH_ASSOC);
+            $html[] =  '<div style="float:left;padding:1%"> ';
+            $html[] =  '<h4><u><a href="medecin.php?id=' .$données['id'].'&lat='.$données['lattitude'].'&long='.$données['longitude'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
             $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$adresse['num'].','.$adresse['rue'].','.$adresse['ville'].'</p>';
             if($horaire[0][$jour]) {
                 $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Ouvert aujourd\' hui de '. $horaire[0][$jour] . '</p>';
@@ -400,10 +400,11 @@ function login()
                     $_SESSION['user']['adresse'] = $adresse;
                     header('Location: ../index.php');
             }
-        }
+        }else{
+                echo 'Connexion refusée';
+            }
     }
 }
-
 
 function updateProfilPro(){
     $dsn = 'mysql:dbname=db7;host=137.74.43.201';
@@ -429,6 +430,14 @@ function updateProfilPro(){
         $_SESSION['user']['adresse'][0]['rue']= $_POST['rue'];
         $_SESSION['user']['adresse'][0]['cp']= $_POST['cp'];
         $_SESSION['user']['adresse'][0]['ville']= $_POST['ville'];
+        $adresse = $_POST['num'].' '.$_POST['rue'].', '.$_POST['cp'].' '.$_POST['ville'];
+        $coords=getXmlCoordsFromAdress($adresse);
+        if($coords['status']=='OK') {
+            $query = $db->query('UPDATE professionnels SET lattitude="'.$coords['lat'].'", longitude="'.$coords['lon'].'" WHERE id="'.$id.'"');
+        }else{
+            echo 'Une erreur est survenue, réessayez plus tard.';
+        }
+
     }else{
         echo 'Une erreur s\'est produite, réessayez plus tard';
     }
@@ -445,6 +454,10 @@ function newRegister(){
 
     } catch (PDOException $e) {
         printf('Erreur'. $e->getMessage());
+    }
+    if($_POST['g-recaptcha-response']){
+        var_dump($_POST);
+        $secret = '6Ld3lw4UAAAAAOfAaZ8SKgLfUbcMGx0fL8vRZbWp';
     }
     $semence = md5(time());
     $mdp = md5($semence.$_POST['mdp']);
