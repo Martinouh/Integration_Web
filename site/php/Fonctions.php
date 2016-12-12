@@ -233,17 +233,17 @@ function getXmlCoordsFromAdress($address)
 function capacite_med($nbre_pers,$cap_max){
     $pourcentage=0;
     if($nbre_pers==0){
-        return '<b style="color:green; font-size:1.5em;"> 0 personne</b>';
+        return '<b style="color:green; font-size:1.5em;"> 0 personne ( capacité max :'.$cap_max.' personnes )</b>';
     }else {        
         $pourcentage=(($nbre_pers/$cap_max));
         if($pourcentage<0.25){
-            return '<b style="color:green; font-size:1.5em;">'.plural_personne($nbre_pers).'</b>';
+            return '<b style="color:green; font-size:1.5em;">'.plural_personne($nbre_pers).' ( max :'.$cap_max.' personnes )</b>';
         }else if($pourcentage<0.50){
-            return '<b style="color:green; font-size:1.5em;">'.plural_personne($nbre_pers).'</b>';
+            return '<b style="color:green; font-size:1.5em;">'.plural_personne($nbre_pers).' ( max :'.$cap_max.' personnes )</b>';
         }else if($pourcentage<0.75){
-            return '<b style="color:orange; font-size:1.5em;">'.plural_personne($nbre_pers).'</b>';
+            return '<b style="color:orange; font-size:1.5em;">'.plural_personne($nbre_pers).' ( max :'.$cap_max.' personnes )</b>';
         }else{            
-            return '<b style="color:red; font-size:1.5em;">'.plural_personne($nbre_pers).' </b><br>';
+            return '<b style="color:red; font-size:1.5em;">'.plural_personne($nbre_pers).'  ( max :'.$cap_max.' personnes )</b>';
         }
     }    
 }
