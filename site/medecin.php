@@ -127,7 +127,6 @@ $adresse = $adresse[0];
                     <p id="mailMedecin"><img src="images/mailIcon_00000.jpg"/><?php echo $medecin['mail']?></p>
                     <p id="adresseMedecin"><img src="images/mapIcon4.png"/><?php echo $adresse['num'].','.$adresse['rue'].','.$adresse['cp'].' '.$adresse['ville']?></p>
                     <p id="siteMedecin"><img src="images/webIcon2.png"/><a href=http://www.<?php echo $medecin['site']?>><?php echo $medecin['site']?></p>
-                    <p > xx personnes dans la salle d'attente </p>
                     <?php echo $medecin['gMap']?>
                 </div>
 

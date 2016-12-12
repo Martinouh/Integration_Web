@@ -81,6 +81,26 @@ include 'php/Fonctions.php';
             <div id="map" style="width:100%;height:500px"></div>
         </div>
         <?php  search();?>
+        <div class="container" style="padding-bottom: 20px;padding-bottom: 20px;">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Couleurs</th>
+                    <th>Temps d'attente</th>
+                </tr>
+                <tr style="color:green">
+                    <td>Vert</td>
+                    <td>très faible - faible</td>
+                </tr>    
+                <tr style="color:orange">
+                    <td>Orange</td>
+                    <td>faible - modéré</td> 
+                </tr>
+                <tr style="color:red">
+                    <td>Rouge</td>
+                    <td>modéré - long</td> 
+                </tr>
+            </table>
+        </div>
     </div>
     <script>
 
