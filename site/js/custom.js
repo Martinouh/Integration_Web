@@ -8,7 +8,7 @@ $(document).ready(function() {
             var formData = new FormData($(this)[0]);
            // if(!testOk($(this),btn)) return false;
             $.ajax({
-                url: './php/traiteForm.php?rq='+rq,
+                url: './php/traiteForm?rq='+rq,
                 type: 'POST',
                 data: formData,
                 async: true,

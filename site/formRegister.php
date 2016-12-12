@@ -58,7 +58,7 @@ include './php/Fonctions.php';
         </div>
 
         <div id="contentRegister">
-            <form id="formRegister" method="post" action="./php/traiteForm.php">
+            <form id="formRegister" method="post" action="./php/traiteForm">
                 <h1 id="registerFormH1">Inscription</h1>
                 <label for="nom">Nom :</label>
                 <input id="nom" name="nom" required type="text" placeholder="Votre nom"><br>
@@ -72,7 +72,7 @@ include './php/Fonctions.php';
                 <input id="mdp2" required type="password" name="mdp" placeholder="Votre mot de passe">
                 <input id="mdp2" required type="password" name="verif_mdp" placeholder="Vérification du mot de passe"><br>
                 <input  id="validation" name="insc_submit" type="submit" value="S'inscrire">
-                <div class="g-recaptcha" data-sitekey="6Ld3lw4UAAAAAORXQpLAih3H74xOyEM9V4uGKI-Z"></div>
+                <div class="g-recaptcha" data-sitekey="6Lf5lw4UAAAAAOT88or_FwR9y0PvO7QFp-cR1JNn"></div>
             </form>
         </div>
     </div>

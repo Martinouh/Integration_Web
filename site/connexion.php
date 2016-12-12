@@ -65,7 +65,7 @@ include './php/Fonctions.php';
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Connexion</span>
         </div>
         <div id="content">
-            <form id="formLogin" method="post" action="php/traiteForm.php">
+            <form id="formLogin" method="post" action="php/traiteForm">
                 <h1>Connexion</h1>
                 <input id="email" type="email" name="email"  placeholder="Votre adresse mail"><br>
                 <input id="mdp" type="password" name="mdp"  placeholder="Votre mot de passe"><br>
