@@ -230,10 +230,30 @@ function getXmlCoordsFromAdress($address)
     return $coords;
 }
 
+function capacite_med($nbre_pers,$cap_max){
+    $pourcentage=0;
+    if($nbre_pers==0){
+        return '<b style="color:blue; font-size:2em;"> 0 personne dans la salle</b>';
+    }else {        
+        $pourcentage=(($nbre_pers/$cap_max));
+        if($pourcentage<0.25){
+            return '<b style="color:green; font-size:2em;">'.plural_personne($nbre_pers).' dans la salle</b>';
+        }else if($pourcentage<0.50){
+            return '<b style="color:yellow; font-size:2em;">'.plural_personne($nbre_pers).' dans la salle</b>';
+        }else if($pourcentage<0.75){
+            return '<b style="color:orange; font-size:2em;">'.plural_personne($nbre_pers).' dans la salle</b>';
+        }else{            
+            return '<b style="color:red; font-size:2em;">'.plural_personne($nbre_pers).'  dans la salle</b><br>';
+        }
+    }    
+}
+
 function search(){
     $dsn = 'mysql:dbname=db7;host=137.74.43.201';
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
+    $capacite='';
+    $pourcentage=0;
     $html = array();
     $info = array();
     $coord = array();
@@ -265,13 +285,19 @@ function search(){
             }else{
                 $avatar= 'images/avatar/unknownIcon.png';
             }
+
             $coord[] = $données['lattitude'];
             $coord[] = $données['longitude'];
-            $info[] = '<div id="iw-container"><div class="iw-title">'.$données['prenom'].' '.$données['nom'].'</div><img src="'.$avatar.'" style="width:20%; padding: 1%;float: left"/> <b>'.$données['nbre_pers'].' personne(s) dans la salle</b></div>';
+            $nbre_pers=$données['nbre_pers'];
+            $cap_max=$données['capacite_max'];
+            $info[] = '<div id="iw-container"><div class="iw-title">'.$données['prenom'].' '.$données['nom'].'</div><img src="'.$avatar.'" style="width:20%; padding: 1%;float: left"/>'.$capacite.'</div>';
             $query2 = $db->query("SELECT * FROM horaire WHERE idPro = $id ");
             $query3 = $db->query("SELECT * FROM adresse WHERE idPro = $id ");
             $horaire = $query2->fetchAll();
-            $adresse = $query3->fetch(PDO::FETCH_ASSOC);
+            $adresse = $query3->fetch(PDO::FETCH_ASSOC);            
+
+            $capacite=capacite_med($nbre_pers,$cap_max);     //récupère la capacité
+
             $html[] =  '<div style="float:left;padding:1%"> ';
             $html[] =  '<h4><u><a href="medecin.php?id=' .$données['id'].'">'.$données['prenom'].' '.$données['nom'].'</a></u></h4>';
             $html[] =  '<p><img class="icon" src="./images/mapIcon3.png"/>'.$adresse['num'].','.$adresse['rue'].','.$adresse['ville'].'</p>';
@@ -280,7 +306,7 @@ function search(){
             }else{
                 $html[] = '<p><img class="icon" src="./images/compteurIcon.png"/>Fermé aujourd\'hui</p>';
             }
-            $html[] =  '<p><b>'.$données['nbre_pers'].' personnes dans la salle d\'attente</b></p>';
+            $html[] =  '<p>'.$capacite.'</p>';
             $html[] =  '</div> ';
 
         }
@@ -290,6 +316,12 @@ function search(){
     $_POST['coord'] = json_encode($coord);
     $_POST['info'] = json_encode($info);
     echo implode('',$html);
+}
+
+function plural_personne($int){
+    if ($int>1){
+        return $int.' personnes';
+    }else return $int.' personne';
 }
 
 function login()
