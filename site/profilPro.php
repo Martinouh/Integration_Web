@@ -83,7 +83,7 @@ include './php/Fonctions.php';
             <div id="tab-1">
                 <div id="infoGenerales">
                     <?php if($_SESSION['user'][0]['avatar']){
-                        echo '<img src="'.$_SESSION['user'][0]['avatar'].'"/>';
+                        echo '<img src="images/'.$_SESSION['user'][0]['avatar'].'"/>';
                     }else{
                         echo '<img src="images/avatar/unknownIcon.png"/>';
                     }
