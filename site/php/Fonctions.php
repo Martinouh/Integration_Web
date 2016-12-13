@@ -49,6 +49,7 @@ function enregistreMessage(){
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
     $date = date('Y-m-d H:i:s');
+    global $json;
     try {
         $db = new PDO($dsn, $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -63,9 +64,11 @@ function enregistreMessage(){
         'dateCreation' => $date,
         'email' => $_POST['email']
     ))){
-        echo 'Message envoyé!';
+        $json['contact']='Merci pour votre message! Nous y répondrons dès que possible.';
+    }else{
+        $json['contact']='Erreur inconnue';
     }
-
+    die(json_encode($json));
 
 }
 
@@ -324,11 +327,11 @@ function plural_personne($int){
     }else return $int.' personne';
 }
 
-function login()
-{
+function login_parti(){
     $dsn = 'mysql:dbname=db7;host=137.74.43.201';
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
+    global $json;
     try {
         $db = new PDO($dsn, $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -336,37 +339,35 @@ function login()
     } catch (PDOException $e) {
         printf('Erreur' . $e->getMessage());
     }
-    if(isset($_POST['login_submit'])) {
         $req = $db->query('select id,nom,prenom,semence,mdp,telephone,email,group_concat(id_profil separator "," ) as profilid from utilisateurs left join profil_utilisateur on id_utilisateur=utilisateurs.id where email="' . $_POST['email'] . '" group by utilisateurs.id');
         $retour = $req->fetchAll(PDO::FETCH_ASSOC);
         $profilId = array();
-        foreach ($retour as $key => $value) {
-            $retour[$key]['profilid'] = array();
-            foreach ($value as $k => $v) {
-                if (isset($value['profilid'])) {
-                    $profilId[] = explode(',', $value['profilid']);
-                    unset($value['profilid']);
-                }
-            }
-            foreach ($profilId[$key] as $index => $id) {
-                switch ($id) {
-                    case '1':
-                        $retour[$key]['profilid'][$id] = 'anonyme';
-                        break;
-                    case '2':
-                        $retour[$key]['profilid'][$id] = 'activation';
-                        break;
-                    case '3':
-                        $retour[$key]['profilid'][$id] = 'membre';
-                        break;
-                    case '4':
-                        $retour[$key]['profilid'][$id] = 'admin';
-                        break;
-                }
-            }
-        }
-    }
         if (isset($retour[0])) {
+            foreach ($retour as $key => $value) {
+                $retour[$key]['profilid'] = array();
+                foreach ($value as $k => $v) {
+                    if (isset($value['profilid'])) {
+                        $profilId[] = explode(',', $value['profilid']);
+                        unset($value['profilid']);
+                    }
+                }
+                foreach ($profilId[$key] as $index => $id) {
+                    switch ($id) {
+                        case '1':
+                            $retour[$key]['profilid'][$id] = 'anonyme';
+                            break;
+                        case '2':
+                            $retour[$key]['profilid'][$id] = 'activation';
+                            break;
+                        case '3':
+                            $retour[$key]['profilid'][$id] = 'membre';
+                            break;
+                        case '4':
+                            $retour[$key]['profilid'][$id] = 'admin';
+                            break;
+                    }
+                }
+            }
             $mdp = md5($retour[0]['semence'] . $_POST['mdp']);
             $tabFavoris = array();
             if ($retour[0]['mdp'] == $mdp) {
@@ -381,28 +382,46 @@ function login()
                 }
                 $_SESSION['user']['favoris'] = $tabFavoris;
                 genereStatuts();
-                header('Location: ../index.php');
+                $json['connexion'] = '<div style="margin-top: 17%"> <h3>Connexion réussie!</h3> <p>Bienvenue ' . $_SESSION['user'][0]['prenom'] . ' ' . $_SESSION['user'][0]['nom'] . '</p></div>';
             } else {
-                echo 'Connexion refusée';
+                $json['erreurConnexion'] = 'Mot de passe et/ou login érroné(s)';
             }
+        }
+    die(json_encode($json));
+
+}
+
+function login_pro()
+{
+    $dsn = 'mysql:dbname=db7;host=137.74.43.201';
+    $user = 'rcharlier';
+    $password = 'qe9hm2kx';
+    global $json;
+    try {
+        $db = new PDO($dsn, $user, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        printf('Erreur' . $e->getMessage());
+    }
+    $req3 = $db->query('select * from professionnels where mail="' . $_POST['email'] . '" ');
+    $retour2 = $req3->fetchAll(PDO::FETCH_ASSOC);
+    if (isset($retour2[0])) {
+        //$mdp = md5($retour2[0]['semence'] . $_POST['mdp']);
+        $mdp = $_POST['mdp'];
+        if ($retour2[0]['mdp'] == $mdp) {
+            $req4 = $db->query('select * from adresse where idPro="' . $retour2[0]['id'] . '" ');
+            $adresse = $req4->fetchAll(PDO::FETCH_ASSOC);
+            $_SESSION['is']['anonym'] = false;
+            $_SESSION['is']['pro'] = 1;
+            $_SESSION['user'] = $retour2;
+            $_SESSION['user']['adresse'] = $adresse;
+            $json['connexion'] = '<div style="margin-top: 17%"> <h3>Connexion réussie!</h3> <p>Bienvenue ' . $_SESSION['user'][0]['prenom'] . ' ' . $_SESSION['user'][0]['nom'] . '</p></div>';
         } else {
-            $req3 = $db->query('select * from professionnels where mail="'.$_POST['email'].'" ');
-            $retour2 = $req3->fetchAll(PDO::FETCH_ASSOC);
-            if(isset($retour2[0])){
-                //$mdp = md5($retour2[0]['semence'] . $_POST['mdp']);
-                $mdp = $_POST['mdp'];
-                if ($retour2[0]['mdp'] == $mdp) {
-                    $req4 = $db->query('select * from adresse where idPro="'.$retour2[0]['id'].'" ');
-                    $adresse  = $req4->fetchAll(PDO::FETCH_ASSOC);
-                    $_SESSION['is']['anonym']=false;
-                    $_SESSION['is']['pro']=1;
-                    $_SESSION['user'] = $retour2;
-                    $_SESSION['user']['adresse'] = $adresse;
-                    header('Location: ../index.php');
-            }
-        }else{
-                echo 'Connexion refusée';
-            }
+            $json['erreurConnexion'] = 'Mot de passe et/ou login érroné(s)';
+        }
+
+        die(json_encode($json));
     }
 }
 
@@ -443,27 +462,27 @@ function updateProfilPro(){
     }
 
 }
-function newRegister(){
+function newRegister()
+{
     $dsn = 'mysql:dbname=db7;host=137.74.43.201';
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
     $date = date('Y-m-d H:i:s');
+    $secret = '6Ld3lw4UAAAAAOfAaZ8SKgLfUbcMGx0fL8vRZbWp';
+    global $json;
     try {
         $db = new PDO($dsn, $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     } catch (PDOException $e) {
-        printf('Erreur'. $e->getMessage());
-    }
-    if($_POST['g-recaptcha-response']){
-        var_dump($_POST);
-        $secret = '6Ld3lw4UAAAAAOfAaZ8SKgLfUbcMGx0fL8vRZbWp';
+        printf('Erreur' . $e->getMessage());
     }
     $semence = md5(time());
-    $mdp = md5($semence.$_POST['mdp']);
+    $mdp = md5($semence . $_POST['mdp']);
     $req1 = $db->prepare('INSERT INTO utilisateurs (nom, prenom, semence, mdp, telephone, dateCreation, email) VALUES (:nom, :prenom, :semence, :mdp, :telephone, :dateCreation, :email)');
     $req2 = $db->prepare('INSERT INTO profil_utilisateur (id_utilisateur, id_profil) VALUES (:id_utilisateur, :id_profil)');
-    if($req1->execute(array(
+    try {
+        $req1->execute(array(
             'nom' => $_POST['nom'],
             'prenom' => $_POST['prenom'],
             'semence' => $semence,
@@ -471,15 +490,18 @@ function newRegister(){
             'telephone' => $_POST['telephone'],
             'dateCreation' => $date,
             'email' => $_POST['mail']
-        )) &&$req2->execute(array(
+        )) && $req2->execute(array(
             'id_utilisateur' => $db->lastInsertId(),
             'id_profil' => '2'
-        ))){
-        echo '<meta charset="UTF-8">Inscription réussie';
-    }else{
-        echo 'Erreur';
-    }
+        ));
 
+    } catch (PDOException $e) {
+        if ($e->getCode() == '23000')
+            $json['inscriptionErreur'] = 'L\'adresse mail existe déjà dans la base de données';
+            die(json_encode($json));
+    }
+    $json['inscription'] = '<div style="margin-top: 17%"><h3>Merci de votre inscription!</h3><p>Vous disposez maintenant de votre page de profil. <a href="./connexion.php">Me connecter?</a></p></div>';
+    die(json_encode($json));
 
 }
 

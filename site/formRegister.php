@@ -20,7 +20,8 @@ include './php/Fonctions.php';
     <link href="https://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
 </head>
 
 <body id="pageBody">
@@ -57,8 +58,8 @@ include './php/Fonctions.php';
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>inscription</span>
         </div>
 
-        <div id="contentRegister">
-            <form id="formRegister" method="post" action="./php/traiteForm">
+        <div id="content">
+            <form id="form" method="post" action="./php/traiteForm">
                 <h1 id="registerFormH1">Inscription</h1>
                 <label for="nom">Nom :</label>
                 <input id="nom" name="nom" required type="text" placeholder="Votre nom"><br>
@@ -69,15 +70,20 @@ include './php/Fonctions.php';
                 <label for="telephone">Tel :</label>
                 <input id="telephone" required type="tel" name="telephone" placeholder="Votre numéro de téléphone"><br>
                 <label for="mdp2">Mot de passe :</label>
-                <input id="mdp2" required type="password" name="mdp" placeholder="Votre mot de passe">
-                <input id="mdp2" required type="password" name="verif_mdp" placeholder="Vérification du mot de passe"><br>
+                <input id="mdp1" required type="password" name="mdp" placeholder="Votre mot de passe">
+                <input id="mdpVerif" required type="password" name="verif_mdp" placeholder="Vérification du mot de passe"><br>
                 <input  id="validation" name="insc_submit" type="submit" value="S'inscrire">
-                <div class="g-recaptcha" data-sitekey="6Lf5lw4UAAAAAOT88or_FwR9y0PvO7QFp-cR1JNn"></div>
             </form>
+            <div class="js" id="jsInsc"></div>
         </div>
     </div>
 </div>
-
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
 
 
 <div id="footerOuterSeparator"></div>

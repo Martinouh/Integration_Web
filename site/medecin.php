@@ -55,7 +55,6 @@ $adresse = $adresse[0];
                $("#tabs").tabs();
            });
            function favoris(){
-               event.preventDefault();
                var idMedecin = <?php echo $_GET['id']?> ;
                $.post('php/traiteForm.php?rq=favoris&idMed='+idMedecin, function (data) {
                    if (data==0){

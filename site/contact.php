@@ -105,7 +105,7 @@ include './php/Fonctions.php';
                             <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Message"></textarea>
                             <div class="actions">
                                 <input type="submit" value="Envoyer" name="submitContact" id="submitButton" class="btn btn-info pull-right" title="Click here to submit your message!" />
-                                <div class="js"></div>
+                                <div class="js" id="jsContact"></div>
 
                         </fieldset>
                     </form>

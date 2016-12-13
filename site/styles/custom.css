@@ -23,7 +23,7 @@ input{
    margin-bottom:1%;
    text-align: center;
  }
- #mdp{
+ #mdp,#mdpVerif{
    margin-bottom:1%;
    text-align: center;
  }
@@ -72,13 +72,22 @@ input{
 
 .js{
     border: solid 1px grey;
-    width: 30%;
+    width: 15%;
     padding: 1%;
     text-align: center;
-    background-color: #B02A9A;
+    background-color: rgba(176, 42, 154, 0.9);
     color: white;
-    margin: auto;
     display: none;
+    position: absolute;
+
+}
+
+#jsConnexion{
+    left: 41%;
+}
+
+#jsInsc{
+    left: 42%;
 }
 
 #buttonSearch{
@@ -91,6 +100,13 @@ input{
   color:white;
 }
 
+.formError{
+    border-left: solid 4px red;
+    background-color: white;
+    border-radius: 0px 50px 50px 0px;
+    margin: 1%;
+    padding: 1%;
+}
 
 #decorative2{
   background-color: rgb(61, 61, 61);

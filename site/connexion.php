@@ -65,7 +65,7 @@ include './php/Fonctions.php';
             <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Connexion</span>
         </div>
         <div id="content">
-            <form id="formLogin" method="post" action="php/traiteForm">
+            <form id="form" method="post" action="php/traiteForm">
                 <h1>Connexion</h1>
                 <input id="email" type="email" name="email"  placeholder="Votre adresse mail"><br>
                 <input id="mdp" type="password" name="mdp"  placeholder="Votre mot de passe"><br>
@@ -77,7 +77,9 @@ include './php/Fonctions.php';
                 <p id="new">
                     Nouveau sur EasyWaitingRoom ? <a href="formRegister.php" id="subscribe">S'inscrire</a>
                 </p>
+                <div class="js" id="jsConnexion"></div>
             </form>
+
         </div>
     </div>
 </div>
