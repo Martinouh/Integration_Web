@@ -31,6 +31,8 @@ function traiteRetour(data){
             case 'inscription':
             case 'connexion':    $('#content').html(val);
                 break;
+
+            case 'updatePro':
             case 'inscriptionErreur':
             case 'erreurConnexion':     $('.js').html(val);
                                         $('.js').fadeIn().delay(4000).fadeOut();

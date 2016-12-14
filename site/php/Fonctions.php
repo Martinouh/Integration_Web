@@ -384,8 +384,10 @@ function login_parti(){
                 genereStatuts();
                 $json['connexion'] = '<div style="margin-top: 17%"> <h3>Connexion réussie!</h3> <p>Bienvenue ' . $_SESSION['user'][0]['prenom'] . ' ' . $_SESSION['user'][0]['nom'] . '</p></div>';
             } else {
-                $json['erreurConnexion'] = 'Mot de passe et/ou login érroné(s)';
+                $json['erreurConnexion'] = 'Mot de passe incorrecte';
             }
+        } else {
+            $json['erreurConnexion'] = 'Mot de passe et/ou login érroné(s)';
         }
     die(json_encode($json));
 
@@ -418,11 +420,13 @@ function login_pro()
             $_SESSION['user']['adresse'] = $adresse;
             $json['connexion'] = '<div style="margin-top: 17%"> <h3>Connexion réussie!</h3> <p>Bienvenue ' . $_SESSION['user'][0]['prenom'] . ' ' . $_SESSION['user'][0]['nom'] . '</p></div>';
         } else {
-            $json['erreurConnexion'] = 'Mot de passe et/ou login érroné(s)';
+            $json['erreurConnexion'] = 'Mot de passe incorrecte';
         }
-
-        die(json_encode($json));
+    }else {
+        $json['erreurConnexion'] = 'Mot de passe et/ou login érroné(s)';
     }
+    die(json_encode($json));
+
 }
 
 function updateProfilPro(){
@@ -430,6 +434,7 @@ function updateProfilPro(){
     $user = 'rcharlier';
     $password = 'qe9hm2kx';
     $id = $_SESSION['user'][0]['id'];
+    global $json;
     try {
         $db = new PDO($dsn, $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -439,7 +444,7 @@ function updateProfilPro(){
     }
     if($req1=$db->query('UPDATE professionnels SET nom="'.$_POST['nom'].'", prenom="'.$_POST['prenom'].'", telephone="'.$_POST['telephone'].'",mail="'.$_POST['mail'].'",site="'.$_POST['site'].'" where id="'.$id.'" ')
        && $req2=$db->query('UPDATE adresse SET num="'.$_POST['num'].'", rue="'.$_POST['rue'].'", cp="'.$_POST['cp'].'", ville="'.$_POST['ville'].'" where idPro="'.$id.'"') ){
-        echo 'Mise à jour réussie';
+        $json['updatePro'] = 'Mise à jour réussie';
         $_SESSION['user'][0]['nom'] = $_POST['nom'];
         $_SESSION['user'][0]['prenom'] = $_POST['prenom'];
         $_SESSION['user'][0]['telephone'] = $_POST['telephone'];
@@ -454,12 +459,13 @@ function updateProfilPro(){
         if($coords['status']=='OK') {
             $query = $db->query('UPDATE professionnels SET lattitude="'.$coords['lat'].'", longitude="'.$coords['lon'].'" WHERE id="'.$id.'"');
         }else{
-            echo 'Une erreur est survenue, réessayez plus tard.';
+            $json['updatePro'] = 'Une erreur est survenue, réessayez plus tard.';
         }
 
     }else{
-        echo 'Une erreur s\'est produite, réessayez plus tard';
+        $json['updatePro'] = 'Une erreur est survenue, réessayez plus tard.';
     }
+    die(json_encode($json));
 
 }
 function newRegister()
