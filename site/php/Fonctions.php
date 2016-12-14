@@ -172,7 +172,7 @@ function listeFavoris(){
         $query = $db->query("SELECT nom,prenom  FROM professionnels WHERE id='$value' ");
         $retour = $query->fetchAll(PDO::FETCH_ASSOC);
         $html[]='<tr>';
-                $html[]='<td><a href = "../site/medecin.php?id='.$value.'">'.$retour[0]['prenom'].' '.$retour[0]['nom'].'</a></td>';
+                $html[]='<td><a href = "../site/medecin?id='.$value.'">'.$retour[0]['prenom'].' '.$retour[0]['nom'].'</a></td>';
                 $html[]='<td><a href="deleteFavoris"><img src="images/deleteIcon2.png" class="icon" alt="'.$value.'" id="deleteFavoris"/></a></td >';
                 $html[]='</tr>';
     }
@@ -237,7 +237,7 @@ function capacite_med($nbre_pers,$cap_max){
     $pourcentage=0;
     if($nbre_pers==0){
         return '<b style="color:green; font-size:1.5em;"> 0 personne ( capacité max :'.$cap_max.' personnes )</b>';
-    }else {        
+    }else {
         $pourcentage=(($nbre_pers/$cap_max));
         if($pourcentage<0.25){
             return '<b style="color:green; font-size:1.5em;">'.plural_personne($nbre_pers).' ( max :'.$cap_max.' personnes )</b>';
@@ -245,10 +245,10 @@ function capacite_med($nbre_pers,$cap_max){
             return '<b style="color:green; font-size:1.5em;">'.plural_personne($nbre_pers).' ( max :'.$cap_max.' personnes )</b>';
         }else if($pourcentage<0.75){
             return '<b style="color:orange; font-size:1.5em;">'.plural_personne($nbre_pers).' ( max :'.$cap_max.' personnes )</b>';
-        }else{            
+        }else{
             return '<b style="color:red; font-size:1.5em;">'.plural_personne($nbre_pers).'  ( max :'.$cap_max.' personnes )</b>';
         }
-    }    
+    }
 }
 
 function search(){
