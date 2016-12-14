@@ -172,7 +172,7 @@ function listeFavoris(){
         $query = $db->query("SELECT nom,prenom  FROM professionnels WHERE id='$value' ");
         $retour = $query->fetchAll(PDO::FETCH_ASSOC);
         $html[]='<tr>';
-                $html[]='<td><a href = "../medecin?id='.$value.'">'.$retour[0]['prenom'].' '.$retour[0]['nom'].'</a></td>';
+                $html[]='<td><a href = "../medecin.php?id='.$value.'">'.$retour[0]['prenom'].' '.$retour[0]['nom'].'</a></td>';
                 $html[]='<td><a href="deleteFavoris"><img src="images/deleteIcon2.png" class="icon" alt="'.$value.'" id="deleteFavoris"/></a></td >';
                 $html[]='</tr>';
     }
