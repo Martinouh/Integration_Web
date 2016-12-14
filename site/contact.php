@@ -1,8 +1,12 @@
-﻿<!DOCTYPE HTML>
+﻿<?php
+session_start();
+include './php/Fonctions.php';
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Your Name Here - Simple</title>
+    <title>EWR - Contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -12,7 +16,7 @@
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <!-- Icons -->
@@ -32,9 +36,17 @@
     <link href="http://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
+    <script src="js/jquery-3.1.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Palatino+Linotype" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 	<script src="email/validation.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+
+
 </head>
 <body id="pageBody">
 
@@ -46,8 +58,8 @@
                 <div class="span12">
 
                     <div id="divLogo" class="pull-left">
-                        <a href="index.html" id="divSiteTitle">Groupe 7</a><br />
-                        <a href="index.html" id="divTagLine">Med</a>
+                        <a href="index" id="divSiteTitle">E.W.R</a><br />
+                        <a href="index" id="divTagLine">Easy Waiting Room</a>
                     </div>
 
                     <div id="divMenuRight" class="pull-right">
@@ -57,12 +69,7 @@
                         </button>
                         <div class="nav-collapse collapse">
                             <ul class="nav nav-pills ddmenu">
-                                </li>
-                                <li class="dropdown active"><a href="index.html">Accueil</a></li>
-                                <li class="dropdown"><a href="recherche.html">Recherche</a></li>
-								                <li class="dropdown"><a href="about.html">A propos</a></li>
-                                <li class="dropdown"><a href="contact.php">Contact</a></li>
-                                <li class="dropdown"><a href="formLogIn.html">Connexion</a></li>
+                               <?php echo genereMenu('contact')?>
                             </ul>
                         </div>
                     </div>
@@ -82,28 +89,26 @@
     <div class="divPanel page-content">
 
         <div class="breadcrumbs">
-                <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Contact Us</span>
+                <a href="index.php">Home</a> &nbsp;/&nbsp; <span>Nous contacter</span>
             </div>
 
         <div class="row-fluid">
                 <div class="span8" id="divMain">
 
-                    <h1>Contact Us</h1>
-                   	<h3 style="color:#FF6633;"><?php echo $_GET[msg];?></h3>
-					<hr>
+                    <h1>Nous contacter</h1>
+                    <hr>
 			<!--Start Contact form -->
-<form name="enq" method="post" action="email/" onsubmit="return validation();">
-  <fieldset>
+                    <form name="enq" method="post" id="form">
+                        <fieldset>
+                            <input type="text" name="email" id="email" value="" class="input-block-level" placeholder="Email" />
+                            <input type="text" name="sujet" id="sujet" value=""  class="input-block-level" placeholder="Sujet" />
+                            <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Message"></textarea>
+                            <div class="actions">
+                                <input type="submit" value="Envoyer" name="submitContact" id="submitButton" class="btn btn-info pull-right" title="Click here to submit your message!" />
+                                <div class="js" id="jsContact"></div>
 
-	<input type="text" name="name" id="name" value=""  class="input-block-level" placeholder="Name" />
-    <input type="text" name="email" id="email" value="" class="input-block-level" placeholder="Email" />
-    <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Comments"></textarea>
-    <div class="actions">
-	<input type="submit" value="Send Your Message" name="submit" id="submitButton" class="btn btn-info pull-right" title="Click here to submit your message!" />
-	</div>
-
-	</fieldset>
-</form>
+                        </fieldset>
+                    </form>
 			<!--End Contact form -->
                 </div>
 
@@ -111,26 +116,26 @@
                 <div class="span4 sidebar">
 
                     <div class="sidebox">
-                        <h3 class="sidebox-title">Contact Information</h3>
+                        <h3 class="sidebox-title">Contact</h3>
                     <p>
-                        <address><strong>Your Company, Inc.</strong><br />
-                        Address<br />
-                        City, State, Zip<br />
-                        <abbr title="Phone">P:</abbr> (123) 456-7890</address>
+                        <address><strong>Easy Waiting Room</strong><br />
+                        Avenue du Ciseau, 15<br />
+                        1348, Ottignies-Louvain-la-Neuve<br />
+                        <abbr title="Phone">P:</abbr>(+32) 479798123</address>
                         <address>  <strong>Email</strong><br />
-                        <a href="mailto:#">first.last@gmail.com</a></address>
+                        <a href="mailto:contact@easywaitingroom.be">contact@easywaitingroom.be</a></address>
                     </p>
 
 					 <!-- Start Side Categories -->
-        <h4 class="sidebox-title">Sidebar Categories</h4>
+        <!-- <h4 class="sidebox-title">Catégories</h4>
         <ul>
-          <li><a href="#">Quisque diam lorem sectetuer adipiscing</a></li>
-          <li><a href="#">Interdum vitae, adipiscing dapibus ac</a></li>
+          <li><a href="#">Problème technique rencontré</a></li>
+          <li><a href="#">Problème technique rencontré</a></li>
           <li><a href="#">Scelerisque ipsum auctor vitae, pede</a></li>
           <li><a href="#">Donec eget iaculis lacinia non erat</a></li>
           <li><a href="#">Lacinia dictum elementum velit fermentum</a></li>
           <li><a href="#">Donec in velit vel ipsum auctor pulvinar</a></li>
-        </ul>
+        </ul> -->
 					<!-- End Side Categories -->
 
                     </div>
@@ -146,9 +151,10 @@
         <div id="footerInnerSeparator"></div>
     </div>
 
+    </div>
 </div>
-
 <div id="footerOuterSeparator"></div>
+
 
 <div id="divFooter" class="footerArea">
 
@@ -159,71 +165,51 @@
             <div class="row-fluid">
                 <div class="span3" id="footerArea1">
 
-                    <h3>About Company</h3>
-
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
-
+                    <h3>À Propos</h3>
                     <p>
-                        <a href="#" title="Terms of Use">Terms of Use</a><br />
-                        <a href="#" title="Privacy Policy">Privacy Policy</a><br />
-                        <a href="#" title="FAQ">FAQ</a><br />
-                        <a href="#" title="Sitemap">Sitemap</a>
+                        <a href="#" title="Terms of Use">Termes et Conditions d'utilisation</a><br />
+                        <a href="#" title="Privacy Policy">Vie privée</a><br />
+                        <a href="#" title="Sitemap">plan d'accès</a>
                     </p>
 
                 </div>
                 <div class="span3" id="footerArea2">
-
-                    <h3>Recent Blog Posts</h3>
-                    <p>
-                        <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
-                        <span style="text-transform:none;">2 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
-                        <span style="text-transform:none;">5 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
-                        <span style="text-transform:none;">19 hours ago</span>
-                    </p>
-                    <p>
-                        <a href="#" title="">VIEW ALL POSTS</a>
-                    </p>
-
+                    <a href="recherche"><h3>Recherche</h3></a>
                 </div>
-                <div class="span3" id="footerArea3">
-
-                    <h3>Sample Content</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.
+     <div class="span3" id="footerArea3">
+                    <a href="wiki"><h3>Wiki</h3></a>
+                    <p>
+                        Si vous vous posez des questions, tel que ;<br>
+                        <a href="wiki.php#capteur">"comment fonctionne ce capteur ?"</a><br>
+                        <a href="wiki.php#fonctionnement">"comment puis-je rechercher une salle d'attente ?"</a><br>
+                        <a href="wiki.php#effectuer_recherche">"comment ajouter une salle d'attente dans mes favoris ?"</a><br>
+                        C'est par ici qu'il faut vous rendre !
                     </p>
-
                 </div>
                 <div class="span3" id="footerArea4">
 
-                    <h3>Get in Touch</h3>
-
+                <a href="contact"><h3>Nous contacter </h3></a>
                     <ul id="contact-info">
-                    <li>
-                        <i class="general foundicon-phone icon"></i>
-                        <span class="field">Phone:</span>
-                        <br />
-                        (123) 456 7890 / 456 7891
-                    </li>
-                    <li>
-                        <i class="general foundicon-mail icon"></i>
-                        <span class="field">Email:</span>
-                        <br />
-                        <a href="mailto:info@yourdomain.com" title="Email">info@yourdomain.com</a>
-                    </li>
-                    <li>
-                        <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
-                        <span class="field">Address:</span>
-                        <br />
-                        123 Street<br />
-                        12345 City, State<br />
-                        Country
-                    </li>
+                        <li>
+                            <i class="general foundicon-phone icon"></i>
+                            <span class="field">Téléphone:</span>
+                            <br >
+                            (+32) 479798123
+                        </li>
+                        <li>
+                            <i class="general foundicon-mail icon"></i>
+                            <span class="field">Email:</span>
+                            <br />
+                            <a href="mailto:contact@easywaitingroom.be" title="Email">contact@easywaitingroom.be</a>
+                        </li>
+                        <li>
+                            <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
+                            <span class="field">Adresse:</span>
+                            <br />
+                            Avenue du Ciseau, 15<br />
+                            1348, Ottignies-Louvain-la-Neuve<br />
+                            Belgique
+                        </li>
                     </ul>
 
                 </div>
@@ -233,14 +219,14 @@
             <div class="row-fluid">
                 <div class="span12">
                     <p class="copyright">
-                        Copyright © 2013 Your Company. All Rights Reserved.
+                        Copyright © 2016 EasyWaitingRoom. Tous droits réservés .
                     </p>
 
                     <p class="social_bookmarks">
                         <a href="#"><i class="social foundicon-facebook"></i> Facebook</a>
-			<a href=""><i class="social foundicon-twitter"></i> Twitter</a>
-			<a href="#"><i class="social foundicon-pinterest"></i> Pinterest</a>
-			<a href="#"><i class="social foundicon-rss"></i> Rss</a>
+                        <a href=""><i class="social foundicon-twitter"></i> Twitter</a>
+                        <a href="#"><i class="social foundicon-pinterest"></i> Pinterest</a>
+                        <a href="#"><i class="social foundicon-rss"></i> Rss</a>
                     </p>
                 </div>
             </div>
@@ -257,7 +243,7 @@
 <script src="scripts/default.js" type="text/javascript"></script>
 
 
-
+<script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
 
 
 </body>
